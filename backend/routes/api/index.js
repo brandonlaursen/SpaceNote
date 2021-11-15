@@ -1,6 +1,28 @@
 const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
+// const notesRouter = require("./notes.js")
+// const notebooksRouter = require("./notebooks.js")
+
+
+// router.use("/notes", notesRouter);
+
+// router.use("/notebooks", notebooksRouter);
+
+router.use("/session", sessionRouter);
+
+router.use("/users", usersRouter);
+
+module.exports = router;
+
+
+
+// router.post("/test", function (req, res) {
+//   res.json({ requestBody: req.body });
+// });
+
+
+
 
 // // GET /api/set-token-cookie
 // const asyncHandler = require('express-async-handler');
@@ -35,13 +57,3 @@ const usersRouter = require("./users.js");
 //     return res.json(req.user);
 //   }
 // );
-
-router.post("/test", function (req, res) {
-  res.json({ requestBody: req.body });
-});
-
-router.use("/session", sessionRouter);
-
-router.use("/users", usersRouter);
-
-module.exports = router;
