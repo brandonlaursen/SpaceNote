@@ -1,0 +1,78 @@
+.signupFormContainer{
+  /* position: absolute; */
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 41.5rem;
+  width: 33rem;
+  margin: auto;
+  margin-top: 4rem;
+  border-radius: 1px;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+}
+
+.signinFormContainer h1{
+  margin-top: 18.5rem;
+}
+
+.signupFormContainer p{
+  margin-top: -.1rem;
+}
+
+
+.signinForm{
+  display: flex;
+  flex-direction: column;
+}
+
+.signinSubmit{
+  background-color: purple;
+  font-size: 16px;
+  color:white;
+  height: 3.2rem;
+  width: 20rem;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.loginSubmit:hover{
+  background-color: rebeccapurple;
+}
+
+
+.signinIcon{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5rem;
+  margin-bottom: -1rem;
+}
+
+.signinInput{
+  width: 18rem;
+  border: 1px solid rgb(212, 212, 212);
+  padding: 12px 16px;
+  min-width: 7.4rem;
+  min-height: 1.33rem;
+  border-radius: 5px;
+  background-color: white;
+  margin-bottom: .5rem;
+}
+
+
+.signinErrors{
+  list-style: none;
+  margin-right: 2rem;
+  color: purple;
+}
+
+.loginAccount{
+  color: purple;
+  cursor: pointer;
+  text-decoration: none;
+}
