@@ -23,36 +23,52 @@ function LoginFormPage() {
       });
   };
 
+  const demo = (e) => {
+    e.preventDefault();
+    setCredential("Demo-lition");
+    setPassword("password")
+    return dispatch(sessionActions.login({ credential, password }))
+  }
+
   return (
-    <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => (
-            <li key={idx}>{error}</li>
-          ))}
-        </ul>
-        <label>
-          Username or Email
-          <input
-            type="text"
-            value={credential}
-            onChange={(e) => setCredential(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Log In</button>
-      </form>
-    </>
+    <div className="loginBG">
+      <div className="loginFormContainer">
+        <img className="loginIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
+        <h1>SpaceNote</h1>
+        <p>Remember everything important.</p>
+        <form className='loginForm' onSubmit={handleSubmit}>
+          <ul className="loginErrors">
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
+          </ul>
+          <label>
+            <input
+              className="loginInput"
+              placeholder="Username or Email"
+              type="text"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            <input
+              className="loginInput"
+              placeholder="Password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button className="loginSubmit" type="submit">Log In</button>
+        </form>
+        <button className="demoLoginSubmit" onClick={demo} type="submit">Demo</button>
+        <p>Don't have an account?</p>
+        <a className="createAccount" href="/signup">Create Account</a>
+      </div>
+    </div>
   );
 }
 

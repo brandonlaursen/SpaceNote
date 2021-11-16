@@ -25,54 +25,65 @@ function SignupFormPage() {
           if (data && data.errors) setErrors(data.errors);
         });
     }
-    return setErrors(['Confirm Password field must be the same as the Password field']);
+    return setErrors(['Passwords must match']);
   };
 
   return (
     <>
-      <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-          Email
-          <input
-            type="text"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Username
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Password
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          Confirm Password
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">Sign Up</button>
-      </form>
+      <div className="signupFormContainer">
+        <img className="signinIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
+        <h1>SpaceNote</h1>
+        <p>Remember everything important.</p>
+        <form  className='signinForm' onSubmit={handleSubmit}>
+          <ul className="signinErrors">
+            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+          </ul>
+          <label>
+
+            <input
+              placeholder="Email"
+              className="signinInput"
+              type="text"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Username"
+              className="signinInput"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Password"
+              className="signinInput"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </label>
+          <label>
+            <input
+              placeholder="Confirm Password"
+              className="signinInput"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+            />
+          </label>
+          <button  className="signinSubmit" type="submit">Sign Up</button>
+          <p>Already have an account?</p>
+          <a className="loginAccount" href="/login">Sign in</a>
+        </form>
+      </div>
     </>
   );
 }
