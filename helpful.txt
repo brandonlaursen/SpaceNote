@@ -13,7 +13,7 @@ created seeders #
 
 create routes (tbd)
 Routes to do:
-    notebooks
     notes
+    notebooks
 
-
+    
