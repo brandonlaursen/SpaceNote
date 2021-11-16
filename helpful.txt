@@ -16,4 +16,13 @@ Routes to do:
     notes
     notebooks
 
-    
+
+In models for user, unsure if this is correct.
+static associate(models) {
+      User.hasMany(models.Note, {
+        foreignKey: 'userId'
+      });
+      User.hasMany(models.Notebook, {
+        foreignKey: "userId",
+      });
+    }
