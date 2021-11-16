@@ -29,7 +29,7 @@ function SignupFormPage() {
   };
 
   return (
-    <>
+    <div className="loginBG">
       <div className="signupFormContainer">
         <img className="signinIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
         <h1>SpaceNote</h1>
@@ -84,7 +84,7 @@ function SignupFormPage() {
           <a className="loginAccount" href="/login">Sign in</a>
         </form>
       </div>
-    </>
+    </div>
   );
 }
 

@@ -1,20 +1,23 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { useDispatch, useSelector } from "react-redux";
 import HomePage from './components/HomePage/HomePage';
 import LoginFormPage from './components/LoginFormPage/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage/SignupFormPage';
-
+import SplashPage from './components/SplashPage/SplashPage';
 
 
 
 function App() {
 
+  const sessionUser = useSelector(state => state.session.user);
 
   return (
     <>
       <Switch>
+
         <Route exact path='/'>
-          <HomePage />
+          {sessionUser ? <HomePage /> : <SplashPage/>}
         </Route>
         <Route exact path='/login'>
           <LoginFormPage />
