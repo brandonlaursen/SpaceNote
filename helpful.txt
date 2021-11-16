@@ -8,8 +8,12 @@ npx dotenv sequelize db:seed:all
 created migrations #
 created models #
 create associations in models
-
 created seeders #
 
 
 create routes (tbd)
+Routes to do:
+    notebooks
+    notes
+
+
