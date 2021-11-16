@@ -1,11 +1,9 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { route } = require(".");
 const { Note } = require("../../db/models");
 
 
 const router = express.Router();
-
 // route = api/notes/
 
 
@@ -91,7 +89,9 @@ router.post("/", asyncHandler(async(req, res) => {
 
 //Edit a specific note UPDATE WORKS
 router.put("/note/:id", asyncHandler(async(req, res) => {
-  const note = await Note.findByPk(req.params.id);
+  const noteId = req.params.id;
+  
+  const note = await Note.findByPk(noteId);
   const { notebookId, title, content } = req.body;
 
   const newNote = await note.update({
