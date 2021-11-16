@@ -13,7 +13,19 @@ created seeders #
 
 create routes (tbd)
 Routes to do:
-    notebooks
     notes
+    notebooks
 
 
+In models for user, unsure if this is correct.
+static associate(models) {
+      User.hasMany(models.Note, {
+        foreignKey: 'userId'
+      });
+      User.hasMany(models.Notebook, {
+        foreignKey: "userId",
+      });
+    }
+
+TO test routes in postman,
+need xsrf token,cookie, and content-type from console, -> network, -> fetch

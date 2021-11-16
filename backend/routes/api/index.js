@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const sessionRouter = require("./session.js");
 const usersRouter = require("./users.js");
-// const notesRouter = require("./notes.js")
+const notesRouter = require("./notes.js")
 // const notebooksRouter = require("./notebooks.js")
 
 
-// router.use("/notes", notesRouter);
+router.use("/notes", notesRouter);
 
 // router.use("/notebooks", notebooksRouter);
 
@@ -17,11 +17,10 @@ module.exports = router;
 
 
 
+//stuff that came with starter
 // router.post("/test", function (req, res) {
 //   res.json({ requestBody: req.body });
 // });
-
-
 
 
 // // GET /api/set-token-cookie
