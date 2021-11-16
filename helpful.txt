@@ -26,3 +26,6 @@ static associate(models) {
         foreignKey: "userId",
       });
     }
+
+TO test routes in postman,
+need xsrf token,cookie, and content-type from console, -> network, -> fetch

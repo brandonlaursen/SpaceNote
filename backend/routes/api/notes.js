@@ -44,7 +44,7 @@ router.get("/:userId", asyncHandler(async(req, res) => {
 // ----------------------------------------------------------
 
 
-//Get a specific note READ
+//Get a specific note READ WORKS
 router.get("/note/:id", asyncHandler(async (req, res) => {
 		const note = await Note.findByPk(req.params.id);
 		return res.json(note);
@@ -63,7 +63,7 @@ router.get("/note/:id", asyncHandler(async (req, res) => {
 // ----------------------------------------------------------
 
 
-//Delete a specific note DESTROY
+//Delete a specific note DESTROY WORKS
 router.delete("/note/:id", asyncHandler(async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   await note.destroy();
@@ -74,7 +74,7 @@ router.delete("/note/:id", asyncHandler(async (req, res) => {
 // ----------------------------------------------------------
 
 
-//Post a new note CREATE
+//Post a new note CREATE WORKS
 router.post("/", asyncHandler(async(req, res) => {
   const { userId, notebookId, title, content } = req.body;
 
@@ -89,7 +89,7 @@ router.post("/", asyncHandler(async(req, res) => {
 // ----------------------------------------------------------
 
 
-//Edit a specific note UPDATE
+//Edit a specific note UPDATE WORKS
 router.put("/note/:id", asyncHandler(async(req, res) => {
   const note = await Note.findByPk(req.params.id);
   const { notebookId, title, content } = req.body;
