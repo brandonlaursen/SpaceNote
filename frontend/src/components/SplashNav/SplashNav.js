@@ -20,14 +20,15 @@ function SplashNav() {
   return(
     <div className="spashNavBG">
     <nav className="main-nav">
+    <a className="logo" href="/">SpaceNote</a>
      <input type="checkbox" id="isChecked"/>
      <label for="isChecked" className="menu-btn">
       <i class="fas fa-bars"></i>
      </label>
 
-     <a className="logo" href="/">SpaceNote</a>
+
      <ul className='navLinks'>
-        <li className="navLi">Why Evernote</li>
+        <li className="navLi">Why SpaceNote</li>
         <li className="navLi">Features</li>
         <li className="navLi">Plans </li>
         <li><button className="splashDemo"onClick={demo} >Demo</button></li>
