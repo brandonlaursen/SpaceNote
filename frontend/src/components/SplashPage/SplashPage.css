@@ -11,14 +11,17 @@
 }
 
 .splashTitle{
-  font-size: 46px;
+  font-size: 56px;
   line-height: 40px;
+  margin-top: 1rem;
+  /* color: white; */
 }
 
 .splashText{
   margin: auto;
   text-align: center;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .splashButton{

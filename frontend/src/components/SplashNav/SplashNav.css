@@ -30,7 +30,7 @@
   cursor: pointer;
   margin-top: 1rem;
   border: 2px solid purple;
-  /* margin-right: 1rem; */
+  margin-right: 1rem;
 }
 
 .splashLogin:hover{
@@ -53,7 +53,7 @@
 }
 
 .main-nav{
-  height: 80px;
+  height: 90px;
 }
 
 .logo{
@@ -64,6 +64,7 @@
   text-decoration: none;
   margin-left: 2rem;
   cursor: pointer;
+  float: left;
 }
 
 .navLinks{

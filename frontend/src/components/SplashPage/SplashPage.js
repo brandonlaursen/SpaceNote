@@ -1,5 +1,6 @@
 import "./SplashPage.css"
 import SplashNav from "../SplashNav/SplashNav";
+import ReactTypingEffect from 'react-typing-effect';;
 // import * as sessionActions from "../../store/session";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from "react-router";
@@ -14,7 +15,14 @@ function SplashPage() {
     <div className="SplashBG">
       <SplashNav/>
         <div className="splashPageContainer">
-          <h1 className="splashTitle">Tame your work, organize your life</h1>
+          {/* <h1 className="splashTitle">Tame your work, organize your life</h1> */}
+          <ReactTypingEffect
+            text={["Tame your work, organize your life"]}
+            className="splashTitle"
+            speed="100"
+            eraseSpeed="100"
+
+          />
           <h3 className="splashText">Remember everything and tackle any project with your notes, tasks, and schedule all in one place.</h3>
           <button className="splashButton" href="/signup"><a href="/signup" >Sign up for free </a></button>
           <a href="/login" className="SPA">Already have an account? Log in</a>
