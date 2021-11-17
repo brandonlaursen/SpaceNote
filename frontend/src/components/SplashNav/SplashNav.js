@@ -1,12 +1,21 @@
 import "./SplashNav.css"
-// import * as sessionActions from "../../store/session";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router";
+import React, { useState } from "react";
+import * as sessionActions from "../../store/session";
+import { useDispatch, useSelector } from "react-redux";
 
 
 
 function SplashNav() {
+  const dispatch = useDispatch();
+  const [credential, setCredential] = useState("");
+  const [password, setPassword] = useState("");
 
+  const demo = (e) => {
+    e.preventDefault();
+    setCredential("Demo-lition");
+    setPassword("password")
+    return dispatch(sessionActions.login({ credential, password }))
+  }
 
   return(
     <div className="spashNavBG">
@@ -21,8 +30,8 @@ function SplashNav() {
         <li className="navLi">Why Evernote</li>
         <li className="navLi">Features</li>
         <li className="navLi">Plans </li>
-        <li><button className="splashDemo" href="/login">Demo</button></li>
-        <li><button className="splashLogin" href="/login">Log in</button></li>
+        <li><button className="splashDemo"onClick={demo} >Demo</button></li>
+        <li><button className="splashLogin"><a href="/login"> Log In</a></button></li>
      </ul>
     </nav>
     </div>

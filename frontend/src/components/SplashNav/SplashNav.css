@@ -14,7 +14,7 @@
 
 .splashDemo:hover{
   border: 2px solid rgb(168, 1, 168);
-  color:rgb(168, 1, 168);
+  /* color:rgb(168, 1, 168); */
   /* border-bottom: none; */
 }
 
@@ -41,7 +41,7 @@
 .spashNavBG{
   background: white;
   border: solid transparent 1px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
 }
 
 .main-nav a {
@@ -53,7 +53,7 @@
 }
 
 .main-nav{
-  height: 90px;
+  height: 80px;
 }
 
 .logo{
@@ -87,7 +87,7 @@
 
 .navLi:hover{
   color: purple;
-  border-bottom: 4px solid purple;
+  /* border-bottom: 4px solid purple; */
 }
 
 .menu-btn{
@@ -130,4 +130,9 @@
   #isChecked:checked ~ .navLinks {
     right: 0;
   }
+}
+
+.splashLogin a {
+  color: purple;
+  text-decoration: none;
 }

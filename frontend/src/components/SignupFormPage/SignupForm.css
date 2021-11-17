@@ -76,3 +76,18 @@
   cursor: pointer;
   text-decoration: none;
 }
+
+.signinBG{
+  position:relative;
+  display: flex;
+  width: 100%;
+  height: 61rem;
+  margin:0;
+  padding:0;
+  background:url("https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  text-align:center;
+}
