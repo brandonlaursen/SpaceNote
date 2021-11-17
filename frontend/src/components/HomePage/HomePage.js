@@ -67,7 +67,7 @@ function HomePage() {
         {/* ALL NOTEBOOKS OF A USER */}
       <div className='homeNotebooksContainer'>
         <h1>Notebooks</h1>
-        {notebooks.length > 0 && notebooks?.map((notebook) => (
+        {notebooks?.length > 0 && notebooks?.map((notebook) => (
           <>
           <h2 id={notebook.id} key={notebook.id} > {notebook.title}</h2>
           </>
