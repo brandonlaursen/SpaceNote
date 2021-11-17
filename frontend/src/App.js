@@ -5,6 +5,7 @@ import HomePage from './components/HomePage/HomePage';
 import LoginFormPage from './components/LoginFormPage/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage/SignupFormPage';
 import SplashPage from './components/SplashPage/SplashPage';
+import Notebook from "./components/Notebook/Notebook";
 import * as sessionActions from "./store/session";
 
 
@@ -30,11 +31,14 @@ function App() {
         <Route exact path='/home'>
           <HomePage />
         </Route>
-        <Route exact path='/login'>
+        <Route path='/login'>
           <LoginFormPage />
         </Route>
-        <Route exact path='/signup'>
+        <Route path='/signup'>
           <SignupFormPage />
+        </Route>
+        <Route path="/notebooks/:notebookId">
+            <Notebook />
         </Route>
         <Route>
             Page Not Found

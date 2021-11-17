@@ -85,7 +85,7 @@ function HomePage() {
       </div>
 
       <div>
-        <h1>Create a note</h1>
+        <h1>Create a notebook</h1>
         <form onSubmit={createNotebookSubmit}>
           <input
               className=''

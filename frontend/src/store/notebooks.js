@@ -24,7 +24,7 @@ const GET_NOTES = "notes/GET_NOTES";
 const getNotebookNotes = (notes) => ({
   type: GET_NOTES,
   payload: notes
-})
+});
 
 export const getNotebookNotesThunk = (notebookId) => async (dispatch) => {
   const res = await fetch(`/api/notebooks/${notebookId}/notes`);
@@ -34,6 +34,25 @@ export const getNotebookNotesThunk = (notebookId) => async (dispatch) => {
     dispatch(getNotebookNotes(notebookNotes));
   }
 }
+
+//GET A NOTEBOOK
+const GET_NOTEBOOK = "notebooks/GET_NOTEBOOK";
+
+const getNotebook = (notebook) => ({
+  type: GET_NOTEBOOK,
+  payload: notebook
+});
+
+export const getNotebookThunk = (notebookId) =>async(dispatch) => {
+  const res = await fetch(`/api/notebooks/notebook/${notebookId}`);
+
+  if(res.ok) {
+    const notebook = await res.json();
+    dispatch(getNotebook(notebook));
+  }
+}
+
+
 
 
 //POST A NOTEBOOK
@@ -64,7 +83,8 @@ export const postNotebookThunk = (newNotebook) => async(dispatch) => {
 
 const initialState = {
   notebooks: null,
-  notes: null
+  notes: null,
+  notebook: null
 };
 
 
@@ -75,6 +95,9 @@ export default function notebooksReducer(state=initialState, action) {
     }
     case GET_NOTES: {
       return { ...state, notes: action.payload }
+    }
+    case GET_NOTEBOOK: {
+      return { ...state, notebook: action.payload }
     }
     case POST_NOTEBOOK: {
       return { ...state, notebooks: action.payload };
