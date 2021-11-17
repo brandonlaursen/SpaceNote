@@ -1,0 +1,139 @@
+.splashDemo{
+  height: 2.5rem;
+  width: 5rem;
+  background-color: white;
+  font-size: 16px;
+  color:purple;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  border: 2px solid purple;
+}
+
+.splashDemo:hover{
+  border: 2px solid rgb(168, 1, 168);
+  /* color:rgb(168, 1, 168); */
+  /* border-bottom: none; */
+}
+
+.splashLogin{
+  height: 2.5rem;
+  width: 5rem;
+  background-color: white;
+  font-size: 16px;
+  color:purple;
+  margin: auto;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  border: 2px solid purple;
+  margin-right: 1rem;
+}
+
+.splashLogin:hover{
+  border: 2px solid rgb(168, 1, 168);
+  color:rgb(168, 1, 168);
+}
+
+.spashNavBG{
+  background: white;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
+}
+
+.main-nav a {
+  color: white;
+}
+
+.main-nav li {
+  color: black;
+}
+
+.main-nav{
+  height: 90px;
+}
+
+.logo{
+  color: black !important;
+  line-height: 90px;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 2rem;
+  cursor: pointer;
+  float: left;
+}
+
+.navLinks{
+  list-style-type: none;
+  float: right;
+  line-height: 90px;
+  margin: 0;
+  padding: 0;
+}
+
+.navLinks li {
+  cursor: pointer;
+  display: inline-block;
+  margin: 0 10px;
+  color: black;
+  text-transform: uppercase;
+
+  /* padding: 6px; */
+}
+
+
+.navLi:hover{
+  color: purple;
+  /* border-bottom: 4px solid purple; */
+}
+
+.menu-btn{
+  color: black;
+  font-size: 25px;
+  float: right;
+  line-height: 90px;
+  margin-right: 4rem;
+  cursor: pointer;
+  display: none;
+}
+
+#isChecked {
+  display: none;
+}
+
+@media (max-width: 800px){
+  .navLinks{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    transition: all 0.5s;
+    background: white;
+    right: -100%
+
+
+  }
+  .navLinks li {
+    display: block;
+    font-size: 20px;
+  }
+  .navLinks li:hover {
+    border-bottom: none;
+  }
+  .menu-btn{
+    display: block;
+  }
+
+  #isChecked:checked ~ .navLinks {
+    right: 0;
+  }
+}
+
+.splashLogin a {
+  color: purple;
+  text-decoration: none;
+}
