@@ -32,6 +32,7 @@ export const getNotebookNotesThunk = (notebookId) => async (dispatch) => {
   if(res.ok) {
     const notebookNotes = await res.json();
     dispatch(getNotebookNotes(notebookNotes));
+    return 'ok';
   }
 }
 
@@ -49,10 +50,12 @@ export const getNotebookThunk = (notebookId) =>async(dispatch) => {
   if(res.ok) {
     const notebook = await res.json();
     dispatch(getNotebook(notebook));
+    if(!notebook) {
+      return "bad"
+    }
   }
+  return "ok"
 }
-
-
 
 
 //POST A NOTEBOOK
@@ -73,11 +76,32 @@ export const postNotebookThunk = (newNotebook) => async(dispatch) => {
   if(res.ok) {
     const notebook = await res.json();
     dispatch(postNotebook(notebook));
-    return notebook;
+    return "ok"
   }
 }
 
+//DELETE A NOTEBOOK
+const DELETE_NOTEBOOK = "notebooks/DELETE_NOTEBOOK";
 
+const deleteNotebook = (notebookId) => ({
+  type: DELETE_NOTEBOOK,
+  payload: notebookId
+})
+
+export const deleteNotebookThunk = (notebookId) => async(dispatch) => {
+  const res = await csrfFetch(`/api/notebooks/notebook/${notebookId}`, {
+      method: "DELETE",
+  });
+  if(res.ok) {
+    const oldNotebook = await res.json();
+    dispatch(deleteNotebook(oldNotebook));
+    if(!oldNotebook) {
+
+    }
+    return "ok"
+  }
+
+}
 
 
 
