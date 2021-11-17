@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Route, Switch } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from './components/HomePage/HomePage';
 import LoginFormPage from './components/LoginFormPage/LoginFormPage';
 import SignupFormPage from './components/SignupFormPage/SignupFormPage';
 import SplashPage from './components/SplashPage/SplashPage';
-
+import Notebook from "./components/Notebook/Notebook";
+import * as sessionActions from "./store/session";
 
 
 function App() {
 
-  const sessionUser = useSelector(state => state.session.user);
 
+  // const sessionUser = useSelector(state => state.session.user);
+
+  const dispatch = useDispatch();
+  const [isLoaded, setIsLoaded] = useState(false);
+
+  useEffect(() => {
+    dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
+  }, [dispatch]);
+  <SplashPage/>
   return (
     <>
       <Switch>
 
         <Route exact path='/'>
-          {sessionUser ? <HomePage /> : <SplashPage/>}
+        <SplashPage/>
         </Route>
-        <Route exact path='/login'>
+        <Route exact path='/home'>
+          <HomePage />
+        </Route>
+        <Route path='/login'>
           <LoginFormPage />
         </Route>
-        <Route exact path='/signup'>
+        <Route path='/signup'>
           <SignupFormPage />
+        </Route>
+        <Route path="/notebooks/:notebookId">
+            <Notebook />
         </Route>
         <Route>
             Page Not Found

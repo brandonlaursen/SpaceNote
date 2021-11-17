@@ -1,0 +1,11 @@
+.homeNotebooksContainer{
+  background-color: grey;
+}
+
+.homeNotebooksContainer h1{
+  color: red;
+}
+
+.homeNotesContainer{
+  background-color: purple;
+}
