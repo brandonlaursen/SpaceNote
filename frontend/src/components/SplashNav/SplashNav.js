@@ -2,6 +2,7 @@ import "./SplashNav.css"
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
+import { Redirect } from "react-router-dom";
 
 
 
@@ -9,6 +10,7 @@ function SplashNav() {
   const dispatch = useDispatch();
   const [credential, setCredential] = useState("");
   const [password, setPassword] = useState("");
+  const sessionUser = useSelector((state) => state.session.user);
 
   const demo = (e) => {
     e.preventDefault();
@@ -17,13 +19,15 @@ function SplashNav() {
     return dispatch(sessionActions.login({ credential, password }))
   }
 
+  if (sessionUser) return <Redirect to="/home" />;
+
   return(
     <div className="spashNavBG">
     <nav className="main-nav">
     <a className="logo" href="/">SpaceNote</a>
      <input type="checkbox" id="isChecked"/>
-     <label for="isChecked" className="menu-btn">
-      <i class="fas fa-bars"></i>
+     <label htmlFor="isChecked" className="menu-btn">
+      <i className="fas fa-bars"></i>
      </label>
 
 

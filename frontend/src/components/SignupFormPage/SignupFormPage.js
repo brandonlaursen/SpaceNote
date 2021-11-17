@@ -13,7 +13,7 @@ function SignupFormPage() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState([]);
 
-  if (sessionUser) return <Redirect to="/" />;
+  if (sessionUser) return <Redirect to="/home" />;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ function SignupFormPage() {
           </label>
           <button  className="signinSubmit" type="submit">Sign Up</button>
           <p>Already have an account?</p>
-          <a className="loginAccount" href="/login">Sign in</a>
+          <a className="loginAccount" href="/login">Sign In</a>
         </form>
       </div>
     </div>
