@@ -131,6 +131,7 @@ function Notebook() {
         content: newNoteContents,
       };
       let createdNote = await dispatch(postNoteThunk(payload))
+      await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
       setMainNote(createdNote);
       // createNewNote();
       return;
@@ -145,8 +146,10 @@ function Notebook() {
   }
 
 
-  const deleteNoteSubmit = async (noteId) => {
+  const deleteNoteSubmit = async (e, noteId) => {
+    e.preventDefault();
     dispatch(deleteNoteThunk(noteId))
+    await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
 
 
@@ -204,9 +207,9 @@ if (loaded) {
 
         {/* EDIT NOTE */}
         <div>
-          <h1>Edit note</h1>
-          <h1>{mainNote?.title}</h1>
-          <h1>{mainNote?.content}</h1>
+          <h1>Edit OR Post note</h1>
+          {/* <h1>{mainNote?.title}</h1>
+          <h1>{mainNote?.content}</h1> */}
         </div>
 
         <form >
@@ -240,10 +243,14 @@ if (loaded) {
 
         {/* DELETE A NOTE */}
         <h1>Delete a note</h1>
-        <button  onClick={(e) => deleteNoteSubmit(mainNote?.id)} >Delete</button>
+        <button  onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
+
 
 
         {/* CREATE A NOTE */}
+        <button id="createNoteButton" onClick={createNewNote}>
+          Create note
+        </button>
         {/* <h1>Create a note</h1>
          <form onSubmit={createNoteSubmit}>
           <input
