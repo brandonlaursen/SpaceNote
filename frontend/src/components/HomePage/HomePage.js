@@ -57,7 +57,6 @@ function HomePage() {
 
   return(
     <>
-      <h1>Hello from the home page</h1>
       <h1>hello {sessionUser?.username}</h1>
       <button onClick={logout}>log out</button>
 
