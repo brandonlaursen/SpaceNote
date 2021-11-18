@@ -12,49 +12,47 @@ function Notebook() {
   const history = useHistory();
 
   const [loaded, setLoaded] = useState(false);
+
+  //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
   const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
 
+  //EDIT NOTE
   const [editNoteTitle, setEditNoteTitle] = useState("");
   const [editNoteContents, setEditNoteContents] = useState("");
 
-
+  //NEW NOTE
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
 
+  //STATE
   const sessionUser = useSelector(state => state?.session?.user);
   const notes = useSelector(state => state?.notes?.notes);
   const notebook = useSelector(state => state?.notebooks?.notebook);
 
- //WORKING ON
- const [currentNote, setCurrentNote] = useState(1)
- console.log(currentNote)
-
- //  console.log("===", notes.currentNote)
-  useEffect(() => {
-
-  },[])
+  //SET CURRENT NOTE
+  const [currentNote, setCurrentNote] = useState(1)
 
 
   useEffect(() => {
-    console.log(notebookId)
+
     dispatch(getNotebookThunk(notebookId)).then((e) => {if((e) === "bad"){
       history.push("/home")
-    } })
+    }});
+
     dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true));
 
-	},[dispatch, notebookId]);
+	},[dispatch, notebookId, history]);
 
 
+  //NOTEBOOK CRUD
   const deleteNotebookSubmit = async (notebookId) => {
-
      dispatch(deleteNotebookThunk(notebookId));
      history.push(`/home`);
   }
 
   const editNotebookSubmit = (e, notebookId) => {
     e.preventDefault();
-
     const payload = {
       title: editNotebookTitle,
       bannerPicUrl: editBannerPicUrl
@@ -63,6 +61,7 @@ function Notebook() {
     dispatch(editNotebookThunk(payload, +notebookId)).then(dispatch(getNotebookThunk(notebookId)))
   }
 
+  //NOTE CRUD
   const editNoteSubmit = (e, noteId) => {
     e.preventDefault();
 
@@ -86,10 +85,9 @@ function Notebook() {
     dispatch(postNoteThunk(payload)).then(dispatch(getNotebookNotesThunk(notebookId)))
   }
 
+
   const deleteNoteSubmit = async (noteId) => {
-
     dispatch(deleteNoteThunk(noteId))
-
   }
 
 
@@ -200,8 +198,7 @@ if (loaded) {
   )
 } else {
   return null;
-}
-
+  }
 }
 
 
