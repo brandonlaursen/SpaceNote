@@ -75,7 +75,7 @@ export const postNoteThunk = (newNote) => async(dispatch) => {
   if(res.ok) {
     const note = await res.json();
     dispatch(postNote(note));
-    return "ok"
+    return note;
   }
 }
 
@@ -97,7 +97,7 @@ export const editNoteThunk = (payload, noteId) => async(dispatch) => {
     body: JSON.stringify(payload),
   });
   const note = await res.json();
-  dispatch(editNote(note));
+  dispatch(postNote(note));
   return note;
 }
 
@@ -110,8 +110,7 @@ export const editNoteThunk = (payload, noteId) => async(dispatch) => {
 
 
 const initialState = {
-  notes: null,
-  note: null
+  
 }
 
 
@@ -124,7 +123,15 @@ export default function notesReducer(state=initialState, action) {
       return {...state, note: action.payload }
     }
     case POST_NOTE: {
-      return { ...state, notes: action.payload }
+      if (action.payload.id) {
+      return {
+        ...state,
+        [action.payload.id]: action.payload.note,
+      };
+
+    } else {
+      return state;
+    }
     }
     case EDIT_NOTE: {
       return { ...state, notes: action.payload };
