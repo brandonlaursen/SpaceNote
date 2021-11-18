@@ -57,7 +57,6 @@ function HomePage() {
 
   return(
     <>
-      <h1>Hello from the home page</h1>
       <h1>hello {sessionUser?.username}</h1>
       <button onClick={logout}>log out</button>
 
@@ -68,16 +67,6 @@ function HomePage() {
           <>
           <NavLink to={`/notebooks/${notebook.id}`}> <h2 id={notebook.id} key={notebook.id} > {notebook.title}</h2> </NavLink>
           </>
-        ))}
-      </div>
-
-        {/* ALL NOTES OF A USER */}
-      <div className='homeNotesContainer'>
-        <h1>Notes</h1>
-        {notes?.map((note) => (
-        <>
-          <h1 id={note.id} key={note.id}> {note.title}</h1>
-        </>
         ))}
       </div>
 
@@ -103,6 +92,18 @@ function HomePage() {
               />
         <button type="submit" onSubmit={(e) => e.preventDefault()}>Create</button>
         </form>
+      </div>
+
+
+        {/* ALL NOTES OF A USER */}
+      <div className='homeNotesContainer'>
+        <h1>Notes</h1>
+        {notes?.map((note) => (
+        <>
+          <h1 id={note.id} key={note.id}> {note.title}</h1>
+          <h3 id={note.id} key={note.id}> {note.content}</h3>
+        </>
+        ))}
       </div>
     </>
   )
