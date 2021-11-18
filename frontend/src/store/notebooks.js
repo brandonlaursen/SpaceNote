@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 
+
 //GET ALL NOTEBOOKS OF A USER WORKS
 const GET_NOTEBOOKS = "notebooks/GET_NOTEBOOKS";
 

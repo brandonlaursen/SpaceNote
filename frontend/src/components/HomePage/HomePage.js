@@ -85,6 +85,7 @@ function HomePage() {
       </div>
 
       <div>
+        {/* CREATE A NOTEBOOK  */}
         <h1>Create a notebook</h1>
         <form onSubmit={createNotebookSubmit}>
           <input
