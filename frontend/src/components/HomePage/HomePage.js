@@ -5,6 +5,7 @@ import { Redirect } from "react-router";
 import { useEffect, useState } from "react";
 import { getUsersNotebooksThunk, getNotebookNotesThunk, postNotebookThunk } from "../../store/notebooks";
 import { getUsersNotesThunk } from "../../store/notes";
+import { NavLink } from 'react-router-dom';
 
 function HomePage() {
 
@@ -69,19 +70,19 @@ function HomePage() {
         <h1>Notebooks</h1>
         {notebooks?.length > 0 && notebooks?.map((notebook) => (
           <>
-          <h2 id={notebook.id} key={notebook.id} > {notebook.title}</h2>
+          <NavLink to={`/notebooks/${notebook.id}`}> <h2 id={notebook.id} key={notebook.id} > {notebook.title}</h2> </NavLink>
           </>
         ))}
       </div>
 
         {/* ALL NOTES OF A USER */}
-        <div className='homeNotesContainer'>
-          <h1>Notes</h1>
-          {notes?.map((note) => (
-          <>
-            <h1 id={note.id} key={note.id}> {note.title}</h1>
-           </>
-          ))}
+      <div className='homeNotesContainer'>
+        <h1>Notes</h1>
+        {notes?.map((note) => (
+        <>
+          <h1 id={note.id} key={note.id}> {note.title}</h1>
+        </>
+        ))}
       </div>
 
       <div>
