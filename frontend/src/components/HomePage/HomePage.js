@@ -77,6 +77,7 @@ function HomePage() {
         {notes?.map((note) => (
         <>
           <h1 id={note.id} key={note.id}> {note.title}</h1>
+          <h3 id={note.id} key={note.id}> {note.content}</h3>
         </>
         ))}
       </div>
