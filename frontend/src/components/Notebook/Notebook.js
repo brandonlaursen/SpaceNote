@@ -13,6 +13,11 @@ function Notebook() {
 
   const [loaded, setLoaded] = useState(false);
 
+   //STATE
+  const sessionUser = useSelector(state => state?.session?.user);
+  const notes = useSelector(state => state?.notes?.notes);
+  const notebook = useSelector(state => state?.notebooks?.notebook);
+
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
   const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
@@ -21,17 +26,28 @@ function Notebook() {
   const [editNoteTitle, setEditNoteTitle] = useState("");
   const [editNoteContents, setEditNoteContents] = useState("");
 
+  // //NEW NOTE
+  // const [newNoteTitle, setNewNoteTitle] = useState("");
+  // const [newNoteContents, setNewNoteContents] = useState("");
+
+  // ====================================================
+  //SET CURRENT NOTE
+  // const [currentNote, setCurrentNote] = useState("");
+
+
+
   //NEW NOTE
+  const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
 
-  //STATE
-  const sessionUser = useSelector(state => state?.session?.user);
-  const notes = useSelector(state => state?.notes?.notes);
-  const notebook = useSelector(state => state?.notebooks?.notebook);
+  //Old Notes
+  const [mainNote, setMainNote] = useState("");
+  const [mainNoteTitle, setMainNoteTitle] = useState("");
+  const [mainNoteContent, setMainNoteContent] = useState("");
 
-  //SET CURRENT NOTE
-  const [currentNote, setCurrentNote] = useState(1)
+  // ====================================================
+
 
 
   useEffect(() => {
@@ -43,6 +59,13 @@ function Notebook() {
     dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true));
 
 	},[dispatch, notebookId, history]);
+
+
+  useEffect(() => {}, [
+    mainNote,
+    mainNoteContent,
+    mainNoteTitle,
+  ]);
 
 
   //NOTEBOOK CRUD
@@ -62,27 +85,63 @@ function Notebook() {
   }
 
   //NOTE CRUD
-  const editNoteSubmit = (e, noteId) => {
-    e.preventDefault();
+  // const editNoteSubmit = (e, noteId) => {
+  //   e.preventDefault();
 
-    const payload = {
-      title: editNoteTitle,
-      content: editNoteContents
-    }
-    dispatch(editNoteThunk(payload, +noteId)).then(dispatch(getNotebookNotesThunk(notebookId)))
+  //   const payload = {
+  //     title: newNoteTitle,
+  //     content: newNoteContents
+  //   }
+  //   dispatch(editNoteThunk(payload, +noteId)).then(dispatch(getNotebookNotesThunk(notebookId)))
+  // }
+
+
+  // const createNoteSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   const payload = {
+  //     userId: sessionUser?.id,
+  //     notebookId: notebook?.id,
+  //     title: newNoteTitle,
+  //     content: newNoteContents,
+  //   };
+
+  //   let newNote = await dispatch(postNoteThunk(payload))
+  //   // console.log("======",newNote.id)
+  //   setCurrentNote(newNote);
+  // }
+
+
+  function createNewNote() {
+    setMainNoteTitle("");
+    setMainNoteContent("");
+    setMainNote("");
+    setNewNoteTitle("");
+    setNewNoteContents("");
+    setNewNote(true);
   }
 
-
-  const createNoteSubmit = (e) => {
+  const handleSubmit = async(e, noteId) => {
     e.preventDefault();
-    const payload = {
-      userId: sessionUser.id,
-      notebookId: notebook?.id,
-      title: newNoteTitle,
-      content: newNoteContents,
-
+    if(newNote) {
+      const payload = {
+        userId: sessionUser?.id,
+        notebookId: notebook?.id,
+        title: newNoteTitle,
+        content: newNoteContents,
+      };
+      let createdNote = await dispatch(postNoteThunk(payload))
+      setMainNote(createdNote);
+      // createNewNote();
+      return;
     }
-    dispatch(postNoteThunk(payload)).then(dispatch(getNotebookNotesThunk(notebookId)))
+
+    const editPayload = {
+        title: mainNoteTitle,
+        content: mainNoteContent
+      }
+      await dispatch(editNoteThunk(editPayload, +noteId))
+      await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
 
 
@@ -108,8 +167,8 @@ if (loaded) {
           <h1>Notes</h1>
           {notes?.length > 0 && notes?.map((note) => (
           <>
-            <h1 id={note.id} key={note.id} onClick={() => setCurrentNote(note)}> {note.title}</h1>
-            <h3 id={note.id} key={note.id}> {note.content}</h3>
+            <h1 id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h1>
+            {/* <h1 id={note.id} key={note.id}> {note.content}</h1> */}
            </>
           ))}
       </div>
@@ -140,40 +199,52 @@ if (loaded) {
         <button type="submit" onSubmit={(e) => e.preventDefault()}>Edit</button>
         </form>
 
+
+
+
         {/* EDIT NOTE */}
         <div>
           <h1>Edit note</h1>
-          <h1>{currentNote?.title}</h1>
-          <h3>{currentNote?.content}</h3>
+          <h1>{mainNote?.title}</h1>
+          <h1>{mainNote?.content}</h1>
         </div>
-        <form onSubmit={(e) => editNoteSubmit(e, currentNote.id)}>
+
+        <form >
           <input
               className=''
               type="text"
-              placeholder={currentNote.title}
-              required
-              value={editNoteTitle}
-              onChange={(e) => setEditNoteTitle(e.target.value)}
+              placeholder="Write a Title"
+              value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
+              onChange={newNote
+              ? e => setNewNoteTitle(e.target.value)
+              : e => setMainNoteTitle(e.target.value)
+              }
               />
-            <input
+            <textarea
               className=''
               type="text"
-              placeholder={currentNote.content}
-              required
-              value={editNoteContents}
-              onChange={(e) => setEditNoteContents(e.target.value)}
-              />
-        <button type="submit" onSubmit={(e) => e.preventDefault()}>Edit Note</button>
+              placeholder="Whats on your mind?"
+              value={mainNoteContent ? mainNoteContent : newNoteContents}
+              onChange={newNote
+                ? e => setNewNoteContents(e.target.value)
+                : e => setMainNoteContent(e.target.value)
+                }
+              ></textarea>
+        <button type="submit" onClick={(e) => handleSubmit(e, mainNote.id)}>Edit Note</button>
         </form>
+
+
+
+
 
 
         {/* DELETE A NOTE */}
         <h1>Delete a note</h1>
-        <button  onClick={(e) => deleteNoteSubmit(currentNote.id)} >Delete</button>
+        <button  onClick={(e) => deleteNoteSubmit(mainNote?.id)} >Delete</button>
 
 
         {/* CREATE A NOTE */}
-        <h1>Create a note</h1>
+        {/* <h1>Create a note</h1>
          <form onSubmit={createNoteSubmit}>
           <input
               className=''
@@ -192,7 +263,7 @@ if (loaded) {
               onChange={(e) => setNewNoteContents(e.target.value)}
               />
         <button type="submit" onSubmit={(e) => e.preventDefault()}>Create</button>
-        </form>
+        </form> */}
 
     </>
   )
