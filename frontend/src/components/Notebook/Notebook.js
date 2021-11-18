@@ -109,7 +109,7 @@ if (loaded) {
           {notes?.length > 0 && notes?.map((note) => (
           <>
             <h1 id={note.id} key={note.id} onClick={() => setCurrentNote(note)}> {note.title}</h1>
-            {/* <h1 id={note.id} key={note.id}> {note.content}</h1> */}
+            <h3 id={note.id} key={note.id}> {note.content}</h3>
            </>
           ))}
       </div>
@@ -144,7 +144,7 @@ if (loaded) {
         <div>
           <h1>Edit note</h1>
           <h1>{currentNote?.title}</h1>
-          <h1>{currentNote?.content}</h1>
+          <h3>{currentNote?.content}</h3>
         </div>
         <form onSubmit={(e) => editNoteSubmit(e, currentNote.id)}>
           <input

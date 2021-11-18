@@ -71,17 +71,6 @@ function HomePage() {
         ))}
       </div>
 
-        {/* ALL NOTES OF A USER */}
-      <div className='homeNotesContainer'>
-        <h1>Notes</h1>
-        {notes?.map((note) => (
-        <>
-          <h1 id={note.id} key={note.id}> {note.title}</h1>
-          <h3 id={note.id} key={note.id}> {note.content}</h3>
-        </>
-        ))}
-      </div>
-
       <div>
         {/* CREATE A NOTEBOOK  */}
         <h1>Create a notebook</h1>
@@ -104,6 +93,18 @@ function HomePage() {
               />
         <button type="submit" onSubmit={(e) => e.preventDefault()}>Create</button>
         </form>
+      </div>
+
+
+        {/* ALL NOTES OF A USER */}
+      <div className='homeNotesContainer'>
+        <h1>Notes</h1>
+        {notes?.map((note) => (
+        <>
+          <h1 id={note.id} key={note.id}> {note.title}</h1>
+          <h3 id={note.id} key={note.id}> {note.content}</h3>
+        </>
+        ))}
       </div>
     </>
   )
