@@ -86,7 +86,7 @@ const DELETE_NOTEBOOK = "notebooks/DELETE_NOTEBOOK";
 const deleteNotebook = (notebookId) => ({
   type: DELETE_NOTEBOOK,
   payload: notebookId
-})
+});
 
 export const deleteNotebookThunk = (notebookId) => async(dispatch) => {
   const res = await csrfFetch(`/api/notebooks/notebook/${notebookId}`, {
@@ -104,6 +104,26 @@ export const deleteNotebookThunk = (notebookId) => async(dispatch) => {
 }
 
 
+//EDIT A NOTEBOOK
+const EDIT_NOTEBOOK = "notebooks/EDIT_NOTEBOOK";
+
+const editNotebook = (notebookId) => ({
+  type: EDIT_NOTEBOOK,
+  payload: notebookId
+});
+
+export const editNotebookThunk = (payload, notebookId) => async(dispatch) => {
+  const res = await csrfFetch(`/api/notebooks/notebook/${notebookId}`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  });
+  const notebook = await res.json();
+  dispatch(editNotebook(notebook));
+  return notebook;
+}
 
 const initialState = {
   notebooks: null,
@@ -124,6 +144,9 @@ export default function notebooksReducer(state=initialState, action) {
       return { ...state, notebook: action.payload }
     }
     case POST_NOTEBOOK: {
+      return { ...state, notebooks: action.payload };
+    }
+    case EDIT_NOTEBOOK: {
       return { ...state, notebooks: action.payload };
     }
   default:
