@@ -14,13 +14,11 @@ function HomePage() {
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
   const notes = useSelector(state => state?.notes?.notes);
 
-  const [currentNotebook, setCurrentNotebook] = useState("");
+  // const [currentNotebook, setCurrentNotebook] = useState("");
+  // console.log("notebooks",notebooks);
+  // console.log("user", sessionUser);
+  // console.log("notes", notes);
 
-  console.log("notebooks",notebooks);
-  console.log("user", sessionUser);
-  console.log("notes", notes);
-
-  // ===================================
   const [title, setTitle] = useState("");
   const [bannerPicUrl, setBannerPicUrl] = useState("");
 
@@ -46,8 +44,6 @@ function HomePage() {
     }
     dispatch(postNotebookThunk(payload)).then(() => dispatch(getUsersNotebooksThunk(sessionUser?.id)))
   }
-  // ===================================
-
 
 
   const logout = e => {
