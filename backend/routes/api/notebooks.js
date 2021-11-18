@@ -114,7 +114,7 @@ router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
   const notebookId = req.params.notebookId;
 
   const notebook = await Notebook.findByPk(notebookId);
-  console.log("!!!!!!",notebook)
+  // console.log("!!!!!!",notebook)
   return res.json(notebook)
 
 
