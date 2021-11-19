@@ -53,9 +53,7 @@ function Notebook() {
 
   useEffect(() => {
 
-    dispatch(getNotebookThunk(notebookId)).then((e) => {if((e) === "bad"){
-      history.push("/home")
-    }});
+    dispatch(getNotebookThunk(notebookId));
 
     dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true));
 
@@ -156,6 +154,13 @@ function Notebook() {
   }
 
 
+  if (!loaded) {
+    return (
+      <div id="loading">
+        <img src={"https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"} alt="Loading..." />
+      </div>
+    );
+  }
 
 
   // if(!notebook) {
@@ -165,9 +170,10 @@ function Notebook() {
 if (loaded) {
   return (
     <>
-    <Sidenavbar name={sessionUser?.username} notebooks={notebooks}/>
+    <Sidenavbar name={sessionUser?.username} notebooks={notebooks}  profile={sessionUser?.profile_pic_url}/>
       <h1>hello {sessionUser?.username}</h1>
       <h1>NOTEBOOK TITLE:{notebook?.title}</h1>
+
 
       {/* GET NOTES IN A NOTEBOOK  */}
       <div className='homeNotesContainer1'>

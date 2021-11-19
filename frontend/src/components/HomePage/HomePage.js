@@ -28,6 +28,7 @@ function HomePage() {
 
 
   useEffect(() => {
+
     if(sessionUser){
       dispatch(getUsersNotebooksThunk(sessionUser?.id))
       dispatch(getNotebookNotesThunk(""))

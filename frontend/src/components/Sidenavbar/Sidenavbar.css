@@ -87,14 +87,16 @@
 
 .sidenavbar-top-menu-item{
   margin-top:10px;
-  height: 29rem;
+  height: 28rem;
+  /* background-color: white; */
 }
 
 .sidenavbar-top-menu-item ul li a {
   display: flex;
   color: #ccc;
   text-decoration: none;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
+
 }
 
 .sidenavbar-bottom{
@@ -106,4 +108,55 @@
 .icon{
   font-size: 14px;
   margin-right: 8px;
+}
+
+
+.NavNotebooks{
+  margin-left: 2rem;
+}
+
+.NavNotebooks:hover{
+  color: purple;
+}
+
+.NavNotebookContainer{
+  /* background-color: lawngreen; */
+  height: 7rem;
+  overflow: scroll;
+  margin-bottom: .4rem;
+}
+
+.notebooksNavTitle{
+  margin-left: .9rem;
+  margin-bottom: .5rem;
+  margin-top: .8rem;
+  color: white;
+  cursor: pointer;
+}
+.notebooksNavTitle:hover{
+  color: purple;
+}
+
+.notebooksNavTitle1{
+  margin-left: .5rem;
+}
+
+.navhome{
+  margin-left: -.45rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navhome:hover{
+  color: purple;
+}
+
+.navhome1{
+  margin-left: -.15rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navhome1:hover{
+  color: purple;
 }

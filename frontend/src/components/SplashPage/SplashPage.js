@@ -1,6 +1,7 @@
 import "./SplashPage.css"
 import SplashNav from "../SplashNav/SplashNav";
-import ReactTypingEffect from 'react-typing-effect';;
+import ReactTypingEffect from 'react-typing-effect';
+import React, { useState, useEffect } from "react";
 // import * as sessionActions from "../../store/session";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from "react-router";
@@ -9,6 +10,20 @@ import ReactTypingEffect from 'react-typing-effect';;
 
 function SplashPage() {
 
+  // const dispatch = useDispatch();
+  // const [isLoaded, setIsLoaded] = useState(false);
+
+  // useEffect(() => {
+  //   setIsLoaded(true);
+  // }, [dispatch]);
+
+  // if (!isLoaded) {
+  //   return (
+  //     <div id="loading">
+  //       <img src={"https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"} alt="Loading..." />
+  //     </div>
+  //   );
+  // }
 
   return(
     <>
