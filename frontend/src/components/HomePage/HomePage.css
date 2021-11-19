@@ -1,11 +1,175 @@
-.homeNotebooksContainer{
-  background-color: grey;
+.homepage-container{
+  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.homeNotebooksContainer h1{
-  color: red;
+
+.homePageTitle{
+  /* position: absolute; */
+  /* background-color: yellow; */
+  background-image: url("https://wallpapercave.com/wp/wp6590692.jpg");
+  height: 30rem;
+  background-position: center;
+  background-size: cover;
+
 }
+
+
+.notesAndNotebooksContainer{
+  display: flex;
+  /* position: absolute; */
+  justify-content: space-evenly;
+  /* background-color: lawngreen; */
+  /* height: 22rem; */
+
+}
+
+
+
+
 
 .homeNotesContainer{
-  background-color: purple;
+  /* position: absolute; */
+  /* margin-top: -1rem; */
+  display: flex;
+  /* background-color: darkgrey; */
+  height: 100%;
+  overflow-x: scroll;
+  width: 40rem;
+  height: 20rem;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+}
+
+
+.noteItems{
+  display: flex;
+  flex-direction: column;
+  height: 18.9rem;
+  margin: .5rem;
+  background-color: white;
+  justify-content:space-evenly;
+  /* padding: .5rem; */
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+
+}
+
+/* .homeNotebooksContainer h1{
+  color: red;
+} */
+
+.notetitle{
+  /* background-color: green; */
+  width: 15rem;
+  padding: .5rem;
+  overflow: hidden;
+  /* word-wrap: break-word; */
+}
+
+.notecontent{
+  /* background-color: blue; */
+  width: 15rem;
+  height: 100%;
+  word-wrap: break-word;
+  padding: .5rem;
+}
+
+.homeNotesContainerTitle{
+  /* background-color: rgb(100, 100, 100); */
+  /* color: purple; */
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-radius: 5px;
+  border: solid transparent 1px;
+  border-bottom: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  text-transform: uppercase;
+
+}
+
+.homeNotesContainerTitle h1{
+  margin-left: 1rem;
+
+}
+
+.HN1{
+   /* position: absolute; */
+  margin-top: -12rem;
+}
+
+
+.homeNotebooksContainer{
+  /* background-color: darkgrey; */
+  width: 30rem;
+  height: 23.1rem;
+  overflow-y: scroll;
+  border: solid 1px black;
+  /* position: absolute;
+  margin-top: -1rem; */
+  margin-top: -11.99rem;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-radius: 5px;
+
+}
+
+.notebookTitle{
+  /* border: solid 1px black; */
+  height: 3rem;
+  /* justify-content: center; */
+  /* align-content: center; */
+  text-align: center;
+  margin: .5rem;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  text-decoration: none;
+
+}
+.notebookTitle:hover {
+  color: white;
+  /* border-color: purple; */
+  background: #BA0C9B;
+  background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
+  background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
+  background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
+  /* border-width: 2px; */
+}
+
+.NL{
+  text-decoration: none;
+  color: black;
+}
+.notebooktitle{
+  margin-left: 1rem;
+  color: white;
+  /* vertical-align: middle; */
+}
+
+.AS{
+  color: white;
+}
+
+.notebookTitleDiv{
+  /* background-color: rgb(100, 100, 100); */
+  /* border-bottom: solid transparent 1px; */
+  /* border: solid transparent 1px; */
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px; */
+}
+
+.hpWelcome{
+  color: white;
+  margin-left: 1rem;
+  margin-top: 1rem;
+
 }

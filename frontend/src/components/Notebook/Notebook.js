@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Route, NavLink, useParams, useHistory } from "react-router-dom";
 import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNotebookThunk } from "../../store/notebooks";
 import { editNoteThunk, postNoteThunk, deleteNoteThunk  } from "../../store/notes";
-
+import Sidenavbar from "../Sidenavbar/Sidenavbar";
 function Notebook() {
 
   const { notebookId } = useParams();
@@ -17,6 +17,7 @@ function Notebook() {
   const sessionUser = useSelector(state => state?.session?.user);
   const notes = useSelector(state => state?.notes?.notes);
   const notebook = useSelector(state => state?.notebooks?.notebook);
+  const notebooks = useSelector(state => state?.notebooks?.notebooks);
 
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
@@ -147,6 +148,8 @@ function Notebook() {
 
 
   const deleteNoteSubmit = async (e, noteId) => {
+
+
     e.preventDefault();
     dispatch(deleteNoteThunk(noteId))
     await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
@@ -162,11 +165,12 @@ function Notebook() {
 if (loaded) {
   return (
     <>
+    <Sidenavbar name={sessionUser?.username} notebooks={notebooks}/>
       <h1>hello {sessionUser?.username}</h1>
       <h1>NOTEBOOK TITLE:{notebook?.title}</h1>
 
       {/* GET NOTES IN A NOTEBOOK  */}
-      <div className='homeNotesContainer'>
+      <div className='homeNotesContainer1'>
           <h1>Notes</h1>
           {notes?.length > 0 && notes?.map((note) => (
           <>
@@ -243,9 +247,10 @@ if (loaded) {
 
         {/* DELETE A NOTE */}
         <h1>Delete a note</h1>
+        {mainNote.id ?
         <button  onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
-
-
+        : <button> cant Delete</button>
+        }
 
         {/* CREATE A NOTE */}
         <button id="createNoteButton" onClick={createNewNote}>

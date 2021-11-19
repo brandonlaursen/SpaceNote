@@ -7,8 +7,10 @@ import SignupFormPage from './components/SignupFormPage/SignupFormPage';
 import SplashPage from './components/SplashPage/SplashPage';
 import Notebook from "./components/Notebook/Notebook";
 import * as sessionActions from "./store/session";
-
-
+import Note from "./components/Note/Note";
+import NoteList from "./components/NoteList/NoteList";
+import Sidenavbar
+ from "./components/Sidenavbar/Sidenavbar";
 function App() {
 
 
@@ -20,12 +22,14 @@ function App() {
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
-  <SplashPage/>
+
+
   return (
     <>
       <Switch>
 
         <Route exact path='/'>
+
         <SplashPage/>
         </Route>
         <Route exact path='/home'>
@@ -40,6 +44,18 @@ function App() {
         <Route path="/notebooks/:notebookId">
             <Notebook />
         </Route>
+
+
+
+        <Route path="/all-notes">
+            <NoteList title="All Notes"/>
+            <Route path="/all-notes/:id">
+                <Note />
+            </Route>
+        </Route>
+
+
+
         <Route>
             Page Not Found
         </Route>
