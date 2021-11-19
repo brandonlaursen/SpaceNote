@@ -17,7 +17,7 @@ function SplashPage() {
         <div className="splashPageContainer">
           {/* <h1 className="splashTitle">Tame your work, organize your life</h1> */}
           <ReactTypingEffect
-            text={["Tame your work, organize your life"]}
+            text={["Tame your work, organize your life", "A project by Brandon Laursen"]}
             className="splashTitle"
             speed="100"
             eraseSpeed="100"
