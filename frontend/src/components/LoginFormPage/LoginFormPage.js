@@ -35,7 +35,7 @@ function LoginFormPage() {
       <div className="loginFormContainer">
         <img className="loginIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
         <h1>SpaceNote</h1>
-        <p>Remember everything important.</p>
+        <p className="remember">Remember everything important.</p>
         <form className='loginForm' onSubmit={handleSubmit}>
           <ul className="loginErrors">
             {errors.map((error, idx) => (
