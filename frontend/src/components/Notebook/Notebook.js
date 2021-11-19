@@ -212,8 +212,8 @@ if (loaded) {
         {/* EDIT NOTE */}
         <div>
           <h1>Edit OR Post note</h1>
-          {/* <h1>{mainNote?.title}</h1>
-          <h1>{mainNote?.content}</h1> */}
+          <h1>{mainNote?.title}</h1>
+          <h1>{mainNote?.content}</h1>
         </div>
 
         <form >
