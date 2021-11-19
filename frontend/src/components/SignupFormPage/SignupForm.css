@@ -39,6 +39,7 @@
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  font-family:inherit;
 }
 
 .loginSubmit:hover{

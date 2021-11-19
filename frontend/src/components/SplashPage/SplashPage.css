@@ -41,10 +41,12 @@ body {
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  font-family:inherit;
 }
 
 .splashButton a{
   color: white;
+
 }
 .splashButton a:hover{
   color: purple;

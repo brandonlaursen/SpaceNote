@@ -218,7 +218,7 @@ if (loaded) {
 
         <form >
           <input
-              className=''
+              className='TET'
               type="text"
               placeholder="Write a Title"
               value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
@@ -228,7 +228,7 @@ if (loaded) {
               }
               />
             <textarea
-              className=''
+              className='TET'
               type="text"
               placeholder="Whats on your mind?"
               value={mainNoteContent ? mainNoteContent : newNoteContents}
