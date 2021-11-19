@@ -1,0 +1,109 @@
+.sidenavbar{
+  width: 240px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+  min-height: 100vh;
+  float: left;
+}
+
+* { margin: 0; padding: 0 }
+
+.sidenavbar-top-profile{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.sidenavbar-top-menu-item ul li {
+  list-style-type: none;
+
+}
+
+.profile-icon{
+  background: #f8cbad;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+
+.profile-title{
+  display: flex;
+  align-items: center;
+  flex :1;
+  margin-left: 10px;
+  margin-top: 2rem;
+}
+
+.sidenavbar-top-search{
+  padding: 15px;
+}
+
+.search-block{
+  display: flex;
+  align-items: center;
+  background: #404040;
+  padding:8px 10px;
+  border-radius: 30px;
+}
+
+input{
+  color: #fff;
+  margin-left: 10px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.sidenavbar-top-create-note{
+  padding: 0 15px;
+  color: #fff;
+}
+
+
+.create-note-btn{
+  display: flex;
+  align-items: center;
+  padding:8px 10px;
+  cursor: pointer;
+}
+
+
+
+.title{
+  margin-left: 10px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.sidenavbar-top-menu-item{
+  margin-top:10px;
+  height: 29rem;
+}
+
+.sidenavbar-top-menu-item ul li a {
+  display: flex;
+  color: #ccc;
+  text-decoration: none;
+  margin-top: 2rem;
+}
+
+.sidenavbar-bottom{
+  padding: 8px 15px;
+  border-top: 1px solid #555;
+
+}
+
+.icon{
+  font-size: 14px;
+  margin-right: 8px;
+}

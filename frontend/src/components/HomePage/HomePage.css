@@ -1,11 +1,104 @@
-.homeNotebooksContainer{
-  background-color: grey;
+.homepage-container{
+  background-color: red;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.homeNotebooksContainer h1{
-  color: red;
+
+.homePageTitle{
+  background-color: yellow;
+  height: 15rem;
+
 }
+
+
+.notesAndNotebooksContainer{
+  display: flex;
+  justify-content: space-evenly;
+
+}
+
+
+
+
 
 .homeNotesContainer{
+  /* position: absolute; */
+  display: flex;
   background-color: purple;
+  height: 100%;
+  overflow-x: scroll;
+  width: 35rem;
+  height: 20rem;
+  border: solid 5px black;
+}
+
+
+.noteItems{
+  display: flex;
+  flex-direction: column;
+
+  height: 16.9rem;
+  margin: .5rem;
+  background-color: white;
+  justify-content:space-evenly;
+  padding: 1rem;
+  border: solid 1px black;
+
+}
+
+/* .homeNotebooksContainer h1{
+  color: red;
+} */
+
+.notetitle{
+  background-color: green;
+  width: 15rem;
+  padding: .5rem;
+}
+
+.notecontent{
+  background-color: blue;
+  width: 15rem;
+  height: 100%;
+  word-wrap: break-word;
+  padding: .5rem;
+}
+
+.homeNotesContainerTitle{
+  background-color: lawngreen;
+  border-top: solid 5px black;
+  border-left: solid 5px black;
+  border-right: solid 5px black;
+
+}
+
+.homeNotesContainerTitle h1{
+  margin-left: 1rem;
+
+}
+
+.HN1{
+  /* position: relative; */
+}
+
+
+.homeNotebooksContainer{
+  background-color: grey;
+  width: 30rem;
+  height: 23.4rem;
+  overflow-y: scroll;
+  border: solid 5px black;
+
+}
+
+.notebookTitle{
+  border: solid 1px black;
+  text-align: center;
+  margin: .5rem;
+}
+
+.notebooktitle{
+  margin-left: 1rem;
 }
