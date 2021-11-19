@@ -63,14 +63,14 @@ function HomePage() {
       <div className="homepage-container">
 
           <div className="homePageTitle">
-            <h1>hello {sessionUser?.username}</h1>
+            <h1 className="hpWelcome">Hello, {sessionUser?.username}</h1>
           </div>
 
 
         <div className="notesAndNotebooksContainer">
           <div className="HN1">
 
-            <div className="homeNotesContainerTitle"> <h1>Notes</h1> </div>
+            <div className="homeNotesContainerTitle"> <h1 className="AS">Notes</h1> </div>
             <div className='homeNotesContainer'>
               {notes?.map((note) => (
 
@@ -92,10 +92,11 @@ function HomePage() {
 
 
           <div className='homeNotebooksContainer'>
-            <h1 className="notebooktitle">Notebooks</h1>
+
+            <div className="notebookTitleDiv"><h1 className="notebooktitle">NOTEBOOKS</h1></div>
             {notebooks?.length > 0 && notebooks?.map((notebook) => (
               <>
-              <NavLink to={`/notebooks/${notebook.id}`}> <h2 id={notebook.id} key={notebook.id} className="notebookTitle"> {notebook.title}</h2> </NavLink>
+              <NavLink className="NL" to={`/notebooks/${notebook.id}`}> <h2 id={notebook.id} key={notebook.id} className="notebookTitle"> {notebook.title}</h2> </NavLink>
               </>
             ))}
           </div>

@@ -1,5 +1,5 @@
 .homepage-container{
-  background-color: red;
+  /* background-color: red; */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -7,15 +7,22 @@
 
 
 .homePageTitle{
-  background-color: yellow;
-  height: 15rem;
+  /* position: absolute; */
+  /* background-color: yellow; */
+  background-image: url("https://wallpapercave.com/wp/wp6590692.jpg");
+  height: 30rem;
+  background-position: center;
+  background-size: cover;
 
 }
 
 
 .notesAndNotebooksContainer{
   display: flex;
+  /* position: absolute; */
   justify-content: space-evenly;
+  /* background-color: lawngreen; */
+  /* height: 22rem; */
 
 }
 
@@ -25,26 +32,31 @@
 
 .homeNotesContainer{
   /* position: absolute; */
+  /* margin-top: -1rem; */
   display: flex;
-  background-color: purple;
+  /* background-color: darkgrey; */
   height: 100%;
   overflow-x: scroll;
-  width: 35rem;
+  width: 40rem;
   height: 20rem;
-  border: solid 5px black;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
 }
 
 
 .noteItems{
   display: flex;
   flex-direction: column;
-
-  height: 16.9rem;
+  height: 18.9rem;
   margin: .5rem;
   background-color: white;
   justify-content:space-evenly;
-  padding: 1rem;
-  border: solid 1px black;
+  /* padding: .5rem; */
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 
 }
 
@@ -53,13 +65,15 @@
 } */
 
 .notetitle{
-  background-color: green;
+  /* background-color: green; */
   width: 15rem;
   padding: .5rem;
+  overflow: hidden;
+  /* word-wrap: break-word; */
 }
 
 .notecontent{
-  background-color: blue;
+  /* background-color: blue; */
   width: 15rem;
   height: 100%;
   word-wrap: break-word;
@@ -67,10 +81,18 @@
 }
 
 .homeNotesContainerTitle{
-  background-color: lawngreen;
-  border-top: solid 5px black;
-  border-left: solid 5px black;
-  border-right: solid 5px black;
+  /* background-color: rgb(100, 100, 100); */
+  /* color: purple; */
+  border-top: solid 1px black;
+  border-left: solid 1px black;
+  border-right: solid 1px black;
+  border-radius: 5px;
+  border: solid transparent 1px;
+  border-bottom: none;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  text-transform: uppercase;
 
 }
 
@@ -80,25 +102,65 @@
 }
 
 .HN1{
-  /* position: relative; */
+   /* position: absolute; */
+  margin-top: -12rem;
 }
 
 
 .homeNotebooksContainer{
-  background-color: grey;
+  /* background-color: darkgrey; */
   width: 30rem;
-  height: 23.4rem;
+  height: 23.1rem;
   overflow-y: scroll;
-  border: solid 5px black;
+  border: solid 1px black;
+  /* position: absolute;
+  margin-top: -1rem; */
+  margin-top: -11.99rem;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  border-radius: 5px;
 
 }
 
 .notebookTitle{
   border: solid 1px black;
+  height: 3rem;
+  /* justify-content: center; */
+  /* align-content: center; */
   text-align: center;
   margin: .5rem;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  text-decoration: none;
+
 }
 
+.NL{
+  text-decoration: none;
+  color: black;
+}
 .notebooktitle{
   margin-left: 1rem;
+  color: white;
+  /* vertical-align: middle; */
+}
+
+.AS{
+  color: white;
+}
+
+.notebookTitleDiv{
+  /* background-color: rgb(100, 100, 100); */
+  /* border-bottom: solid transparent 1px; */
+  /* border: solid transparent 1px; */
+  /* box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px; */
+}
+
+.hpWelcome{
+  color: white;
+  margin-left: 1rem;
+  margin-top: 1rem;
+
 }

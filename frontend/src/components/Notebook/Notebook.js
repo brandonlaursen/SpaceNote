@@ -170,7 +170,7 @@ if (loaded) {
       <h1>NOTEBOOK TITLE:{notebook?.title}</h1>
 
       {/* GET NOTES IN A NOTEBOOK  */}
-      <div className='homeNotesContainer'>
+      <div className='homeNotesContainer1'>
           <h1>Notes</h1>
           {notes?.length > 0 && notes?.map((note) => (
           <>

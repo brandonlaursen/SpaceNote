@@ -36,7 +36,7 @@ const Sidenavbar = ({name, notebooks}) => {
               <div className="sidenavbar-top-search">
                   <div className="search-block">
                       <FontAwesomeIcon className="icon" icon={faSearch} />
-                      <input placeholder="Search" />
+                      <input className= "search" placeholder="Search" />
                   </div>
               </div>
 
