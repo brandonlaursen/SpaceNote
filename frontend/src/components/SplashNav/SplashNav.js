@@ -1,5 +1,5 @@
 import "./SplashNav.css"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -16,7 +16,7 @@ function SplashNav() {
     e.preventDefault();
     setCredential("Demo-lition");
     setPassword("password")
-    return dispatch(sessionActions.login({ credential, password }))
+    dispatch(sessionActions.login({ credential, password }))
   }
 
   if (sessionUser) return <Redirect to="/home" />;
@@ -35,7 +35,7 @@ function SplashNav() {
         <li className="navLi">Why SpaceNote</li>
         <li className="navLi">Features</li>
         <li className="navLi">Plans </li>
-        <li><button className="splashDemo"onClick={demo} >Demo</button></li>
+        <button className="splashDemo"onClick={demo} >Demo</button>
         <li><button className="splashLogin"><a href="/login"> Log In</a></button></li>
      </ul>
     </nav>

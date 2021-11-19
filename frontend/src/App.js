@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
 import HomePage from './components/HomePage/HomePage';
 import LoginFormPage from './components/LoginFormPage/LoginFormPage';
@@ -9,12 +9,15 @@ import Notebook from "./components/Notebook/Notebook";
 import * as sessionActions from "./store/session";
 import Note from "./components/Note/Note";
 import NoteList from "./components/NoteList/NoteList";
-import Sidenavbar
- from "./components/Sidenavbar/Sidenavbar";
+import Sidenavbar from "./components/Sidenavbar/Sidenavbar";
+import ProtectedRoute from "./components/auth/ProtectedRoute";
+
+
+
 function App() {
 
 
-  // const sessionUser = useSelector(state => state.session.user);
+  const sessionUser = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -23,18 +26,27 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
+  if (!isLoaded) {
+    return (
+      <div id="loading">
+        <img src={"https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"} alt="Loading..." />
+      </div>
+    );
+  }
 
   return (
     <>
       <Switch>
 
         <Route exact path='/'>
+        {sessionUser ? <Redirect to="/home"/> : null }
+          <SplashPage/>
+        </Route>
 
-        <SplashPage/>
-        </Route>
-        <Route exact path='/home'>
+        <ProtectedRoute exact path='/home'>
           <HomePage />
-        </Route>
+        </ProtectedRoute>
+
         <Route path='/login'>
           <LoginFormPage />
         </Route>

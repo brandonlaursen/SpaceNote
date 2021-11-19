@@ -47,14 +47,14 @@ function HomePage() {
   }
 
 
-  const logout = e => {
-    e.preventDefault();
-    dispatch(sessionActions.logout());
-  };
+  // const logout = e => {
+  //   e.preventDefault();
+  //   dispatch(sessionActions.logout());
+  // };
 
-  if (!sessionUser) return (
-    <Redirect to="/" />
-  );
+  // if (!sessionUser) return (
+  //   <Redirect to="/" />
+  // );
 
   return(
     <>
