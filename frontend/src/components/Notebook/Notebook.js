@@ -6,10 +6,16 @@ import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNoteb
 import { editNoteThunk, postNoteThunk, deleteNoteThunk  } from "../../store/notes";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
-
-
+import ReactQuill from "react-quill"
+import 'react-quill/dist/quill.snow.css'
+import ReactHtmlParser from 'react-html-parser';
 
 function Notebook() {
+
+
+  const [convertedText, setConvertedText] = useState("Some default content");
+
+  console.log("look",convertedText.toString())
 
   const { notebookId } = useParams();
   const dispatch = useDispatch();
@@ -191,7 +197,7 @@ if (loaded) {
           {notes?.length > 0 && notes?.map((note) => (
           <div className="homeNotesNotesContainer" onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
             <h2 className="homeNotesNotes" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
-            <h3 id={note.id} key={note.id}> {note.content}</h3>
+            {/* <h3 id={note.id} key={note.id}> {note.content}</h3> */}
           </div>
           ))}
       </div>
@@ -216,6 +222,7 @@ if (loaded) {
 
     <div className="createModal">
       <h1>Edit Notebook</h1>
+
       <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
           <input
               className='CreateInput2'
@@ -241,7 +248,9 @@ if (loaded) {
         </Modal>
         )}
 
-        <div className="notepadContainer">
+
+      <div>
+
           <form >
             <input
                 className='TET note-title'
@@ -254,24 +263,25 @@ if (loaded) {
                 : e => setMainNoteTitle(e.target.value)
                 }
                 />
-              <textarea
-                className='TET note-content'
-                type="text"
-                placeholder="Whats on your mind?"
-                value={mainNoteContent ? mainNoteContent : newNoteContents}
-                onChange={newNote
-                  ? e => setNewNoteContents(e.target.value)
-                  : e => setMainNoteContent(e.target.value)
-                  }
-                ></textarea>
-          <button type="submit" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
-          {mainNote.id
+
+          </form>
+      <ReactQuill
+        id="my-form1"
+        theme='snow'
+        value={mainNoteContent ? mainNoteContent : newNoteContents}
+        type="text"
+        onChange={newNote
+          ? value => setNewNoteContents(value)
+          : value => setMainNoteContent(value)
+          }
+        style={{minHeight: '600px', height:"40rem", width:"40rem"}}
+      />
+      <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
+      {mainNote.id
             ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
             : <button className="DBButton"> Delete </button>
           }
-          </form>
-        </div>
-
+    </div>
         </div>
 
 
@@ -306,3 +316,36 @@ export default Notebook;
               />
         <button type="submit" onSubmit={(e) => e.preventDefault()}>Create</button>
         </form> */
+
+
+
+        /* <div className="notepadContainer">
+          <form >
+            <input
+                className='TET note-title'
+                type="text"
+                placeholder="Write a Title"
+
+                value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
+                onChange={newNote
+                ? e => setNewNoteTitle(e.target.value)
+                : e => setMainNoteTitle(e.target.value)
+                }
+                />
+              <textarea
+                className='TET note-content'
+                type="text"
+                placeholder="Whats on your mind?"
+                value={mainNoteContent ? mainNoteContent : newNoteContents}
+                onChange={newNote
+                  ? e => setNewNoteContents(e.target.value)
+                  : e => setMainNoteContent(e.target.value)
+                  }
+                ></textarea>
+          <button type="submit" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
+          {mainNote.id
+            ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
+            : <button className="DBButton"> Delete </button>
+          }
+          </form>
+        </div> */
