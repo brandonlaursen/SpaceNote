@@ -48,12 +48,12 @@ function Notebook() {
 
 
 
-  //NEW NOTE
+
   const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
 
-  //Old Notes
+
   const [mainNote, setMainNote] = useState("");
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
@@ -174,6 +174,39 @@ function Notebook() {
   }
 
 
+  const modules = {
+    toolbar: [
+      [{ header: '1' }, { header: '2' }, { font: [] }],
+      [{ size: [] }],
+      ['bold', 'italic', 'underline'],
+      [{ list: 'ordered' }, { list: 'bullet' }],
+      [{ color: [] }, { background: [] }],
+      ['link', 'image', 'video'],
+      ['clean'],
+    ],
+  };
+
+  const toolbarOptions = [
+    ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+    ['blockquote', 'code-block'],
+
+    [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+    [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+    [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
+    [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
+    [{ 'direction': 'rtl' }],                         // text direction
+
+    [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
+    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+
+    [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+    [{ 'font': [] }],
+    [{ 'align': [] }],
+
+    ['clean']                                         // remove formatting button
+  ];
+
+
   // if(!notebook) {
   //   history.push(`/home`);
   // }
@@ -197,7 +230,7 @@ if (loaded) {
           {notes?.length > 0 && notes?.map((note) => (
           <div className="homeNotesNotesContainer" onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
             <h2 className="homeNotesNotes" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
-            {/* <h3 id={note.id} key={note.id}> {note.content}</h3> */}
+            <h3 id={note.id} key={note.id}> {ReactHtmlParser(note.content)}</h3>
           </div>
           ))}
       </div>
@@ -266,22 +299,26 @@ if (loaded) {
 
           </form>
       <ReactQuill
+        toolbarOptions={toolbarOptions}
+        modules={modules}
+        className="TET"
         id="my-form1"
         theme='snow'
         value={mainNoteContent ? mainNoteContent : newNoteContents}
         type="text"
+        placeholder="Whats on your mind?"
         onChange={newNote
           ? value => setNewNoteContents(value)
           : value => setMainNoteContent(value)
           }
-        style={{minHeight: '600px', height:"40rem", width:"40rem"}}
+        style={{minHeight: '600px', height:"10rem", width:"40rem"}}
       />
+    </div>
       <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
       {mainNote.id
             ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
             : <button className="DBButton"> Delete </button>
           }
-    </div>
         </div>
 
 

@@ -15,11 +15,11 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(25)
+        type: Sequelize.STRING(15)
       },
       bannerPicUrl: {
         allowNull: false,
-        type: Sequelize.STRING(256),
+        type: Sequelize.TEXT,
         defaultValue: "http://www.pixelstalk.net/wp-content/uploads/2016/09/Download-All-White-Image.jpg",
       },
       createdAt: {

@@ -8,7 +8,7 @@ import { getUsersNotesThunk } from "../../store/notes";
 import { NavLink } from 'react-router-dom';
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
-
+import ReactHtmlParser from 'react-html-parser';
 
 
 
@@ -16,7 +16,7 @@ import { Modal } from '../../context/Modal';
 function HomePage() {
 
   const dispatch = useDispatch();
-  const sessionUser = useSelector(state => state?.session?.user);
+  const sessionUser = useSelector(state => state.session.user);
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
   const notes = useSelector(state => state?.notes?.notes);
 
@@ -38,7 +38,7 @@ function HomePage() {
 
     if(sessionUser){
       dispatch(getUsersNotebooksThunk(sessionUser?.id))
-      dispatch(getNotebookNotesThunk(""))
+      // dispatch(getNotebookNotesThunk(""))
       dispatch(getUsersNotesThunk(sessionUser?.id))
     }
 
@@ -93,7 +93,7 @@ function HomePage() {
                   <h1 id={note.id} key={note.id}> {note.title}</h1>
                 </div>
                 <div className="notecontent">
-                  <h3 id={note.id} key={note.id}> {note.content}</h3>
+                  <h3 id={note.id} key={note.id}> {ReactHtmlParser(note.content)}</h3>
                 </div>
               </div>
               </>
