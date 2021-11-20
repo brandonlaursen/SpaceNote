@@ -3,7 +3,7 @@
   background-color: white;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  /* justify-content: start; */
   height: 41.5rem;
   width: 33rem;
   margin: auto;

@@ -7,9 +7,9 @@ import SignupFormPage from './components/SignupFormPage/SignupFormPage';
 import SplashPage from './components/SplashPage/SplashPage';
 import Notebook from "./components/Notebook/Notebook";
 import * as sessionActions from "./store/session";
-import Note from "./components/Note/Note";
-import NoteList from "./components/NoteList/NoteList";
-import Sidenavbar from "./components/Sidenavbar/Sidenavbar";
+// import Note from "./components/Note/Note";
+// import NoteList from "./components/NoteList/NoteList";
+// import Sidenavbar from "./components/Sidenavbar/Sidenavbar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 

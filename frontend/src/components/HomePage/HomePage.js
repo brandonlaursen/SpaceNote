@@ -1,9 +1,9 @@
 import "./HomePage.css"
-import * as sessionActions from "../../store/session";
+// import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router";
+// import { Redirect } from "react-router";
 import { useEffect, useState } from "react";
-import { getUsersNotebooksThunk, getNotebookNotesThunk, postNotebookThunk } from "../../store/notebooks";
+import { getUsersNotebooksThunk, postNotebookThunk } from "../../store/notebooks";
 import { getUsersNotesThunk } from "../../store/notes";
 import { NavLink } from 'react-router-dom';
 import Sidenavbar from "../Sidenavbar/Sidenavbar";

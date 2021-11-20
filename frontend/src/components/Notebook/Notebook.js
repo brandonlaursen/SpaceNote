@@ -1,7 +1,7 @@
 import "./Notebook.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Route, NavLink, useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNotebookThunk } from "../../store/notebooks";
 import { editNoteThunk, postNoteThunk, deleteNoteThunk  } from "../../store/notes";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
@@ -13,9 +13,9 @@ import ReactHtmlParser from 'react-html-parser';
 function Notebook() {
 
 
-  const [convertedText, setConvertedText] = useState("Some default content");
+  // const [convertedText, setConvertedText] = useState("Some default content");
 
-  console.log("look",convertedText.toString())
+  // console.log("look",convertedText.toString())
 
   const { notebookId } = useParams();
   const dispatch = useDispatch();
@@ -35,8 +35,8 @@ function Notebook() {
   const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
 
   //EDIT NOTE
-  const [editNoteTitle, setEditNoteTitle] = useState("");
-  const [editNoteContents, setEditNoteContents] = useState("");
+  // const [editNoteTitle, setEditNoteTitle] = useState("");
+  // const [editNoteContents, setEditNoteContents] = useState("");
 
   // //NEW NOTE
   // const [newNoteTitle, setNewNoteTitle] = useState("");
@@ -157,11 +157,14 @@ function Notebook() {
 
 
   const deleteNoteSubmit = async (e, noteId) => {
-
-
     e.preventDefault();
-    dispatch(deleteNoteThunk(noteId))
-    await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
+
+    setMainNote("");
+    await dispatch(deleteNoteThunk(noteId))
+    createNewNote();
+    dispatch(getNotebookNotesThunk(notebookId));
+    // await dispatch(deleteNoteThunk(noteId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true))
+    // await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
 
 

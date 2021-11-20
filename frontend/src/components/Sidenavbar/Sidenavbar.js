@@ -1,11 +1,11 @@
 
 import * as sessionActions from "../../store/session";
-import { useDispatch, useSelector } from "react-redux";
-import React, { useState, useContext } from 'react';
+import { useDispatch } from "react-redux";
+import React, { useState } from 'react';
 
 
 import './Sidenavbar.css';
-import { NavLink, useHistory } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
@@ -34,7 +34,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
               <div className="sidenavbar-top-search">
                   <div className="search-block">
-                  <i class="fas fa-search"></i>
+                  <i className="fas fa-search"></i>
                       <input className= "search" placeholder="Search" />
                   </div>
               </div>
@@ -50,21 +50,21 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
               </div> */}
 
-                <h3 className="notebooksNavTitle"><i class="fas fa-pen"></i> <a href="/home" className="navhome1"> New note</a> </h3>
-                <h3 className="notebooksNavTitle"><i class="fas fa-space-shuttle"></i> <a href="/home" className="navhome">Home</a> </h3>
-                <h3 className="notebooksNavTitle"><i class="far fa-sticky-note"></i> Notes</h3>
+                <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <a href="/home" className="navhome1"> New note</a> </h3>
+                <h3 className="notebooksNavTitle"><i className="fas fa-space-shuttle"></i> <a href="/home" className="navhome">Home</a> </h3>
+                <h3 className="notebooksNavTitle"><i className="far fa-sticky-note"></i> Notes</h3>
 
 
               <div className="sidenavbar-top-menu-item">
 
-                <h3 className="notebooksNavTitle" onClick={() => setShowNotebooksNav(!showNotebooksNav)} > <i class="fas fa-book"></i> Notebooks</h3>
+                <h3 className="notebooksNavTitle" onClick={() => setShowNotebooksNav(!showNotebooksNav)} > <i className="fas fa-book"></i> Notebooks</h3>
                 {showNotebooksNav &&
                   <div className="NavNotebookContainer">
                     <ul>
                         <li>
                         {notebooks?.length > 0 && notebooks?.map((notebook) => (
                             <>
-                            <NavLink to={`/notebooks/${notebook.id}`}> <h3 id={notebook.id} key={notebook.id} className="NavNotebooks"> <i class="fas fa-book-open"></i> {notebook.title.length > 11 ? notebook.title.slice(0, 11) + "..." : notebook.title}</h3> </NavLink>
+                            <NavLink to={`/notebooks/${notebook.id}`}> <h3 id={notebook.id} key={notebook.id} className="NavNotebooks"> <i className="fas fa-book-open"></i> {notebook.title.length > 11 ? notebook.title.slice(0, 11) + "..." : notebook.title}</h3> </NavLink>
                             </>
                             ))}
                         </li>
@@ -73,7 +73,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                 }
 
 
-                <h3 className="notebooksNavTitle" onClick={logout}><i class="fas fa-sign-out-alt" > </i> Sign Out</h3>
+                <h3 className="notebooksNavTitle" onClick={logout}><i className="fas fa-sign-out-alt" > </i> Sign Out</h3>
               </div>
           </div>
 

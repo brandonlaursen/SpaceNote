@@ -83,10 +83,10 @@ export const postNoteThunk = (newNote) => async(dispatch) => {
 //EDIT A NOTE
 const EDIT_NOTE = "notes/EDIT_NOTE";
 
-const editNote = (noteId) => ({
-  type: EDIT_NOTE,
-  payload: noteId
-});
+// const editNote = (noteId) => ({
+//   type: EDIT_NOTE,
+//   payload: noteId
+// });
 
 export const editNoteThunk = (payload, noteId) => async(dispatch) => {
   const res = await csrfFetch(`/api/notes/note/${noteId}`, {
@@ -134,4 +134,3 @@ export default function notesReducer(state=initialState, action) {
     return state;
   }
 }
-
