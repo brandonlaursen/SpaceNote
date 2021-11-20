@@ -82,7 +82,16 @@ router.post("/", asyncHandler(async(req, res) => {
     title: title,
     content: content
   })
-  return res.json(newNote)
+
+  const notes = await Note.findAll({
+    where: {
+      userId: userId,
+      notebookId: notebookId,
+    },
+    order: [["createdAt", "DESC"]],
+  })
+  return res.json(notes)
+  // return res.json(newNote)
 }))
 // ----------------------------------------------------------
 
@@ -90,7 +99,7 @@ router.post("/", asyncHandler(async(req, res) => {
 //Edit a specific note UPDATE WORKS
 router.put("/note/:id", asyncHandler(async(req, res) => {
   const noteId = req.params.id;
-  
+
   const note = await Note.findByPk(noteId);
   const { notebookId, title, content } = req.body;
 
