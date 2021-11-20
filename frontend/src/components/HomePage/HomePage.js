@@ -126,7 +126,7 @@ function HomePage() {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>
           <div className="createModal">
-            <h1>Create a notebook</h1>
+            <h1>Create Notebook</h1>
             <form onSubmit={createNotebookSubmit} id="my-form">
               <input
                   className='CreateInput1'

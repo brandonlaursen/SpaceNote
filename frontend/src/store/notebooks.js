@@ -127,9 +127,7 @@ export const editNotebookThunk = (payload, notebookId) => async(dispatch) => {
 }
 
 const initialState = {
-  notebooks: null,
-  notes: null,
-  notebook: null
+  
 };
 
 

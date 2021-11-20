@@ -87,7 +87,7 @@
 
 .sidenavbar-top-menu-item{
   margin-top:10px;
-  height: 28rem;
+  height: 28.7rem;
   /* background-color: white; */
 }
 
@@ -95,11 +95,13 @@
   display: flex;
   color: #ccc;
   text-decoration: none;
-  /* margin-top: 2rem; */
+  /* margin-top: 12rem; */
 
 }
 
 .sidenavbar-bottom{
+  /* position: fixed;
+  float: end; */
   padding: 8px 15px;
   border-top: 1px solid #555;
 
@@ -124,6 +126,7 @@
   height: 7rem;
   overflow: scroll;
   margin-bottom: .4rem;
+
 }
 
 .notebooksNavTitle{
@@ -159,4 +162,8 @@
 
 .navhome1:hover{
   color: purple;
+}
+
+.madeBy{
+  margin-top: 1rem;
 }

@@ -80,7 +80,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
           </div>
 
           <div className="sidenavbar-bottom">
-            <h3>Made by Brandon</h3>
+            <h3 className="madeBy">Made by Brandon</h3>
           </div>
       </div>
   )
