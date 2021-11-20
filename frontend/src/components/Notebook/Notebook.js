@@ -235,7 +235,7 @@ if (loaded) {
               />
 
         <button className="EditNotebookbtn" type="submit" onSubmit={(e) => e.preventDefault()}>Edit Notebook</button>
-        <button className='EditNotebookbtn' onClick={(e) => deleteNotebookSubmit(notebook.id)} >Delete</button>
+        <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(notebook.id)} >Delete</button>
         </form>
       </div>
         </Modal>
