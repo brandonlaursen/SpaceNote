@@ -176,13 +176,15 @@ function Notebook() {
 
   const modules = {
     toolbar: [
-      [{ header: '1' }, { header: '2' }, { font: [] }],
-      [{ size: [] }],
-      ['bold', 'italic', 'underline'],
+      [{ header: '1' }, { header: '2' }, { font: [] },],
+      [{ size: [] }, 'code-block', ],
+      ['bold', 'italic', 'underline', 'strike'],
+      [{ 'script': 'super' }, { 'script': 'sub' }],
       [{ list: 'ordered' }, { list: 'bullet' }],
       [{ color: [] }, { background: [] }],
-      ['link', 'image', 'video'],
-      ['clean'],
+      ['link', 'image', 'video',  ],
+      [ 'direction', { 'align': [] }],
+      ['clean', ],
     ],
   };
 
