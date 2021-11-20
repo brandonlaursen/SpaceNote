@@ -56,18 +56,6 @@ function App() {
         <ProtectedRoute path="/notebooks/:notebookId">
             <Notebook />
         </ProtectedRoute>
-
-
-
-        <Route path="/all-notes">
-            <NoteList title="All Notes"/>
-            <Route path="/all-notes/:id">
-                <Note />
-            </Route>
-        </Route>
-
-
-
         <Route>
             Page Not Found
         </Route>

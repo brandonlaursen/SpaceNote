@@ -2,12 +2,10 @@
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import React, { useState, useContext } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faPlus, faStar } from '@fortawesome/free-solid-svg-icons'
+
 
 import './Sidenavbar.css';
 import { NavLink, useHistory } from 'react-router-dom'
-
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
@@ -36,7 +34,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
               <div className="sidenavbar-top-search">
                   <div className="search-block">
-                      <FontAwesomeIcon className="icon" icon={faSearch} />
+                  <i class="fas fa-search"></i>
                       <input className= "search" placeholder="Search" />
                   </div>
               </div>

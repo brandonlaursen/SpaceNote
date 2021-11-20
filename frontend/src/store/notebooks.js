@@ -127,9 +127,9 @@ export const editNotebookThunk = (payload, notebookId) => async(dispatch) => {
 }
 
 const initialState = {
-  
+  notebooks: null,
+  notes: null
 };
-
 
 export default function notebooksReducer(state=initialState, action) {
   switch(action.type) {
