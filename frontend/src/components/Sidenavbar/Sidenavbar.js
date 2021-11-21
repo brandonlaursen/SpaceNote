@@ -50,7 +50,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
               </div> */}
 
-                <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <a href="/home" className="navhome1"> New note</a> </h3>
+                <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <a href="/allnotes" className="navhome1"> New note</a> </h3>
                 <h3 className="notebooksNavTitle"><i className="fas fa-space-shuttle"></i> <a href="/home" className="navhome">Home</a> </h3>
                 <h3 className="notebooksNavTitle"><i className="far fa-sticky-note"></i> Notes</h3>
 

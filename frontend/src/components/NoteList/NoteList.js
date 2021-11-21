@@ -32,7 +32,7 @@ function Notelist() {
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
 
-  console.log("===",currentNotebook)
+  // console.log("===",notebooks[currentNotebook])
 
   useEffect(() => {
 
@@ -55,17 +55,23 @@ function Notelist() {
     setMainNoteContent("");
     setMainNote("");
     setNewNoteTitle("");
+    setCurrentNotebook("")
     setNewNoteContents(null);
     setNewNote(true);
 
   }
 
-  const handleSubmit = async(e, noteId, notebookId) => {
+  const handleSubmit = async(e, noteId) => {
     e.preventDefault();
+    // console.log("yes",notebookId)
     if(newNote) {
+      let cn = currentNotebook
+      if(currentNotebook === "") {
+        cn = 1;
+      }
       const payload = {
         userId: sessionUser?.id,
-        notebookId: currentNotebook,
+        notebookId: cn,
         title: newNoteTitle,
         content: newNoteContents,
       };
@@ -163,7 +169,7 @@ if (loaded) {
 
           <div className='homeNotesContainer1'>
               {notes?.length > 0 && notes?.map((note) => (
-              <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
+              <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content); setCurrentNotebook(note.notebookId)}} >
                 <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
                 <h3 > {ReactHtmlParser(note.content)}</h3>
               </div>
@@ -211,7 +217,7 @@ if (loaded) {
             style={{minHeight: '600px', height:"10rem", width:"40rem"}}
           />
         </div>
-          <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote?.id, mainNote?.notebookId)}>Save</button>
+          <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote?.id, )}>Save</button>
           {mainNote.id
                 ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote.id)} >Delete</button>
                 : <button className="DBButton"> Delete </button>
@@ -221,10 +227,10 @@ if (loaded) {
 
       </div>
 
-
+              {currentNotebook ? <h1>Current Notebook: {currentNotebook}</h1> : <h1>Please select a notebook</h1>}
 
       <select onChange={updateNotebook}>
-						{notebooks.map((notebook) => (
+						{notebooks?.map((notebook) => (
 							<option key={notebook.id} value={notebook.id}>
 								{notebook.title}
 							</option>
