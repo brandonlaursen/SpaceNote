@@ -65,8 +65,8 @@ router.get("/note/:id", asyncHandler(async (req, res) => {
 router.delete("/note/:id", asyncHandler(async (req, res) => {
   const note = await Note.findByPk(req.params.id);
   await note.destroy();
+  return res.json(note);
 
-  return "succesfully deleted"
   })
 );
 // ----------------------------------------------------------

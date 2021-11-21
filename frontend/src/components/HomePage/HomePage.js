@@ -87,16 +87,19 @@ function HomePage() {
             <div className='homeNotesContainer'>
               {notes?.map((note) => (
 
-              <>
-              <div className="noteItems">
-                <div className="notetitle">
-                  <h1 id={note.id} key={note.id}> {note.title}</h1>
-                </div>
-                <div className="notecontent">
-                  <h3 id={note.id} key={note.id}> {ReactHtmlParser(note.content)}</h3>
+              <div id={note.id} key={note.id}>
+                <div className="noteItems" >
+
+                  <div className="notetitle">
+                    <h1 > {note.title}</h1>
+                  </div>
+
+                  <div className="notecontent">
+                    <h3> {ReactHtmlParser(note.content)}</h3>
+                  </div>
+
                 </div>
               </div>
-              </>
 
               ))}
 
@@ -112,9 +115,9 @@ function HomePage() {
             </div>
 
             {notebooks?.length > 0 && notebooks?.map((notebook) => (
-              <>
-              <NavLink className="NL" to={`/notebooks/${notebook.id}`}> <h2 id={notebook.id} key={notebook.id} className="notebookTitle"> {notebook.title}</h2> </NavLink>
-              </>
+
+              <NavLink id={notebook.id} key={notebook.id}  className="NL" to={`/notebooks/${notebook.id}`}> <h2 className="notebookTitle"> {notebook.title}</h2> </NavLink>
+              
             ))}
           </div>
 

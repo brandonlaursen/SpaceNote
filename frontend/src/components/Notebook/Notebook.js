@@ -25,10 +25,10 @@ function Notebook() {
   const [showModal, setShowModal] = useState(false);
 
    //STATE
-  const sessionUser = useSelector(state => state?.session?.user);
-  const notes = useSelector(state => state?.notes?.notes);
-  const notebook = useSelector(state => state?.notebooks?.notebook);
-  const notebooks = useSelector(state => state?.notebooks?.notebooks);
+  const sessionUser = useSelector(state => state.session.user);
+  const notes = useSelector(state => state.notes.notes);
+  const notebook = useSelector(state => state.notebooks.notebook);
+  const notebooks = useSelector(state => state.notebooks.notebooks);
 
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
@@ -75,6 +75,7 @@ function Notebook() {
     mainNote,
     mainNoteContent,
     mainNoteTitle,
+    notebook
   ]);
 
 
@@ -127,8 +128,9 @@ function Notebook() {
     setMainNoteContent("");
     setMainNote("");
     setNewNoteTitle("");
-    setNewNoteContents("");
+    setNewNoteContents(null);
     setNewNote(true);
+    
   }
 
   const handleSubmit = async(e, noteId) => {
@@ -159,10 +161,12 @@ function Notebook() {
   const deleteNoteSubmit = async (e, noteId) => {
     e.preventDefault();
 
-    setMainNote("");
     await dispatch(deleteNoteThunk(noteId))
-    createNewNote();
+    setMainNote("");
     dispatch(getNotebookNotesThunk(notebookId));
+    createNewNote();
+    createNewNote();
+
     // await dispatch(deleteNoteThunk(noteId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true))
     // await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
@@ -233,8 +237,8 @@ if (loaded) {
 
       <div className='homeNotesContainer1'>
           {notes?.length > 0 && notes?.map((note) => (
-          <div className="homeNotesNotesContainer" onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
-            <h2 className="homeNotesNotes" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
+          <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
+            <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
             <h3 > {ReactHtmlParser(note.content)}</h3>
           </div>
           ))}

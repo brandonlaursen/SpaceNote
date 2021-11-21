@@ -53,6 +53,7 @@ export const deleteNoteThunk = (noteId) => async(dispatch) => {
   if(res.ok) {
     const oldNote = await res.json();
     dispatch(deleteNote(oldNote));
+    return oldNote;
   }
 }
 
