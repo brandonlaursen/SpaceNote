@@ -8,7 +8,7 @@ import SplashPage from './components/SplashPage/SplashPage';
 import Notebook from "./components/Notebook/Notebook";
 import * as sessionActions from "./store/session";
 // import Note from "./components/Note/Note";
-// import NoteList from "./components/NoteList/NoteList";
+import NoteList from "./components/NoteList/NoteList";
 // import Sidenavbar from "./components/Sidenavbar/Sidenavbar";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
@@ -56,6 +56,9 @@ function App() {
         <ProtectedRoute path="/notebooks/:notebookId">
             <Notebook />
         </ProtectedRoute>
+        <Route path="/allnotes">
+            <NoteList/>
+        </Route>
         <Route>
             Page Not Found
         </Route>

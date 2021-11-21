@@ -104,10 +104,7 @@ export const editNoteThunk = (payload, noteId) => async(dispatch) => {
 
 
 
-const initialState = {
-  notes: null,
-  note: null
-}
+const initialState = {}
 
 export default function notesReducer(state=initialState, action) {
   switch(action.type) {
