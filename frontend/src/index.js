@@ -6,11 +6,13 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
+import { ShowModalProvider } from './context/showModal';
 import App from './App';
 
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from './store/session';
+// import { ShowModalProvider } from './context/showModal';
 
 const store = configureStore();
 
@@ -30,14 +32,16 @@ if (process.env.NODE_ENV !== "production") {
 
 function Root() {
   return (
-    <ModalProvider>
       <Provider store={store}>
-        <BrowserRouter>
-          <App />
-          {/* <Carrot /> */}
-        </BrowserRouter>
+        <ShowModalProvider>
+          <ModalProvider>
+            <BrowserRouter>
+              <App />
+              {/* <Carrot /> */}
+            </BrowserRouter>
+        </ModalProvider>
+       </ShowModalProvider>
       </Provider>
-    </ModalProvider>
   );
 }
 

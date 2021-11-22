@@ -151,9 +151,15 @@ router.delete("/notebook/:notebookId", asyncHandler(async (req, res) => {
   const notebookId = req.params.notebookId;
 
   const notebook = await Notebook.findByPk(notebookId);
+  const userId = notebook.userId
   await notebook.destroy()
 
-  return "succesfully deleted"
+  const notebooks = await Notebook.findAll({
+    where: {
+      userId: userId
+    }
+  })
+  return res.json(notebooks);
 
 
 }));

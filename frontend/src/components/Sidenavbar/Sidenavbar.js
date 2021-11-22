@@ -5,13 +5,15 @@ import React, { useState } from 'react';
 import { useEffect } from "react";
 import { getUsersNotebooksThunk } from "../../store/notebooks";
 import { useSelector } from "react-redux";
+import { useShowModal } from '../../context/showModal';
 
 import './Sidenavbar.css';
 import { NavLink } from 'react-router-dom'
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
-
+  const { num } = useShowModal();
+  const path = window.location.href;
   const sessionUser = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
@@ -29,7 +31,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
       // dispatch(getNotebookNotesThunk(""))
     }
 
-  }, [dispatch, sessionUser])
+  }, [dispatch, sessionUser, num, path])
 
 
   return (
