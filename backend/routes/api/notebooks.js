@@ -132,11 +132,10 @@ router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
 
 // Create a notebook CREATE WORKS
 router.post("/", asyncHandler(async function (req, res) {
-		const { title, userId, bannerPicUrl } = req.body;
+		const { title, userId } = req.body;
 		const newNotebook = await Notebook.create({
 			title: title,
 			userId: userId,
-      bannerPicUrl: bannerPicUrl,
 			createdAt: new Date(),
 			updatedAt: new Date(),
 		});
@@ -171,11 +170,10 @@ router.put("/notebook/:notebookId", asyncHandler(async (req, res) => {
   const notebookId = req.params.notebookId;
 
   const notebook = await Notebook.findByPk(notebookId);
-  const { title, bannerPicUrl } = req.body;
+  const { title } = req.body;
 
   const newNotebook = await notebook.update({
-    title: title,
-    bannerPicUrl: bannerPicUrl
+    title: title
   })
 
   return res.json(newNotebook)

@@ -32,7 +32,7 @@ function Notebook() {
 
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
-  const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
+  // const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
 
   const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
@@ -77,8 +77,7 @@ function Notebook() {
   const editNotebookSubmit = (e, notebookId) => {
     e.preventDefault();
     const payload = {
-      title: editNotebookTitle,
-      bannerPicUrl: editBannerPicUrl
+      title: editNotebookTitle
     }
 
     // setShow(false);
@@ -261,14 +260,7 @@ if (loaded) {
                       value={editNotebookTitle}
                       onChange={(e) => setEditNotebookTitle(e.target.value)}
                       />
-                    <input
-                      className='CreateInput2'
-                      type="text"
-                      placeholder="Please provide a pic url"
-                      required
-                      value={editBannerPicUrl}
-                      onChange={(e) => setEditBannerPicUrl(e.target.value)}
-                      />
+                    
 
                 <button className="EditNotebookbtn" type="submit" >Edit Notebook</button>
                 <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(e, notebook.id)} >Delete</button>

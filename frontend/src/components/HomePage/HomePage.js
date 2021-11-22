@@ -26,13 +26,13 @@ function HomePage() {
   // console.log("notes", notes);
 
   const [title, setTitle] = useState("");
-  const [bannerPicUrl, setBannerPicUrl] = useState("");
+  // const [bannerPicUrl, setBannerPicUrl] = useState("");
   // const [showModal, setShowModal] = useState(false);
   const { show, setShow, num } = useShowModal();
 
 
   const updateTitle = (e) => setTitle(e.target.value);
-  const updateBannerPic = (e) => setBannerPicUrl(e.target.value);
+  // const updateBannerPic = (e) => setBannerPicUrl(e.target.value);
 
 
 
@@ -51,7 +51,6 @@ function HomePage() {
     const payload = {
       title,
       userId: sessionUser.id,
-      bannerPicUrl
     }
     dispatch(postNotebookThunk(payload)).then(() => dispatch(getUsersNotebooksThunk(sessionUser?.id)))
     setShow(false);
@@ -137,14 +136,6 @@ function HomePage() {
                   required
                   value={title}
                   onChange={updateTitle}
-                  />
-                <input
-                  className='CreateInput1'
-                  type="text"
-                  placeholder="Please provide a pic url"
-                  required
-                  value={bannerPicUrl}
-                  onChange={updateBannerPic}
                   />
             </form>
             <button type="submit" form="my-form" className="CreateNoteButton" >Create</button>
