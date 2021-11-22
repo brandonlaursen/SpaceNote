@@ -2,13 +2,17 @@
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
-
+import { useEffect } from "react";
+import { getUsersNotebooksThunk } from "../../store/notebooks";
+import { useSelector } from "react-redux";
 
 import './Sidenavbar.css';
 import { NavLink } from 'react-router-dom'
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
+
+  const sessionUser = useSelector(state => state.session.user);
 
   const dispatch = useDispatch();
   const [showNotebooksNav, setShowNotebooksNav] = useState(false);
@@ -17,6 +21,15 @@ const Sidenavbar = ({name, notebooks, profile}) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
+  useEffect(() => {
+
+    if(sessionUser){
+      dispatch(getUsersNotebooksThunk(sessionUser?.id))
+      // dispatch(getNotebookNotesThunk(""))
+    }
+
+  }, [dispatch, sessionUser])
 
 
   return (
