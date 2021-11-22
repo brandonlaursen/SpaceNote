@@ -60,9 +60,10 @@ function Notebook() {
 
   // ====================================================
 
-  console.log("LOOK HERE 1",newNote)
-  console.log("LOOK HERE 2",mainNote)
+  console.log("LOOK HERE 1",newNoteContents)
+  console.log("LOOK HERE 2",mainNoteContent)
 
+  // <p><br></p>
 
   useEffect(() => {
 
@@ -125,6 +126,7 @@ function Notebook() {
   // }
 
 
+
   function createNewNote() {
     setMainNoteTitle("");
     setMainNoteContent("");
@@ -159,8 +161,10 @@ function Notebook() {
       }
 
      let editedNote =  await dispatch(editNoteThunk(editPayload, +noteId))
-     setMainNote(editedNote);
-      await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
+    //  setMainNote(editedNote);
+     await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
+     createNewNote();
+     createNewNote();
   }
 
 
@@ -176,6 +180,8 @@ function Notebook() {
     // await dispatch(deleteNoteThunk(noteId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true))
     // await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
+
+
 
 
   // console.log("asdasdasd",newNote)
@@ -223,6 +229,12 @@ function Notebook() {
   ];
 
 
+  // const handleQuillChange = new1 =>
+  //   setTimeout(() =>
+  //    setNewNoteContents(new1)
+  //   )
+
+
   // if(!notebook) {
   //   history.push(`/home`);
   // }
@@ -252,7 +264,7 @@ if (loaded) {
               </div>
                   <div className="buttonContainer">
                       <button id="createNoteButton" onClick={createNewNote}>
-                        Create note
+                        New Note
                       </button>
                   </div>
             </div>
@@ -305,27 +317,34 @@ if (loaded) {
                         />
 
                   </form>
+
               <ReactQuill
                 toolbarOptions={toolbarOptions}
                 modules={modules}
                 className="TET"
                 id="my-form1"
                 theme='snow'
-                value={mainNoteContent ? mainNoteContent : newNoteContents}
+                value={newNote === false ? mainNoteContent : newNoteContents}
                 type="text"
                 placeholder="Whats on your mind?"
                 onChange={newNote
+
                   ? value => setNewNoteContents(value)
                   : value => setMainNoteContent(value)
                   }
-                style={{minHeight: '600px', height:"10rem", width:"40rem"}}
+                style={{minHeight: '500px', height:"5rem", width:"40rem"}}
               />
             </div>
-              <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
+
+            <div>
+            <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
               {mainNote.id
                     ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
                     : <button className="DBButton"> Delete </button>
                   }
+            </div>
+
+
 
           </div>
       </div>

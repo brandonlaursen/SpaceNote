@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   color: #ccc;
-  min-height: 100vh;
+  min-height: 100%;
   float: left;
 }
 
