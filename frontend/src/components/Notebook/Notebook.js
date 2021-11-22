@@ -37,7 +37,8 @@ function Notebook() {
   const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
-
+  const [errors, setErrors] = useState([])
+  const [errors2, setErrors2] = useState([])
 
   const [mainNote, setMainNote] = useState("");
   const [mainNoteTitle, setMainNoteTitle] = useState("");
@@ -58,6 +59,27 @@ function Notebook() {
     notebook
   ]);
 
+  useEffect(() => {
+    const errors = [];
+
+    if(editNotebookTitle.length === 25) errors.push("Max Length for a title is 25 characters");
+    // if(newNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters");
+    // if(mainNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters")
+
+    setErrors(errors)
+
+  },[editNotebookTitle])
+
+  useEffect(() => {
+    const errors2 = [];
+
+
+    if(newNoteTitle.length === 25) errors2.push("Max Length for a title is 25 characters");
+    if(mainNoteTitle.length === 25) errors2.push("Max Length for a title is 25 characters")
+
+    setErrors2(errors2)
+
+  },[newNoteTitle, mainNoteTitle])
 
   //NOTEBOOK CRUD
   const deleteNotebookSubmit = (e, notebookId) => {
@@ -259,12 +281,18 @@ if (loaded) {
                       required
                       value={editNotebookTitle}
                       onChange={(e) => setEditNotebookTitle(e.target.value)}
+                      maxLength="25"
                       />
-                    
+
 
                 <button className="EditNotebookbtn" type="submit" >Edit Notebook</button>
                 <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(e, notebook.id)} >Delete</button>
                 </form>
+                <ul className="errors">
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
               </div>
                 </Modal>
                 )}
@@ -276,7 +304,7 @@ if (loaded) {
                         className='TET note-title'
                         type="text"
                         placeholder="Write a Title"
-
+                        maxLength="25"
                         value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
                         onChange={newNote
                         ? e => setNewNoteTitle(e.target.value)
@@ -303,6 +331,9 @@ if (loaded) {
                 style={{minHeight: '500px', height:"5rem", width:"40rem"}}
               />
             </div>
+            {errors2.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
 
             <div>
             <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>

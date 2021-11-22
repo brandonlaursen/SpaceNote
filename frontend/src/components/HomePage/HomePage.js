@@ -20,20 +20,25 @@ function HomePage() {
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
   const notes = useSelector(state => state?.notes?.notes);
 
-  // const [currentNotebook, setCurrentNotebook] = useState("");
-  // console.log("notebooks",notebooks);
-  // console.log("user", sessionUser);
-  // console.log("notes", notes);
+
 
   const [title, setTitle] = useState("");
-  // const [bannerPicUrl, setBannerPicUrl] = useState("");
-  // const [showModal, setShowModal] = useState(false);
+  const [errors, setErrors] = useState([])
+
   const { show, setShow, num } = useShowModal();
 
 
   const updateTitle = (e) => setTitle(e.target.value);
   // const updateBannerPic = (e) => setBannerPicUrl(e.target.value);
 
+  useEffect(() => {
+    const errors = [];
+
+    if(title.length === 25) errors.push("Max Length for a title is 25 characters");
+    // if(title.length === 0) errors.push("Title must have at least one character")
+    setErrors(errors)
+
+  },[title])
 
 
   useEffect(() => {
@@ -54,6 +59,7 @@ function HomePage() {
     }
     dispatch(postNotebookThunk(payload)).then(() => dispatch(getUsersNotebooksThunk(sessionUser?.id)))
     setShow(false);
+    setTitle('')
   }
 
 
@@ -136,9 +142,15 @@ function HomePage() {
                   required
                   value={title}
                   onChange={updateTitle}
+                  maxLength="25"
                   />
             </form>
             <button type="submit" form="my-form" className="CreateNoteButton" >Create</button>
+            <ul className="errors">
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
           </div>
         </Modal>
   )}
