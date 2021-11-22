@@ -17,11 +17,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING(15)
       },
-      bannerPicUrl: {
-        allowNull: false,
-        type: Sequelize.TEXT,
-        defaultValue: "http://www.pixelstalk.net/wp-content/uploads/2016/09/Download-All-White-Image.jpg",
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

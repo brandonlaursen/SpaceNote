@@ -2,8 +2,7 @@
 module.exports = (sequelize, DataTypes) => {
   const Notebook = sequelize.define('Notebook', {
     title: DataTypes.STRING,
-    userId: DataTypes.INTEGER,
-    bannerPicUrl: DataTypes.STRING
+    userId: DataTypes.INTEGER
   }, {});
   Notebook.associate = function(models) {
     Notebook.hasMany(models.Note, {
@@ -17,5 +16,3 @@ module.exports = (sequelize, DataTypes) => {
   };
   return Notebook;
 };
-
-
