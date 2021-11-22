@@ -2,27 +2,25 @@ import "./Notebook.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNotebookThunk } from "../../store/notebooks";
+import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNotebookThunk, getUsersNotebooksThunk } from "../../store/notebooks";
 import { editNoteThunk, postNoteThunk, deleteNoteThunk  } from "../../store/notes";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
 import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import ReactHtmlParser from 'react-html-parser';
+import { useShowModal } from '../../context/showModal';
 
 function Notebook() {
 
-
-  // const [convertedText, setConvertedText] = useState("Some default content");
-
-  // console.log("look",convertedText.toString())
+  // const { setNum } = useShowModal();
 
   const { notebookId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [loaded, setLoaded] = useState(false);
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
 
    //STATE
   const sessionUser = useSelector(state => state.session.user);
@@ -30,24 +28,11 @@ function Notebook() {
   const notebook = useSelector(state => state.notebooks.notebook);
   const notebooks = useSelector(state => state.notebooks.notebooks);
 
+  const { show, setShow, setNum } = useShowModal();
+
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
   const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
-
-  //EDIT NOTE
-  // const [editNoteTitle, setEditNoteTitle] = useState("");
-  // const [editNoteContents, setEditNoteContents] = useState("");
-
-  // //NEW NOTE
-  // const [newNoteTitle, setNewNoteTitle] = useState("");
-  // const [newNoteContents, setNewNoteContents] = useState("");
-
-  // ====================================================
-  //SET CURRENT NOTE
-  // const [currentNote, setCurrentNote] = useState("");
-
-
-
 
   const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
@@ -58,18 +43,10 @@ function Notebook() {
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
 
-  // ====================================================
-
-  console.log("LOOK HERE 1",newNoteContents)
-  console.log("LOOK HERE 2",mainNoteContent)
-
-  // <p><br></p>
 
   useEffect(() => {
 
     dispatch(getNotebookThunk(notebookId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true));
-
-    // dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true));
 
 	},[dispatch, notebookId, history]);
 
@@ -83,9 +60,18 @@ function Notebook() {
 
 
   //NOTEBOOK CRUD
-  const deleteNotebookSubmit = async (notebookId) => {
-     dispatch(deleteNotebookThunk(notebookId));
-     history.push(`/home`);
+  const deleteNotebookSubmit = (e, notebookId) => {
+      e.preventDefault();
+
+
+     dispatch(deleteNotebookThunk(notebookId))
+    //  .then(() => dispatch(getUsersNotebooksThunk(sessionUser.id))).then(setNum((old) => old + 1)).then(setShow(false)).then(history.push(`/home`))
+     dispatch(getUsersNotebooksThunk(sessionUser.id))
+     setShow(false)
+     setNum((old) => old + 1);
+     history.push(`/home`)
+
+
   }
 
   const editNotebookSubmit = (e, notebookId) => {
@@ -95,7 +81,10 @@ function Notebook() {
       bannerPicUrl: editBannerPicUrl
     }
 
-    dispatch(editNotebookThunk(payload, +notebookId)).then(dispatch(getNotebookThunk(notebookId)))
+    // setShow(false);
+    dispatch(editNotebookThunk(payload, +notebookId)).then(() => dispatch(getNotebookThunk(notebookId))).then(() => dispatch(getUsersNotebooksThunk(sessionUser.id)).then(() => setShow(false)))
+    // setNum((old) => old + 1);
+
   }
 
   //NOTE CRUD
@@ -160,10 +149,8 @@ function Notebook() {
         content: mainNoteContent
       }
 
-     let editedNote =  await dispatch(editNoteThunk(editPayload, +noteId))
-    //  setMainNote(editedNote);
+     await dispatch(editNoteThunk(editPayload, +noteId))
      await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
-     createNewNote();
      createNewNote();
   }
 
@@ -184,7 +171,7 @@ function Notebook() {
 
 
 
-  // console.log("asdasdasd",newNote)
+
   if (!loaded) {
     return (
       <div id="loading">
@@ -228,17 +215,6 @@ function Notebook() {
     ['clean']                                         // remove formatting button
   ];
 
-
-  // const handleQuillChange = new1 =>
-  //   setTimeout(() =>
-  //    setNewNoteContents(new1)
-  //   )
-
-
-  // if(!notebook) {
-  //   history.push(`/home`);
-  // }
-
 if (loaded) {
   return (
     <>
@@ -248,7 +224,7 @@ if (loaded) {
 
           <div className="notebooksTitle">
             <h1 className="ll"><i className="fas fa-globe-americas ll"></i> {notebook?.title}</h1>
-            <h3 className="enbtn" onClick={() => setShowModal(true)}>Edit Notebook</h3>
+            <h3 className="enbtn" onClick={() => setShow(true)}>Edit Notebook</h3>
           </div>
 
           <div className="nbcontainer">
@@ -270,8 +246,8 @@ if (loaded) {
             </div>
 
 
-            {showModal && (
-            <Modal onClose={() => setShowModal(false)}>
+            {show && (
+            <Modal onClose={() => setShow(false)}>
 
             <div className="createModal">
               <h1>Edit Notebook</h1>
@@ -294,8 +270,8 @@ if (loaded) {
                       onChange={(e) => setEditBannerPicUrl(e.target.value)}
                       />
 
-                <button className="EditNotebookbtn" type="submit" onSubmit={(e) => e.preventDefault()}>Edit Notebook</button>
-                <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(notebook.id)} >Delete</button>
+                <button className="EditNotebookbtn" type="submit" >Edit Notebook</button>
+                <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(e, notebook.id)} >Delete</button>
                 </form>
               </div>
                 </Modal>

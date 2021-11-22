@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
 import ReactHtmlParser from 'react-html-parser';
-
+import { useShowModal } from '../../context/showModal';
 
 
 
@@ -27,7 +27,9 @@ function HomePage() {
 
   const [title, setTitle] = useState("");
   const [bannerPicUrl, setBannerPicUrl] = useState("");
-  const [showModal, setShowModal] = useState(false);
+  // const [showModal, setShowModal] = useState(false);
+  const { show, setShow, num } = useShowModal();
+
 
   const updateTitle = (e) => setTitle(e.target.value);
   const updateBannerPic = (e) => setBannerPicUrl(e.target.value);
@@ -38,11 +40,10 @@ function HomePage() {
 
     if(sessionUser){
       dispatch(getUsersNotebooksThunk(sessionUser?.id))
-      // dispatch(getNotebookNotesThunk(""))
       dispatch(getUsersNotesThunk(sessionUser?.id))
     }
 
-  }, [dispatch, sessionUser])
+  }, [dispatch, sessionUser, num])
 
 
   const createNotebookSubmit = (e) => {
@@ -53,13 +54,11 @@ function HomePage() {
       bannerPicUrl
     }
     dispatch(postNotebookThunk(payload)).then(() => dispatch(getUsersNotebooksThunk(sessionUser?.id)))
+    setShow(false);
   }
 
 
-  const handleCreateNotebookSubmit = (e) => {
-    e.preventDefault();
-    setShowModal(false)
-  }
+
   // const logout = e => {
   //   e.preventDefault();
   //   dispatch(sessionActions.logout());
@@ -111,13 +110,13 @@ function HomePage() {
 
             <div className="notebookTitleDiv">
               <h1 className="notebooktitle">NOTEBOOKS</h1>
-              <i  className="fas fa-plus fa-lg" onClick={() => setShowModal(true)}></i>
+              <i  className="fas fa-plus fa-lg" onClick={() => setShow(true)}></i>
             </div>
 
             {notebooks?.length > 0 && notebooks?.map((notebook) => (
 
               <NavLink id={notebook.id} key={notebook.id}  className="NL" to={`/notebooks/${notebook.id}`}> <h2 className="notebookTitle"> {notebook.title}</h2> </NavLink>
-              
+
             ))}
           </div>
 
@@ -126,8 +125,8 @@ function HomePage() {
 
 
 
-      {showModal && (
-        <Modal onClose={() => setShowModal(false)}>
+        {show && (
+        <Modal onClose={() => setShow(false)}>
           <div className="createModal">
             <h1>Create Notebook</h1>
             <form onSubmit={createNotebookSubmit} id="my-form">
@@ -148,10 +147,10 @@ function HomePage() {
                   onChange={updateBannerPic}
                   />
             </form>
-            <button type="submit" form="my-form" className="CreateNoteButton" onSubmit={handleCreateNotebookSubmit} >Create</button>
+            <button type="submit" form="my-form" className="CreateNoteButton" >Create</button>
           </div>
         </Modal>
-      )}
+  )}
 
 
 
