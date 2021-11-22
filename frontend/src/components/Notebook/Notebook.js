@@ -60,6 +60,8 @@ function Notebook() {
 
   // ====================================================
 
+  console.log("LOOK HERE 1",newNote)
+  console.log("LOOK HERE 2",mainNote)
 
 
   useEffect(() => {
@@ -128,10 +130,12 @@ function Notebook() {
     setMainNoteContent("");
     setMainNote("");
     setNewNoteTitle("");
-    setNewNoteContents(null);
+    setNewNoteContents("");
     setNewNote(true);
-    
+
   }
+
+
 
   const handleSubmit = async(e, noteId) => {
     e.preventDefault();
@@ -153,7 +157,9 @@ function Notebook() {
         title: mainNoteTitle,
         content: mainNoteContent
       }
-      await dispatch(editNoteThunk(editPayload, +noteId))
+
+     let editedNote =  await dispatch(editNoteThunk(editPayload, +noteId))
+     setMainNote(editedNote);
       await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
 
@@ -172,6 +178,7 @@ function Notebook() {
   }
 
 
+  // console.log("asdasdasd",newNote)
   if (!loaded) {
     return (
       <div id="loading">
@@ -227,110 +234,100 @@ if (loaded) {
     <div className="Notebook-container">
 
 
-      <div className="notebooksTitle">
-        <h1 className="ll"><i className="fas fa-globe-americas ll"></i> {notebook?.title}</h1>
-        <h3 className="enbtn" onClick={() => setShowModal(true)}>Edit Notebook</h3>
-      </div>
-
-  <div className="nbcontainer">
-    <div className="notesHalf">
-
-      <div className='homeNotesContainer1'>
-          {notes?.length > 0 && notes?.map((note) => (
-          <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
-            <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
-            <h3 > {ReactHtmlParser(note.content)}</h3>
+          <div className="notebooksTitle">
+            <h1 className="ll"><i className="fas fa-globe-americas ll"></i> {notebook?.title}</h1>
+            <h3 className="enbtn" onClick={() => setShowModal(true)}>Edit Notebook</h3>
           </div>
-          ))}
-      </div>
+
+          <div className="nbcontainer">
+
+            <div className="notesHalf">
+              <div className='homeNotesContainer1'>
+                  {notes?.length > 0 && notes?.map((note) => (
+                  <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
+                    <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
+                    <h3 > {ReactHtmlParser(note.content)}</h3>
+                  </div>
+                  ))}
+              </div>
+                  <div className="buttonContainer">
+                      <button id="createNoteButton" onClick={createNewNote}>
+                        Create note
+                      </button>
+                  </div>
+            </div>
 
 
-    <div className="buttonContainer">
+            {showModal && (
+            <Modal onClose={() => setShowModal(false)}>
 
-        <button id="createNoteButton" onClick={createNewNote}>
-          Create note
-        </button>
-    </div>
+            <div className="createModal">
+              <h1>Edit Notebook</h1>
 
-    </div>
+              <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
+                  <input
+                      className='CreateInput2'
+                      type="text"
+                      placeholder="Title"
+                      required
+                      value={editNotebookTitle}
+                      onChange={(e) => setEditNotebookTitle(e.target.value)}
+                      />
+                    <input
+                      className='CreateInput2'
+                      type="text"
+                      placeholder="Please provide a pic url"
+                      required
+                      value={editBannerPicUrl}
+                      onChange={(e) => setEditBannerPicUrl(e.target.value)}
+                      />
 
-
-        {/* Will be in a modal */}
-
-
-
-      {showModal && (
-      <Modal onClose={() => setShowModal(false)}>
-
-    <div className="createModal">
-      <h1>Edit Notebook</h1>
-
-      <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
-          <input
-              className='CreateInput2'
-              type="text"
-              placeholder="Title"
-              required
-              value={editNotebookTitle}
-              onChange={(e) => setEditNotebookTitle(e.target.value)}
-              />
-            <input
-              className='CreateInput2'
-              type="text"
-              placeholder="Please provide a pic url"
-              required
-              value={editBannerPicUrl}
-              onChange={(e) => setEditBannerPicUrl(e.target.value)}
-              />
-
-        <button className="EditNotebookbtn" type="submit" onSubmit={(e) => e.preventDefault()}>Edit Notebook</button>
-        <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(notebook.id)} >Delete</button>
-        </form>
-      </div>
-        </Modal>
-        )}
+                <button className="EditNotebookbtn" type="submit" onSubmit={(e) => e.preventDefault()}>Edit Notebook</button>
+                <button className='EditNotebookbtn2' onClick={(e) => deleteNotebookSubmit(notebook.id)} >Delete</button>
+                </form>
+              </div>
+                </Modal>
+                )}
 
 
-      <div>
+              <div>
+                  <form >
+                    <input
+                        className='TET note-title'
+                        type="text"
+                        placeholder="Write a Title"
 
-          <form >
-            <input
-                className='TET note-title'
+                        value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
+                        onChange={newNote
+                        ? e => setNewNoteTitle(e.target.value)
+                        : e => setMainNoteTitle(e.target.value)
+                        }
+                        />
+
+                  </form>
+              <ReactQuill
+                toolbarOptions={toolbarOptions}
+                modules={modules}
+                className="TET"
+                id="my-form1"
+                theme='snow'
+                value={mainNoteContent ? mainNoteContent : newNoteContents}
                 type="text"
-                placeholder="Write a Title"
-
-                value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
+                placeholder="Whats on your mind?"
                 onChange={newNote
-                ? e => setNewNoteTitle(e.target.value)
-                : e => setMainNoteTitle(e.target.value)
-                }
-                />
+                  ? value => setNewNoteContents(value)
+                  : value => setMainNoteContent(value)
+                  }
+                style={{minHeight: '600px', height:"10rem", width:"40rem"}}
+              />
+            </div>
+              <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
+              {mainNote.id
+                    ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
+                    : <button className="DBButton"> Delete </button>
+                  }
 
-          </form>
-      <ReactQuill
-        toolbarOptions={toolbarOptions}
-        modules={modules}
-        className="TET"
-        id="my-form1"
-        theme='snow'
-        value={mainNoteContent ? mainNoteContent : newNoteContents}
-        type="text"
-        placeholder="Whats on your mind?"
-        onChange={newNote
-          ? value => setNewNoteContents(value)
-          : value => setMainNoteContent(value)
-          }
-        style={{minHeight: '600px', height:"10rem", width:"40rem"}}
-      />
-    </div>
-      <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
-      {mainNote.id
-            ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
-            : <button className="DBButton"> Delete </button>
-          }
-        </div>
-
-
+          </div>
       </div>
     </>
   )
