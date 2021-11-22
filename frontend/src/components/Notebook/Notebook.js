@@ -65,11 +65,11 @@ function Notebook() {
 
 
      dispatch(deleteNotebookThunk(notebookId))
-    //  .then(() => dispatch(getUsersNotebooksThunk(sessionUser.id))).then(setNum((old) => old + 1)).then(setShow(false)).then(history.push(`/home`))
-     dispatch(getUsersNotebooksThunk(sessionUser.id))
-     setShow(false)
-     setNum((old) => old + 1);
-     history.push(`/home`)
+     .then(() => dispatch(getUsersNotebooksThunk(sessionUser.id))).then(setNum((old) => old + 1)).then(setShow(false)).then(history.push(`/home`))
+    //  dispatch(getUsersNotebooksThunk(sessionUser.id))
+    //  setShow(false)
+    //  setNum((old) => old + 1);
+    //  history.push(`/home`)
 
 
   }
