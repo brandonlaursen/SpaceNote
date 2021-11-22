@@ -20,7 +20,7 @@ module.exports = {
       },
       title: {
         allowNull: false,
-        type: Sequelize.STRING(15)
+        type: Sequelize.STRING(25)
       },
       content: {
         allowNull: false,
