@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { getUsersNotebooksThunk } from "../../store/notebooks";
 import { useSelector } from "react-redux";
 import { useShowModal } from '../../context/showModal';
+import { searchNotesThunk } from "../../store/search";
+// import ReactHtmlParser from 'react-html-parser';
 
 import './Sidenavbar.css';
 import { NavLink } from 'react-router-dom'
@@ -16,6 +18,10 @@ const Sidenavbar = ({name, notebooks, profile}) => {
   const path = window.location.href;
   const sessionUser = useSelector(state => state.session.user);
 
+  const searchNotes = useSelector((state) => state.search.notes);
+  // console.log(searchNotes)
+  const [search, setSearch] = useState("");
+
   const dispatch = useDispatch();
   const [showNotebooksNav, setShowNotebooksNav] = useState(false);
 
@@ -23,6 +29,14 @@ const Sidenavbar = ({name, notebooks, profile}) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
+
+  useEffect(() => {
+    // if(search === "") return;
+    dispatch(searchNotesThunk(search, sessionUser.id))
+
+
+  }, [search])
+
 
   useEffect(() => {
 
@@ -49,9 +63,25 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
               <div className="sidenavbar-top-search">
                   <div className="search-block">
-                  <i className="fas fa-search"></i>
-                      <input className= "search" placeholder="Search" />
+                    <i className="fas fa-search"></i>
+                    <form>
+                        <input className= "search"
+                          placeholder="Search"
+                          value={search}
+                          onChange={(e) => setSearch(e.target.value)}
+                        />
+                    </form>
                   </div>
+
+
+                  {search?.length > 1 && searchNotes?.map((note) => (
+                    <div  className="searchResultsContainer" id={note.id} key={note.id} >
+                        <NavLink className="searchResItem" to={`/notebooks/${note.notebookId}`} > {note.title}</NavLink>
+                    </div>
+
+                  ))}
+              
+
               </div>
 
 

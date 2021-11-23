@@ -75,7 +75,7 @@ function HomePage() {
             <div className='homeNotesContainer'>
               {notes?.map((note) => (
 
-              <NavLink className="navlink" to={`/notebooks/{note.notebookId}`} id={note.id} key={note.id}>
+              <NavLink className="navlink" to={`/notebooks/${note.notebookId}`} id={note.id} key={note.id}>
                 <div className="noteItems" >
 
                   <div className="notetitle">
