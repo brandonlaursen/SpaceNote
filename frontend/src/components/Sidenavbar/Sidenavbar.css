@@ -204,6 +204,9 @@
 .z{
   margin-left: .01rem;
 }
+.y{
+  margin-left: -.05rem;
+}
 
 .x:hover{
   color: purple

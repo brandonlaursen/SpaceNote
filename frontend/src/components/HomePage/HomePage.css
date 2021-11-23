@@ -237,3 +237,7 @@
 .CreateNoteButton:hover{
   background-color: rebeccapurple;
 }
+
+.timeP{
+  text-align: center;
+}

@@ -8,7 +8,7 @@ import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
 import ReactHtmlParser from 'react-html-parser';
 import { useShowModal } from '../../context/showModal';
-
+import moment from 'moment';
 
 
 function HomePage() {
@@ -88,6 +88,7 @@ function HomePage() {
                   <div className="notecontent">
                     <h3> {ReactHtmlParser(note.content)}</h3>
                   </div>
+                    <p className="timeP">{moment(note.updatedAt).format("MMM-DD")}</p>
 
                 </div>
               </NavLink>

@@ -139,7 +139,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                 }
 
                   <h3 className="notebooksNavTitle"> <i className="fab fa-linkedin"></i>   <a href="https://www.linkedin.com/in/brandon-laursen-398563218/" className=" z navhome">LinkedIn</a> </h3>
-                  <h3 className="notebooksNavTitle">  <i className="fab fa-github"></i> <a href="https://github.com/brandonlaursen" className="z navhome">GitHub</a> </h3>
+                  <h3 className="notebooksNavTitle">  <i className="fab fa-github"></i> <a href="https://github.com/brandonlaursen" className="y navhome">GitHub</a> </h3>
                   <h3 className="notebooksNavTitle" onClick={logout}><i className="fas fa-sign-out-alt" > </i> Sign Out</h3>
               </div>
           </div>

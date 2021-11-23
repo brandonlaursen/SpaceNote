@@ -10,6 +10,7 @@ import ReactQuill from "react-quill"
 import 'react-quill/dist/quill.snow.css'
 import ReactHtmlParser from 'react-html-parser';
 import { useShowModal } from '../../context/showModal';
+import moment from 'moment';
 
 function Notebook() {
 
@@ -249,8 +250,17 @@ if (loaded) {
 
 
           <div className="notebooksTitle">
-            <h1 className="ll"><i className="fas fa-globe-americas ll"></i> {notebook?.title}</h1>
-            <h3 className="enbtn" onClick={() => setShow(true)}>Edit Notebook</h3>
+            <div className="nbt1">
+              <h1 className="ll"><i className="fas fa-globe-americas ll"></i> {notebook?.title}</h1>
+              <h3 className="enbtn" onClick={() => setShow(true)}>Edit Notebook</h3>
+            </div>
+            <div className="nbt2">
+              <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
+              {mainNote.id
+                    ? <button className="DBButton del" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
+                    : <button className="DBButton2"> Delete </button>
+                  }
+            </div>
           </div>
 
           <div className="nbcontainer">
@@ -258,10 +268,18 @@ if (loaded) {
             <div className="notesHalf">
               <div className='homeNotesContainer1'>
                   {notes?.length > 0 && notes?.map((note) => (
+                <>
                   <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
-                    <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
-                    <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
+                    <div>
+                      <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
+                      <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
+                      <p className="timeDiv">{moment(note.updatedAt).format("MMM-DD")}</p>
+                    </div>
+
+
+
                   </div>
+                </>
                   ))}
               </div>
                   <div className="buttonContainer">
@@ -305,7 +323,7 @@ if (loaded) {
                 )}
 
 
-              <div>
+              <div className="rteContainer">
                   <form >
                     <input
                         className='TET note-title'
@@ -335,7 +353,7 @@ if (loaded) {
                   ? value => setNewNoteContents(value)
                   : value => setMainNoteContent(value)
                   }
-                style={{minHeight: '500px', height:"5rem", width:"40rem"}}
+                style={{minHeight: '500px', height:"5rem", width:"100%"}}
               />
             </div>
             {errors2.map((error) => (
@@ -343,11 +361,7 @@ if (loaded) {
               ))}
 
             <div>
-            <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
-              {mainNote.id
-                    ? <button className="DBButton del" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
-                    : <button className="DBButton2"> Delete </button>
-                  }
+
             </div>
 
 

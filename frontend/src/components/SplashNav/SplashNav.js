@@ -3,21 +3,21 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+// import { login } from "../../store/session";
 
 
 
 function SplashNav() {
   const dispatch = useDispatch();
-  const [credential, setCredential] = useState("");
-  const [password, setPassword] = useState("");
+  // const [credential, setCredential] = useState("");
+  // const [password, setPassword] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
 
-  const demo = (e) => {
-    e.preventDefault();
-    setCredential("Demo-lition");
-    setPassword("password")
-    dispatch(sessionActions.login({ credential, password }))
-  }
+  const demo = async () => {
+    return dispatch(
+      sessionActions.login({ credential: "Demo-lition", password: "password" })
+    );
+  };
 
   if (sessionUser) return <Redirect to="/home" />;
 

@@ -14,7 +14,8 @@ router.get("/:userId", asyncHandler(async(req, res) => {
   const notes = await Note.findAll({
     where: {
       userId: userId
-    }
+    },
+    order: [["updatedAt", "DESC"]],
   })
   return res.json(notes)
 }))
@@ -88,7 +89,7 @@ router.post("/", asyncHandler(async(req, res) => {
       userId: userId,
       notebookId: notebookId,
     },
-    order: [["createdAt", "DESC"]],
+    order: [["updatedAt", "DESC"]],
   })
   return res.json(notes)
   // return res.json(newNote)
