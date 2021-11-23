@@ -214,6 +214,7 @@
   color: white;
   margin: .5rem;
   margin-left: 1.5rem;
+  overflow: hidden;
 }
 
 .searchResItem:hover{

@@ -63,6 +63,7 @@ function Notebook() {
     const errors = [];
 
     if(editNotebookTitle.length === 25) errors.push("Max Length for a title is 25 characters");
+    if(editNotebookTitle.length < 1) errors.push("Title needs at least two character")
     // if(newNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters");
     // if(mainNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters")
 
@@ -282,6 +283,7 @@ if (loaded) {
                       value={editNotebookTitle}
                       onChange={(e) => setEditNotebookTitle(e.target.value)}
                       maxLength="25"
+                      minLength="1"
                       />
 
 

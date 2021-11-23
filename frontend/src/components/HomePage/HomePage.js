@@ -28,6 +28,7 @@ function HomePage() {
     const errors = [];
 
     if(title.length === 25) errors.push("Max Length for a title is 25 characters");
+    if(title.length < 1) errors.push("Title needs at least two character")
     setErrors(errors)
 
   },[title])
@@ -129,6 +130,7 @@ function HomePage() {
                   value={title}
                   onChange={updateTitle}
                   maxLength="25"
+                  minLength="1"
                   />
             </form>
             <button type="submit" form="my-form" className="CreateNoteButton" >Create</button>

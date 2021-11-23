@@ -74,14 +74,12 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
 
 
-                  {search?.length > 1 && searchNotes?.map((note) => (
+                  {search?.length >= 1 && searchNotes?.map((note) => (
                     <div  className="searchResultsContainer" id={note.id} key={note.id} >
-                        <NavLink className="searchResItem" to={`/notebooks/${note.notebookId}`} > {note.title}</NavLink>
+                        <NavLink className="searchResItem" to={`/notebooks/${note.notebookId}`} >{note.title.length > 11 ? note.title.slice(0, 11) + "..." : note.title}</NavLink>
                     </div>
 
                   ))}
-              
-
               </div>
 
 
