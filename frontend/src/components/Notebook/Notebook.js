@@ -45,9 +45,20 @@ function Notebook() {
   const [mainNoteContent, setMainNoteContent] = useState("");
 
 
+  function createNewNote() {
+    setMainNoteTitle("");
+    setMainNoteContent("");
+    setMainNote("");
+    setNewNoteTitle("");
+    setNewNoteContents("");
+    setNewNote(true);
+
+  }
+
   useEffect(() => {
 
-    dispatch(getNotebookThunk(notebookId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true));
+    dispatch(getNotebookThunk(notebookId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true)).then(()=> createNewNote());
+
 
 	},[dispatch, notebookId, history]);
 
@@ -138,15 +149,7 @@ function Notebook() {
 
 
 
-  function createNewNote() {
-    setMainNoteTitle("");
-    setMainNoteContent("");
-    setMainNote("");
-    setNewNoteTitle("");
-    setNewNoteContents("");
-    setNewNote(true);
 
-  }
 
 
 
