@@ -32,9 +32,9 @@ function SplashNav() {
 
 
      <ul className='navLinks'>
-        <li className="navLi">Why SpaceNote</li>
+        {/* <li className="navLi">Why SpaceNote</li>
         <li className="navLi">Features</li>
-        <li className="navLi">Plans </li>
+        <li className="navLi">Plans </li> */}
         <button className="splashDemo"onClick={demo} >Demo</button>
         <li><button className="splashLogin"><a href="/login"> Log In</a></button></li>
      </ul>

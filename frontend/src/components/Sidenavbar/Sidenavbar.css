@@ -225,3 +225,11 @@
   background-color: green;
   max-height: 1rem;
 }
+
+.z{
+  margin-left: .01rem;
+}
+
+.x:hover{
+  color: purple
+}

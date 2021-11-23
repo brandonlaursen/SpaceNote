@@ -6,6 +6,10 @@ input{
   font-family:inherit;
 }
 
+.noteCC{
+  flex-shrink: 1;
+}
+
 .Notebook-container{
   /* background-color: red; */
   /* display: flex; */
@@ -42,6 +46,7 @@ input{
 .ll{
   margin-left: 1rem;
 }
+
 
 .homeNotesContainer1{
   /* background-color: green; */

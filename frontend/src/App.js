@@ -30,6 +30,7 @@ function App() {
     return (
       <div id="loading">
         <img src={"https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"} alt="Loading..." />
+        <h3 className="loadingText">Loading...</h3>
       </div>
     );
   }

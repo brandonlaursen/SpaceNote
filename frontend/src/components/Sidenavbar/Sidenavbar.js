@@ -100,7 +100,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
               <div className="sidenavbar-top-menu-item">
 
-                <h3 className="notebooksNavTitle" onClick={() => setShowNotebooksNav(!showNotebooksNav)} > <i className="fas fa-book"></i> Notebooks</h3>
+                <h3 className="notebooksNavTitle" onClick={() => setShowNotebooksNav(!showNotebooksNav)} > <i className=" x fas fa-book"></i> Notebooks</h3>
                 {showNotebooksNav &&
                   <div className="NavNotebookContainer">
                     <ul>
@@ -115,8 +115,9 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
                 }
 
-
-                <h3 className="notebooksNavTitle" onClick={logout}><i className="fas fa-sign-out-alt" > </i> Sign Out</h3>
+                  <h3 className="notebooksNavTitle"> <i className="fab fa-linkedin"></i>   <a href="https://www.linkedin.com/in/brandon-laursen-398563218/" className=" z navhome">LinkedIn</a> </h3>
+                  <h3 className="notebooksNavTitle">  <i className="fab fa-github"></i> <a href="https://github.com/brandonlaursen" className="z navhome">GitHub</a> </h3>
+                  <h3 className="notebooksNavTitle" onClick={logout}><i className="fas fa-sign-out-alt" > </i> Sign Out</h3>
               </div>
           </div>
 

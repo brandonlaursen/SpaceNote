@@ -201,6 +201,7 @@ function Notebook() {
     return (
       <div id="loading">
         <img src={"https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"} alt="Loading..." />
+        <h3 className="loadingText">Loading...</h3>
       </div>
     );
   }
@@ -259,7 +260,7 @@ if (loaded) {
                   {notes?.length > 0 && notes?.map((note) => (
                   <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
                     <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
-                    <h3 > {ReactHtmlParser(note.content)}</h3>
+                    <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
                   </div>
                   ))}
               </div>
