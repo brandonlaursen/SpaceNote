@@ -28,7 +28,7 @@ function HomePage() {
     const errors = [];
 
     if(title.length === 25) errors.push("Max Length for a title is 25 characters");
-    if(title.length < 1) errors.push("Title needs at least two character")
+    if(title.length < 1) errors.push("Title needs at least two characters")
     setErrors(errors)
 
   },[title])
