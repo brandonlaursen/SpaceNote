@@ -74,8 +74,8 @@ function Notebook() {
     const errors2 = [];
 
 
-    if(newNoteTitle.length === 25) errors2.push("Max Length for a title is 25 characters");
-    if(mainNoteTitle.length === 25) errors2.push("Max Length for a title is 25 characters")
+    if(newNoteTitle.length > 25) errors2.push("Max Length for a title is 25 characters");
+    if(mainNoteTitle.length > 25) errors2.push("Max Length for a title is 25 characters");
 
     setErrors2(errors2)
 
@@ -338,8 +338,8 @@ if (loaded) {
             <div>
             <button type="submit" form="my-form1" className="DBButton" onClick={(e) => handleSubmit(e, mainNote.id)}>Save</button>
               {mainNote.id
-                    ? <button  className="DBButton" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
-                    : <button className="DBButton"> Delete </button>
+                    ? <button className="DBButton del" onClick={(e) => deleteNoteSubmit(e, mainNote?.id)} >Delete</button>
+                    : <button className="DBButton2"> Delete </button>
                   }
             </div>
 

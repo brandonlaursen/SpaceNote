@@ -4,8 +4,9 @@
   display: flex;
   flex-direction: column;
   color: #ccc;
-  min-height: 100%;
+  min-height: 100vh;
   float: left;
+
 }
 
 * { margin: 0; padding: 0 }
@@ -15,10 +16,12 @@
   align-items: center;
   justify-content: center;
   padding: 15px;
+
 }
 
 .sidenavbar-top-menu-item ul li {
   list-style-type: none;
+
 
 }
 
@@ -45,6 +48,7 @@
 
 .sidenavbar-top-search{
   padding: 15px;
+
 }
 
 .search-block{
@@ -53,6 +57,7 @@
   background: #404040;
   padding:8px 10px;
   border-radius: 30px;
+
 }
 
 .search{
@@ -66,6 +71,7 @@
 .sidenavbar-top-create-note{
   padding: 0 15px;
   color: #fff;
+
 }
 
 
@@ -74,6 +80,7 @@
   align-items: center;
   padding:8px 10px;
   cursor: pointer;
+
 }
 
 
@@ -88,23 +95,21 @@
 .sidenavbar-top-menu-item{
   margin-top:10px;
   height: 28.7rem;
-  /* background-color: white; */
+
 }
 
 .sidenavbar-top-menu-item ul li a {
   display: flex;
   color: #ccc;
   text-decoration: none;
-  /* margin-top: 12rem; */
-
 }
 
 .sidenavbar-bottom{
-  /* position: fixed;
-  float: end; */
+  /* position: fixed; */
+  /* float: end; */
   padding: 8px 15px;
   border-top: 1px solid #555;
-
+  /* background-color: red; */
 }
 
 .icon{
@@ -115,6 +120,7 @@
 
 .NavNotebooks{
   margin-left: 2rem;
+
 }
 
 .NavNotebooks:hover{
@@ -154,10 +160,23 @@
   color: purple;
 }
 
+.bb:hover{
+  color: purple;
+}
 .navhome1{
-  margin-left: -.15rem;
+  /* margin-left: -.01rem; */
   text-decoration: none;
   color: white;
+}
+
+.navhome2{
+  margin-left: -.2rem;
+  text-decoration: none;
+  color: white;
+}
+
+.navhome2:hover{
+  color: purple;
 }
 
 .navhome1:hover{

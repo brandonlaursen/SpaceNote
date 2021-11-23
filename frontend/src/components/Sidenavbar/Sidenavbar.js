@@ -65,9 +65,9 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
               </div> */}
 
-                <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <NavLink to="/allnotes" className="navhome1"> New note</NavLink> </h3>
-                <h3 className="notebooksNavTitle"><i className="fas fa-space-shuttle"></i> <NavLink to="/home" className="navhome">Home</NavLink> </h3>
-                <h3 className="notebooksNavTitle"><i className="far fa-sticky-note"></i> Notes</h3>
+                {/* <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <NavLink to="/allnotes" className="navhome2"> New note</NavLink> </h3> */}
+                <h3 className="notebooksNavTitle"><i className=" bb fas fa-space-shuttle"></i> <NavLink to="/home" className="navhome">Home</NavLink> </h3>
+                {/* <h3 className="notebooksNavTitle"><i className="bb far fa-sticky-note"></i> <NavLink to="/allnotes" className="navhome1"> Notes </NavLink></h3> */}
 
 
               <div className="sidenavbar-top-menu-item">
@@ -92,9 +92,9 @@ const Sidenavbar = ({name, notebooks, profile}) => {
               </div>
           </div>
 
-          <div className="sidenavbar-bottom">
+          {/* <div className="sidenavbar-bottom">
             <h3 className="madeBy">Made by Brandon</h3>
-          </div>
+          </div> */}
       </div>
   )
 }

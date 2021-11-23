@@ -30,7 +30,10 @@
 }
 
 
-
+.navlink{
+  text-decoration: none;
+  color: black
+}
 
 
 .homeNotesContainer{
