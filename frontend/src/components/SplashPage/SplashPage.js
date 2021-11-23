@@ -2,6 +2,7 @@ import "./SplashPage.css"
 import SplashNav from "../SplashNav/SplashNav";
 import ReactTypingEffect from 'react-typing-effect';
 import React from "react";
+import { NavLink } from "react-router-dom";
 // import * as sessionActions from "../../store/session";
 // import { useDispatch, useSelector } from "react-redux";
 // import { Redirect } from "react-router";
@@ -39,8 +40,8 @@ function SplashPage() {
 
           />
           <h3 className="splashText">Remember everything and tackle any project with your notes, tasks, and schedule all in one place.</h3>
-          <button className="splashButton" href="/signup"><a href="/signup" >Sign up for free </a></button>
-          <a href="/login" className="SPA">Already have an account? Log in</a>
+          <button className="splashButton" href="/signup"><NavLink to="/signup" >Sign up for free </NavLink></button>
+          <NavLink to="/login" className="SPA">Already have an account? Log in</NavLink>
         </div>
         <div className="picDiv">
           <img

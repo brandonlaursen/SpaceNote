@@ -273,7 +273,7 @@ if (loaded) {
                     <div>
                       <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
                       <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
-                      <p className="timeDiv">{moment(note.updatedAt).format("MMM-DD")}</p>
+                      <p className="timeDiv">{moment(note.updatedAt).format("LLL")}</p>
                     </div>
 
 

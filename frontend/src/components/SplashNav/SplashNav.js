@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 // import { login } from "../../store/session";
 
 
@@ -24,7 +25,7 @@ function SplashNav() {
   return(
     <div className="spashNavBG">
     <nav className="main-nav">
-    <a className="logo" href="/">SpaceNote</a>
+    <NavLink className="logo" to="/">SpaceNote</NavLink>
      <input type="checkbox" id="isChecked"/>
      <label htmlFor="isChecked" className="menu-btn">
       <i className="fas fa-bars"></i>
@@ -36,7 +37,7 @@ function SplashNav() {
         <li className="navLi">Features</li>
         <li className="navLi">Plans </li> */}
         <button className="splashDemo"onClick={demo} >Demo</button>
-        <li><button className="splashLogin"><a href="/login"> Log In</a></button></li>
+        <li><button className="splashLogin"><NavLink to="/login"> Log In</NavLink></button></li>
      </ul>
     </nav>
     </div>

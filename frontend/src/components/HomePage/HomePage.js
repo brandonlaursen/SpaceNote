@@ -80,7 +80,7 @@ function HomePage() {
                 <div className="noteItems" >
 
                   <div className="notetitle">
-                    <h1 > {note.title}</h1>
+                    <h2 > {note.title}</h2>
                     {/* to={`/notebooks/${notebook.id}`} */}
                     {/* <NavLink to={`/notebooks/{note.notebookId}`} >{note.title}</NavLink> */}
                   </div>
