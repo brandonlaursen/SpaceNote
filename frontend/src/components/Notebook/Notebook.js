@@ -266,7 +266,8 @@ if (loaded) {
               </div>
                   <div className="buttonContainer">
                       <button id="createNoteButton" onClick={createNewNote}>
-                        New Note
+                      <i className="penIcon fas fa-pen"></i>
+                         New Note
                       </button>
                   </div>
             </div>

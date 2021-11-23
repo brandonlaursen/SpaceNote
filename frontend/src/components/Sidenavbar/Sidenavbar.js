@@ -35,8 +35,14 @@ const Sidenavbar = ({name, notebooks, profile}) => {
     dispatch(searchNotesThunk(search, sessionUser.id))
 
 
-  }, [search])
+  }, [search, dispatch, sessionUser.id])
 
+  // useEffect(() => {
+  //   if(search?.length === 1 ){
+  //     document.querySelector(".search-block").classList.remove = "e"
+
+  //   }
+  // },[search])
 
   useEffect(() => {
 
@@ -46,6 +52,22 @@ const Sidenavbar = ({name, notebooks, profile}) => {
     }
 
   }, [dispatch, sessionUser, num, path])
+
+  const hide = (e) => {
+    if (!e.currentTarget.contains(e.relatedTarget)){
+    document.querySelector(".searchResAll").style.display = "none";
+    }
+  }
+
+  const show = () => {
+    document.querySelector(".searchResAll").style.display = "block";
+
+  }
+
+  const hide2 = () => {
+    document.querySelector(".searchResAll").style.display = "none";
+    setSearch("")
+  }
 
 
   return (
@@ -61,8 +83,8 @@ const Sidenavbar = ({name, notebooks, profile}) => {
               </div>
 
 
-              <div className="sidenavbar-top-search">
-                  <div className="search-block">
+              <div className="sidenavbar-top-search" onBlur={(e) => hide(e) } onFocus={() => show()}>
+                  <div className=" e search-block" >
                     <i className="fas fa-search"></i>
                     <form>
                         <input className= "search"
@@ -73,13 +95,14 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                     </form>
                   </div>
 
-
+                <div className="searchResAll">
                   {search?.length >= 1 && searchNotes?.map((note) => (
-                    <div  className="searchResultsContainer" id={note.id} key={note.id} >
-                        <NavLink className="searchResItem" to={`/notebooks/${note.notebookId}`} >{note.title.length > 11 ? note.title.slice(0, 11) + "..." : note.title}</NavLink>
+                  <div  className="searchResultsContainer" id={note.id} key={note.id} >
+                        <NavLink onClick={hide2} className="searchResItem" to={`/notebooks/${note.notebookId}`} >{note.title.length > 11 ? note.title.slice(0, 11) + "..." : note.title}</NavLink>
                     </div>
 
                   ))}
+                </div>
               </div>
 
 
@@ -102,7 +125,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
                 <h3 className="notebooksNavTitle" onClick={() => setShowNotebooksNav(!showNotebooksNav)} > <i className=" x fas fa-book"></i> Notebooks</h3>
                 {showNotebooksNav &&
-                  <div className="NavNotebookContainer">
+                  <div className="NavNotebookContainer" >
                     <ul>
                         <li>
                         {notebooks?.length > 0 && notebooks?.map((notebook) => (
