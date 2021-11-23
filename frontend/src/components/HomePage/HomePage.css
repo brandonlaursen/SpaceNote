@@ -25,9 +25,15 @@
   /* height: 22rem; */
 
 }
+.errors{
+  list-style: none;
+}
 
 
-
+.navlink{
+  text-decoration: none;
+  color: black
+}
 
 
 .homeNotesContainer{

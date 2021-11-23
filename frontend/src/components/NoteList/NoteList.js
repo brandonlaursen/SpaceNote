@@ -18,10 +18,11 @@ function Notelist() {
    //STATE
   const sessionUser = useSelector(state => state.session.user);
   const notes = useSelector(state => state.notes.notes);
-  const notebooks = useSelector(state => state.notebooks.notebooks);
-  // console.log(notebooks)
+  const notebooks = useSelector(state => state?.notebooks?.notebooks);
 
-  const [currentNotebook, setCurrentNotebook] = useState("");
+  // console.log(notebooks[0]?.id)
+
+  const [currentNotebook, setCurrentNotebook] = useState('');
 
 
   const [newNote, setNewNote] = useState(true); //
@@ -229,7 +230,7 @@ if (loaded) {
 
               {currentNotebook ? <h1>Current Notebook: {currentNotebook}</h1> : <h1>Please select a notebook</h1>}
 
-      <select onChange={updateNotebook}>
+      <select  onChange={updateNotebook}>
 						{notebooks?.map((notebook) => (
 							<option key={notebook.id} value={notebook.id}>
 								{notebook.title}

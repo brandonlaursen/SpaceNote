@@ -1,7 +1,5 @@
 import "./HomePage.css"
-// import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router";
 import { useEffect, useState } from "react";
 import { getUsersNotebooksThunk, postNotebookThunk } from "../../store/notebooks";
 import { getUsersNotesThunk } from "../../store/notes";
@@ -20,20 +18,19 @@ function HomePage() {
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
   const notes = useSelector(state => state?.notes?.notes);
 
-  // const [currentNotebook, setCurrentNotebook] = useState("");
-  // console.log("notebooks",notebooks);
-  // console.log("user", sessionUser);
-  // console.log("notes", notes);
-
   const [title, setTitle] = useState("");
-  // const [bannerPicUrl, setBannerPicUrl] = useState("");
-  // const [showModal, setShowModal] = useState(false);
+  const [errors, setErrors] = useState([])
+
   const { show, setShow, num } = useShowModal();
 
 
-  const updateTitle = (e) => setTitle(e.target.value);
-  // const updateBannerPic = (e) => setBannerPicUrl(e.target.value);
+  useEffect(() => {
+    const errors = [];
 
+    if(title.length === 25) errors.push("Max Length for a title is 25 characters");
+    setErrors(errors)
+
+  },[title])
 
 
   useEffect(() => {
@@ -54,18 +51,11 @@ function HomePage() {
     }
     dispatch(postNotebookThunk(payload)).then(() => dispatch(getUsersNotebooksThunk(sessionUser?.id)))
     setShow(false);
+    setTitle('')
   }
 
+  const updateTitle = (e) => setTitle(e.target.value);
 
-
-  // const logout = e => {
-  //   e.preventDefault();
-  //   dispatch(sessionActions.logout());
-  // };
-
-  // if (!sessionUser) return (
-  //   <Redirect to="/" />
-  // );
 
   return(
     <>
@@ -85,11 +75,13 @@ function HomePage() {
             <div className='homeNotesContainer'>
               {notes?.map((note) => (
 
-              <div id={note.id} key={note.id}>
+              <NavLink className="navlink" to={`/notebooks/{note.notebookId}`} id={note.id} key={note.id}>
                 <div className="noteItems" >
 
                   <div className="notetitle">
                     <h1 > {note.title}</h1>
+                    {/* to={`/notebooks/${notebook.id}`} */}
+                    {/* <NavLink to={`/notebooks/{note.notebookId}`} >{note.title}</NavLink> */}
                   </div>
 
                   <div className="notecontent">
@@ -97,7 +89,7 @@ function HomePage() {
                   </div>
 
                 </div>
-              </div>
+              </NavLink>
 
               ))}
 
@@ -136,9 +128,15 @@ function HomePage() {
                   required
                   value={title}
                   onChange={updateTitle}
+                  maxLength="25"
                   />
             </form>
             <button type="submit" form="my-form" className="CreateNoteButton" >Create</button>
+            <ul className="errors">
+              {errors.map((error) => (
+                <li key={error}>{error}</li>
+              ))}
+            </ul>
           </div>
         </Modal>
   )}
