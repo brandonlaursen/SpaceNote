@@ -194,6 +194,12 @@ function Notebook() {
     // await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
 
+//   const handleKeypress = e => {
+//     //it triggers by pressing the enter key
+//   if (e.keyCode === 13) {
+//     handleSubmit();
+//   }
+// };
 
 
 

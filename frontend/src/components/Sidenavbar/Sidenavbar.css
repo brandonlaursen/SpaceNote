@@ -207,6 +207,9 @@
 .y{
   margin-left: -.05rem;
 }
+.l{
+  /* margin-left: 1rem; */
+}
 
 .x:hover{
   color: purple
