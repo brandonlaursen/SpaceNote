@@ -1,0 +1,25 @@
+.footer {
+  display: flex;
+  background-color: black;
+  color: white;
+  bottom: 0;
+  z-index: 10;
+  position:fixed;
+  left:0;
+  width:100%;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4px;
+  padding-bottom: 4px ;
+  text-align: center;
+  height: 3rem;
+}
+
+.created {
+font-size: 14px;
+}
+
+.foot {
+  width: 2rem;
+  color: purple;
+  }

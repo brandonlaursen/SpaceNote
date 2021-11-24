@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 // import { login } from "../../store/session";
-
+import Footer from "./Footer"
 
 
 function SplashNav() {
@@ -40,7 +40,10 @@ function SplashNav() {
         <li><button className="splashLogin"><NavLink to="/login"> Log In</NavLink></button></li>
      </ul>
     </nav>
+    <Footer />
     </div>
+
+
   )
 }
 
