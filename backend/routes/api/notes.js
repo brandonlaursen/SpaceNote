@@ -59,7 +59,7 @@ router.get("/note/:id", asyncHandler(async (req, res) => {
 //   "createdAt": "2021-11-15T23:44:11.994Z",
 //   "updatedAt": "2021-11-15T23:44:11.994Z"
 //   }
-// ----------------------------------------------------------
+
 
 
 //Delete a specific note DESTROY WORKS
@@ -70,7 +70,7 @@ router.delete("/note/:id", asyncHandler(async (req, res) => {
 
   })
 );
-// ----------------------------------------------------------
+
 
 
 //Post a new note CREATE WORKS
@@ -92,9 +92,9 @@ router.post("/", asyncHandler(async(req, res) => {
     order: [["updatedAt", "DESC"]],
   })
   return res.json(notes)
-  // return res.json(newNote)
+
 }))
-// ----------------------------------------------------------
+
 
 
 //Edit a specific note UPDATE WORKS
@@ -111,8 +111,6 @@ router.put("/note/:id", asyncHandler(async(req, res) => {
   })
   return res.json(newNote)
 }))
-// ----------------------------------------------------------
-
 
 
 

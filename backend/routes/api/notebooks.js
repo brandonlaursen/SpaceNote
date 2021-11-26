@@ -7,6 +7,7 @@ const { Notebook, Note } = require("../../db/models");
 const router = express.Router();
 // route = api/notebooks/
 
+
 //Get all notebooks of a specific user READ WORKS
 router.get("/:userId", asyncHandler(async(req, res) => {
     const userId = req.params.userId;
@@ -37,8 +38,6 @@ router.get("/:userId", asyncHandler(async(req, res) => {
 //       "updatedAt": "2021-11-15T23:44:11.970Z"
 //   }
 // ]
-// ----------------------------------------------------------
-
 
 
 //Get all notes of a specific notebook READ WORKS
@@ -88,37 +87,14 @@ router.get("/:notebookId/notes", asyncHandler(async (req, res) => {
 //   }
 // ]
 
-//including the user
-// [
-//   {
-//       "id": 1,
-//       "userId": 1,
-//       "notebookId": 1,
-//       "title": "My First Note",
-//       "content": "Hello",
-//       "createdAt": "2021-11-15T23:44:11.994Z",
-//       "updatedAt": "2021-11-15T23:44:11.994Z",
-//       "Notebook": {
-//           "id": 1,
-//           "title": "First",
-//           "userId": 1,
-//           "bannerPicUrl": "http://www.pixelstalk.net/wp-content/uploads/2016/09/Download-All-White-Image.jpg",
-//           "createdAt": "2021-11-15T23:44:11.970Z",
-//           "updatedAt": "2021-11-15T23:44:11.970Z"
-//       }
-//   }
-// ]
-// ----------------------------------------------------------
-
 
 //Get a specific notebook READ WORKS
 router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
   const notebookId = req.params.notebookId;
 
   const notebook = await Notebook.findByPk(notebookId);
-  // console.log("!!!!!!",notebook)
-  return res.json(notebook)
 
+  return res.json(notebook)
 
 }));
 
@@ -130,7 +106,7 @@ router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
 //   "createdAt": "2021-11-16T02:21:36.833Z",
 //   "updatedAt": "2021-11-16T02:21:36.833Z"
 // }
-// ----------------------------------------------------------
+
 
 // Create a notebook CREATE WORKS
 router.post("/", asyncHandler(async function (req, res) {
@@ -144,7 +120,7 @@ router.post("/", asyncHandler(async function (req, res) {
 		return res.json(newNotebook);
 	})
 );
-// ----------------------------------------------------------
+
 
 
 //Delete a specfiic notebook DELETE WORKS
@@ -164,7 +140,6 @@ router.delete("/notebook/:notebookId", asyncHandler(async (req, res) => {
 
 
 }));
-// ----------------------------------------------------------
 
 
 //Edit a specific notebook UPDATE WORKS

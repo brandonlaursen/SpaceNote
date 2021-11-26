@@ -45,7 +45,7 @@ const getNotebook = (notebook) => ({
   payload: notebook
 });
 
-export const getNotebookThunk = (notebookId) =>async(dispatch) => {
+export const getNotebookThunk = (notebookId) => async (dispatch) => {
   const res = await fetch(`/api/notebooks/notebook/${notebookId}`);
 
   if(res.ok) {

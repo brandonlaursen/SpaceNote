@@ -3,10 +3,6 @@ import SplashNav from "../SplashNav/SplashNav";
 import ReactTypingEffect from 'react-typing-effect';
 import React from "react";
 import { NavLink } from "react-router-dom";
-// import * as sessionActions from "../../store/session";
-// import { useDispatch, useSelector } from "react-redux";
-// import { Redirect } from "react-router";
-
 
 
 function SplashPage() {
@@ -31,7 +27,6 @@ function SplashPage() {
     <div className="SplashBG">
       <SplashNav/>
         <div className="splashPageContainer">
-          {/* <h1 className="splashTitle">Tame your work, organize your life</h1> */}
           <ReactTypingEffect
             text={["Tame your work, organize your life", "A project by Brandon Laursen"]}
             className="splashTitle"

@@ -1,9 +1,7 @@
 .signupFormContainer{
-  /* position: absolute; */
   background-color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: start; */
   height: 41.5rem;
   width: 33rem;
   margin: auto;
@@ -21,7 +19,6 @@
 .signupFormContainer p{
   margin-top: -.1rem;
 }
-
 
 .signinForm{
   display: flex;
@@ -96,6 +93,5 @@
 }
 
 .remember{
-
   margin-bottom: 2rem;
 }

@@ -14,14 +14,11 @@ import moment from 'moment';
 
 function Notebook() {
 
-  // const { setNum } = useShowModal();
-
   const { notebookId } = useParams();
   const dispatch = useDispatch();
   const history = useHistory();
 
-  const [loaded, setLoaded] = useState(false);
-  // const [showModal, setShowModal] = useState(false);
+
 
    //STATE
   const sessionUser = useSelector(state => state.session.user);
@@ -31,11 +28,13 @@ function Notebook() {
 
   const { show, setShow, setNum } = useShowModal();
 
+
+  const [loaded, setLoaded] = useState(false);
+
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
-  // const [editBannerPicUrl, setEditBannerPicUrl] = useState("");
 
-  const [newNote, setNewNote] = useState(true); //
+  const [newNote, setNewNote] = useState(true);
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
   const [errors, setErrors] = useState([])
@@ -71,21 +70,19 @@ function Notebook() {
     notebook
   ]);
 
+
   useEffect(() => {
     const errors = [];
 
     if(editNotebookTitle.length === 25) errors.push("Max Length for a title is 25 characters");
     if(editNotebookTitle.length < 1) errors.push("Title needs at least two characters")
-    // if(newNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters");
-    // if(mainNoteTitle.length === 25) errors.push("Max Length for a title is 25 characters")
-
     setErrors(errors)
 
   },[editNotebookTitle])
 
+
   useEffect(() => {
     const errors2 = [];
-
 
     if(newNoteTitle.length > 25) errors2.push("Max Length for a title is 25 characters");
     if(mainNoteTitle.length > 25) errors2.push("Max Length for a title is 25 characters");
@@ -96,17 +93,10 @@ function Notebook() {
 
   //NOTEBOOK CRUD
   const deleteNotebookSubmit = (e, notebookId) => {
-      e.preventDefault();
-
+    e.preventDefault();
 
      dispatch(deleteNotebookThunk(notebookId))
      .then(() => dispatch(getUsersNotebooksThunk(sessionUser.id))).then(setNum((old) => old + 1)).then(setShow(false)).then(history.push(`/home`))
-    //  dispatch(getUsersNotebooksThunk(sessionUser.id))
-    //  setShow(false)
-    //  setNum((old) => old + 1);
-    //  history.push(`/home`)
-
-
   }
 
   const editNotebookSubmit = (e, notebookId) => {
@@ -114,44 +104,9 @@ function Notebook() {
     const payload = {
       title: editNotebookTitle
     }
-
-    // setShow(false);
     dispatch(editNotebookThunk(payload, +notebookId)).then(() => dispatch(getNotebookThunk(notebookId))).then(() => dispatch(getUsersNotebooksThunk(sessionUser.id)).then(() => setShow(false)))
-    // setNum((old) => old + 1);
 
   }
-
-  //NOTE CRUD
-  // const editNoteSubmit = (e, noteId) => {
-  //   e.preventDefault();
-
-  //   const payload = {
-  //     title: newNoteTitle,
-  //     content: newNoteContents
-  //   }
-  //   dispatch(editNoteThunk(payload, +noteId)).then(dispatch(getNotebookNotesThunk(notebookId)))
-  // }
-
-
-  // const createNoteSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   const payload = {
-  //     userId: sessionUser?.id,
-  //     notebookId: notebook?.id,
-  //     title: newNoteTitle,
-  //     content: newNoteContents,
-  //   };
-
-  //   let newNote = await dispatch(postNoteThunk(payload))
-  //   // console.log("======",newNote.id)
-  //   setCurrentNote(newNote);
-  // }
-
-
-
-
-
 
 
   const handleSubmit = async(e, noteId) => {
@@ -189,19 +144,7 @@ function Notebook() {
     dispatch(getNotebookNotesThunk(notebookId));
     createNewNote();
     createNewNote();
-
-    // await dispatch(deleteNoteThunk(noteId)).then(() => dispatch(getNotebookNotesThunk(notebookId))).then(() => setLoaded(true))
-    // await dispatch(getNotebookNotesThunk(notebookId)).then(() => setLoaded(true))
   }
-
-//   const handleKeypress = e => {
-//     //it triggers by pressing the enter key
-//   if (e.keyCode === 13) {
-//     handleSubmit();
-//   }
-// };
-
-
 
 
   if (!loaded) {
@@ -274,18 +217,15 @@ if (loaded) {
             <div className="notesHalf">
               <div className='homeNotesContainer1'>
                   {notes?.length > 0 && notes?.map((note) => (
-                <>
+                
                   <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
                     <div>
                       <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
                       <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
                       <p className="timeDiv">{moment(note.updatedAt).format("LLL")}</p>
                     </div>
-
-
-
                   </div>
-                </>
+
                   ))}
               </div>
                   <div className="buttonContainer">

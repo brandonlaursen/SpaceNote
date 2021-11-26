@@ -10,14 +10,10 @@
   cursor: pointer;
   margin-top: 1rem;
   border: 2px solid purple;
-
-  /* margin-right: 1rem; */
 }
 
 .splashDemo:hover{
   border: 2px solid rgb(168, 1, 168);
-  /* color:rgb(168, 1, 168); */
-  /* border-bottom: none; */
 }
 
 .splashLogin{
@@ -32,7 +28,6 @@
   cursor: pointer;
   margin-top: 1rem;
   border: 2px solid purple;
-  /* margin-right: 1rem; */
 }
 
 .splashLogin:hover{
@@ -70,9 +65,7 @@
   margin-left: 2rem;
   cursor: pointer;
   left: 0;
-  /* background-color: red; */
   position: absolute;
-  /* top: 100; */
 }
 
 .navLinks{
@@ -93,10 +86,8 @@
   /* padding: 6px; */
 }
 
-
 .navLi:hover{
   color: purple;
-  /* border-bottom: 4px solid purple; */
 }
 
 .menu-btn{
@@ -109,7 +100,6 @@
   display: none;
   z-index: 100;
 }
-
 
 #isChecked {
   display: none;
@@ -128,21 +118,16 @@
     transition: all 0.5s;
     background: white;
     right: -100%;
-    /* z-index:-10; */
-
-
   }
+
   .navLinks li {
     display: block;
     align-items: center;
     font-size: 20px;
-
   }
 
   .menu-btn{
     display: block;
-    /* float: center; */
-    /* z-index: 100; */
   }
 
   #isChecked:checked ~ .navLinks {

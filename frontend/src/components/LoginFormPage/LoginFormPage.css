@@ -1,10 +1,7 @@
 
-body
-{
+body{
  margin:0 auto;
  padding:0px;
- /* text-align:center; */
- /* width:100%; */
  font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
 }
 
@@ -24,11 +21,9 @@ body
 }
 
 .loginFormContainer{
-  /* position: absolute; */
   background-color: white;
   display: flex;
   flex-direction: column;
-  /* justify-content: start; */
   height: 41.5rem;
   width: 33rem;
   margin: auto;
@@ -45,7 +40,6 @@ body
 .loginFormContainer p{
   margin-top: -.1rem;
 }
-
 
 .loginForm{
   display: flex;
@@ -64,7 +58,6 @@ body
   cursor: pointer;
   margin-top: 1rem;
   font-family:inherit;
-  /* margin-bottom: 1rem; */
 }
 
 .loginSubmit:hover{
