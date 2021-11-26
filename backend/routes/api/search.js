@@ -1,11 +1,10 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Note, Notebook } = require("../../db/models");
-const { Op, and } = require("sequelize");
+const { Note } = require("../../db/models");
+const { Op } = require("sequelize");
+
 
 const router = express.Router()
-
-
 
 
 router.post("/notes", asyncHandler(async(req, res) => {
@@ -20,13 +19,9 @@ router.post("/notes", asyncHandler(async(req, res) => {
     },
   })
 
-
   res.json({ notes })
 
 }))
 
-// content: {
-//   [Op.iLike]: `%{results}%`,
-// }
 
 module.exports = router;

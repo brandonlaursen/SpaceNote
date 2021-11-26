@@ -11,52 +11,35 @@ input{
 }
 
 .Notebook-container{
-  /* background-color: red; */
-  /* display: flex; */
-  /* margin: 0; */
-  /* width: 100%; */
-  /* height: 100%; */
-  /* background-color: red; */
 
 }
 
 .nbcontainer{
   display: flex;
-  /* min-height: 100% */
-
 }
 
 .notesHalf{
-  /* background-color: grey; */
   height: 100%;
   width: 20rem;
-
-  /* min-height: calc(100vh - 116px) */
-  /* min-height: 100vh; */
-  /* border-right: solid black 1px; */
 }
 
 .notebooksTitle{
   background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
   background-size: cover;
-  /* height: 5rem; */
   padding: 1rem;
-  /* width: 90%; */
   color: white;
   display: flex;
   justify-content: space-between;
-  align-items: end;
+  /* align-items: end; */
 }
 
 .ll{
-  /* margin-left: 1rem; */
+
 }
+
 .nbt1{
   display: flex;
   flex-direction: column;
-
-
-  /* background-color: green; */
 }
 
 .nbt2{
@@ -64,20 +47,15 @@ input{
 }
 
 .homeNotesContainer1{
-  /* background-color: green; */
   height: 34.45rem;
   overflow: scroll;
   width: 20rem;
 }
 
 .homeNotesNotesContainer{
-  /* display: flex;
-  flex-direction: column; */
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   height: 4rem;
-  /* width: 13.5rem; */
-  /* width: 100%; */
   word-wrap: break-word;
   overflow: hidden;
   cursor: pointer;
@@ -87,24 +65,18 @@ input{
 
 .homeNotesNotesContainer:hover{
   height: 8rem;
-
 }
 
 .homeNotesNotesContainer:hover .timeDiv{
   display: block;
-
 }
 
 .timeDiv{
-/* background-color: green; */
 display: none;
-/* position: absolute; */
-/* bottom: 0px; */
 }
 
 
 .notepadContainer{
-  /* height: 1rem; */
   width: 100%
 }
 .note-title{
@@ -112,7 +84,6 @@ display: none;
   height: 3rem;
   padding: .5rem;
   font-size: 26px;
-  /* margin: 0; */
 }
 
 .note-content{
@@ -121,7 +92,6 @@ display: none;
   padding: .5rem;
   font-size: 26px;
   margin: 0;
-
 }
 
 #createNoteButton{
@@ -133,11 +103,8 @@ display: none;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-family:inherit;
   margin-top: 1rem;
-
 }
 
 #createNoteButton:hover{
@@ -149,9 +116,7 @@ display: none;
   justify-content: center;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
-  /* background-color: red; */
   height: 5rem;
-  /* align-content: center; */
 }
 
 .DBButton{
@@ -163,8 +128,6 @@ display: none;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-family:inherit;
   margin-left: 1rem;
   margin-top: .7rem;
@@ -191,15 +154,13 @@ display: none;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-family:inherit;
   margin-left: 1rem;
   margin-top: .7rem;
 }
 
 .DBButton2:hover{
-  /* background-color: rebeccapurple; */
+
 }
 
 .enbtn{
@@ -221,18 +182,10 @@ display: none;
   margin-bottom: .5rem;
 }
 
-
-
-
 .aa{
   display: flex;
   flex-direction: column;
 }
-
-
-
-
-
 
 .EditNotebookbtn{
   background-color: purple;
@@ -243,13 +196,9 @@ display: none;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-family:inherit;
-  /* margin-left: 12rem; */
   margin-top: .7rem;
 }
-
 
 .EditNotebookbtn2{
   background-color: purple;
@@ -260,8 +209,6 @@ display: none;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  /* margin-top: 1rem; */
-  /* margin-bottom: 1rem; */
   font-family:inherit;
   margin-left: 1rem;
   margin-top: .7rem;
@@ -272,7 +219,6 @@ display: none;
 }
 
 .rteContainer{
-  /* background-color: green; */
   width:100vw;;
   height: 100%;
 }

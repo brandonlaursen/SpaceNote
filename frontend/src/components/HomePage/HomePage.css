@@ -1,46 +1,32 @@
 .homepage-container{
-  /* background-color: red; */
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-
 .homePageTitle{
-  /* position: absolute; */
-  /* background-color: yellow; */
   background-image: url("https://wallpapercave.com/wp/wp6590692.jpg");
   height: 30rem;
   background-position: center;
   background-size: cover;
-
 }
-
 
 .notesAndNotebooksContainer{
   display: flex;
-  /* position: absolute; */
   justify-content: space-evenly;
-  /* background-color: lawngreen; */
-  /* height: 22rem; */
-
 }
+
 .errors{
   list-style: none;
 }
-
 
 .navlink{
   text-decoration: none;
   color: black
 }
 
-
 .homeNotesContainer{
-  /* position: absolute; */
-  /* margin-top: -1rem; */
   display: flex;
-  /* background-color: darkgrey; */
   height: 100%;
   overflow-x: scroll;
   width: 40rem;
@@ -52,7 +38,6 @@
   border-top-right-radius: 0px;
 }
 
-
 .noteItems{
   display: flex;
   flex-direction: column;
@@ -60,26 +45,18 @@
   margin: .5rem;
   background-color: white;
   justify-content:space-evenly;
-  /* padding: .5rem; */
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 
 }
 
-/* .homeNotebooksContainer h1{
-  color: red;
-} */
-
 .notetitle{
-  /* background-color: green; */
   width: 17rem;
   padding: .5rem;
   overflow: hidden;
-  /* word-wrap: break-word; */
 }
 
 .notecontent{
-  /* background-color: blue; */
   width: 17rem;
   height: 100%;
   word-wrap: break-word;
@@ -88,8 +65,6 @@
 }
 
 .homeNotesContainerTitle{
-  /* background-color: rgb(100, 100, 100); */
-  /* color: purple; */
   border-top: solid 1px black;
   border-left: solid 1px black;
   border-right: solid 1px black;
@@ -100,28 +75,21 @@
   border-bottom-left-radius: 0px;
   border-bottom-right-radius: 0px;
   text-transform: uppercase;
-
 }
 
 .homeNotesContainerTitle h1{
   margin-left: 1rem;
-
 }
 
 .HN1{
-   /* position: absolute; */
   margin-top: -12rem;
 }
 
-
 .homeNotebooksContainer{
-  /* background-color: darkgrey; */
   width: 30rem;
   height: 23.1rem;
   overflow-y: scroll;
   border: solid 1px black;
-  /* position: absolute;
-  margin-top: -1rem; */
   margin-top: -11.99rem;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
@@ -130,10 +98,7 @@
 }
 
 .notebookTitle{
-  /* border: solid 1px black; */
   height: 3rem;
-  /* justify-content: center; */
-  /* align-content: center; */
   text-align: center;
   margin: .5rem;
   border: solid transparent 1px;
@@ -145,22 +110,20 @@
 }
 .notebookTitle:hover {
   color: white;
-  /* border-color: purple; */
   background: #BA0C9B;
   background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
   background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
   background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
-  /* border-width: 2px; */
 }
 
 .NL{
   text-decoration: none;
   color: black;
 }
+
 .notebooktitle{
   margin-left: 1rem;
   color: white;
-  /* vertical-align: middle; */
 }
 
 .AS{
@@ -175,7 +138,6 @@
   color: white;
   margin-left: 1rem;
   margin-top: 1rem;
-
 }
 
 .fa-plus{
@@ -185,21 +147,18 @@
   margin-top: 1rem;
   cursor: pointer;
 }
+
 .fa-plus:hover{
   color: purple;
 }
 
-
 .createModal{
-
-  /* background-color: purple; */
   height: 17rem;
   width: 30rem;
   border-radius: 1px;
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: start; */
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
@@ -211,9 +170,8 @@
   min-width: 7.4rem;
   border-radius: 5px;
   margin-bottom: .5rem;
-
-
 }
+
 .createModal h1 {
   margin-bottom: 1rem;
   margin-top: 1rem;

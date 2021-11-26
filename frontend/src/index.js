@@ -1,18 +1,15 @@
 import React from 'react';
-
 import './index.css';
-
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './context/Modal';
 import { ShowModalProvider } from './context/showModal';
 import App from './App';
-
 import configureStore from './store';
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from './store/session';
-// import { ShowModalProvider } from './context/showModal';
+
 
 const store = configureStore();
 
@@ -24,12 +21,6 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
-// const Carrot = () => (
-//   <div style={{ color: "orange", fontSize: "100px" }}>
-//     <i className="fas fa-carrot"></i>
-//   </div>
-// );
-
 function Root() {
   return (
       <Provider store={store}>
@@ -37,7 +28,6 @@ function Root() {
           <ModalProvider>
             <BrowserRouter>
               <App />
-              {/* <Carrot /> */}
             </BrowserRouter>
         </ModalProvider>
        </ShowModalProvider>

@@ -81,8 +81,6 @@ function HomePage() {
 
                   <div className="notetitle">
                     <h2 > {note.title}</h2>
-                    {/* to={`/notebooks/${notebook.id}`} */}
-                    {/* <NavLink to={`/notebooks/{note.notebookId}`} >{note.title}</NavLink> */}
                   </div>
 
                   <div className="notecontent">

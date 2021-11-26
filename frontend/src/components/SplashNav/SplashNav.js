@@ -1,17 +1,15 @@
 import "./SplashNav.css"
-import React, { useState } from "react";
+import React from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-// import { login } from "../../store/session";
 import Footer from "./Footer"
 
 
 function SplashNav() {
+
   const dispatch = useDispatch();
-  // const [credential, setCredential] = useState("");
-  // const [password, setPassword] = useState("");
   const sessionUser = useSelector((state) => state.session.user);
 
   const demo = async () => {
@@ -51,6 +49,3 @@ function SplashNav() {
 export default SplashNav;
 
 
-// <a className="loginAccount" href="/login">Log in</a>
-//       <a className="loginAccount" href="/signup">Sign up</a>
-//       <h1>Hello from the splash Nav</h1>

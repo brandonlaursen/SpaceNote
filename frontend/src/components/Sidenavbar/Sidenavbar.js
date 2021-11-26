@@ -1,4 +1,3 @@
-
 import * as sessionActions from "../../store/session";
 import { useDispatch } from "react-redux";
 import React, { useState } from 'react';
@@ -7,22 +6,19 @@ import { getUsersNotebooksThunk } from "../../store/notebooks";
 import { useSelector } from "react-redux";
 import { useShowModal } from '../../context/showModal';
 import { searchNotesThunk } from "../../store/search";
-// import ReactHtmlParser from 'react-html-parser';
-
 import './Sidenavbar.css';
 import { NavLink } from 'react-router-dom'
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
   const { num } = useShowModal();
+  const dispatch = useDispatch();
+
   const path = window.location.href;
   const sessionUser = useSelector(state => state.session.user);
-
   const searchNotes = useSelector((state) => state.search.notes);
-  // console.log(searchNotes)
-  const [search, setSearch] = useState("");
 
-  const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
   const [showNotebooksNav, setShowNotebooksNav] = useState(false);
 
   const logout = e => {
@@ -31,24 +27,17 @@ const Sidenavbar = ({name, notebooks, profile}) => {
   };
 
   useEffect(() => {
-    // if(search === "") return;
-    dispatch(searchNotesThunk(search, sessionUser.id))
 
+    dispatch(searchNotesThunk(search, sessionUser.id))
 
   }, [search, dispatch, sessionUser.id])
 
-  // useEffect(() => {
-  //   if(search?.length === 1 ){
-  //     document.querySelector(".search-block").classList.remove = "e"
-
-  //   }
-  // },[search])
 
   useEffect(() => {
 
     if(sessionUser){
       dispatch(getUsersNotebooksThunk(sessionUser?.id))
-      // dispatch(getNotebookNotesThunk(""))
+
     }
 
   }, [dispatch, sessionUser, num, path])
@@ -144,9 +133,6 @@ const Sidenavbar = ({name, notebooks, profile}) => {
               </div>
           </div>
 
-          {/* <div className="sidenavbar-bottom">
-            <h3 className="madeBy">Made by Brandon</h3>
-          </div> */}
       </div>
   )
 }
