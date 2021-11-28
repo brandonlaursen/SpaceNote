@@ -196,7 +196,7 @@ function Notebook() {
 
 if (loaded) {
   return (
-    <>
+    <div className="NBOdiv">
     <Sidenavbar name={sessionUser?.username} notebooks={notebooks}  profile={sessionUser?.profile_pic_url}/>
     <div className={darkMode ? "Notebook-containerDark" : "Notebook-container"}>
 
@@ -317,7 +317,7 @@ if (loaded) {
 
           </div>
       </div>
-    </>
+    </div>
   )
 } else {
   return null;

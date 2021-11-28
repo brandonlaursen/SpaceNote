@@ -1,7 +1,13 @@
-body{
+/* body{
   background-color: rgb(44, 44, 44);
-}
+} */
 
+.NBOdiv{
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
 
 input{
   font-family:inherit;
