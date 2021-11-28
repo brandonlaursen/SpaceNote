@@ -3,9 +3,9 @@ body{
 }
 
 .NBOdiv{
-  margin: 0;
+  /* margin: 0;
   height: 100%;
-  width: 100%;
+  width: 100%; */
   /* display: flex; */
 }
 
@@ -96,20 +96,30 @@ display: none;
   width: 100%
 }
 .note-title{
-  width:100%;
+  width:98.6%;
   height: 3rem;
   padding: .5rem;
   background-color: white;
   font-size: 26px;
+  border-color: white;
+  /* border-top-style: hidden;
+  border-right-style: hidden;
+  border-bottom-style: hidden;
+  border-left-style: hidden; */
 }
 
 .note-titleDark{
-  width:100%;
+  width:98.6%;
   height: 3rem;
   padding: .5rem;
   background-color: rgb(44, 44, 44);
   color: white;
   font-size: 26px;
+  border-color: white;
+  /* border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden; */
+  border-bottom-style: hidden;
 }
 
 .note-content{
@@ -156,7 +166,7 @@ display: none;
   cursor: pointer;
   font-family:inherit;
   margin-left: 1rem;
-  margin-top: .7rem;
+  margin-top: 2rem;
 }
 
 .DBButton:hover{
