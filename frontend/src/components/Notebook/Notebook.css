@@ -48,7 +48,7 @@ input{
 
 .homeNotesContainer1{
   height: 34.45rem;
-  overflow: scroll;
+  overflow: auto;
   width: 20rem;
 }
 
@@ -57,7 +57,7 @@ input{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   height: 4rem;
   word-wrap: break-word;
-  overflow: hidden;
+  overflow: auto;
   cursor: pointer;
   padding: 1rem;
 
@@ -108,7 +108,7 @@ display: none;
 }
 
 #createNoteButton:hover{
-  background-color: rebeccapurple;
+  background-color: rgb(183, 0, 255);
 }
 
 .buttonContainer{
@@ -170,7 +170,7 @@ display: none;
 }
 
 .enbtn:hover{
-  color: purple;
+  color: rgb(183, 0, 255);
 }
 
 .CreateInput2{
@@ -200,8 +200,16 @@ display: none;
   margin-top: .7rem;
 }
 
+.EditNotebookbtn:hover{
+  background-color: rgb(183, 0, 255);
+}
+
+.EditNotebookbtn2:hover{
+  background-color: rgb(255, 0, 0) !important;;
+}
+
 .EditNotebookbtn2{
-  background-color: purple;
+  background-color:  rgb(221, 24, 24) !important;;
   font-size: 16px;
   color:white;
   height: 3.2rem;
