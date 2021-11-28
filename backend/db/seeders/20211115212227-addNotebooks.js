@@ -5,19 +5,37 @@ module.exports = {
      return queryInterface.bulkInsert('Notebooks', [
       {
         userId: 1,
-        title: "First",
+        title: "Astronomy",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         userId: 1,
-        title: "Second",
+        title: "Coding",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
       {
         userId: 1,
-        title: "Third",
+        title: "Math",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        userId: 1,
+        title: "Science",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        userId: 1,
+        title: "To Do",
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        userId: 1,
+        title: "History",
         createdAt: new Date(),
         updatedAt: new Date(),
       },
