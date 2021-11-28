@@ -7,10 +7,23 @@ import { useSelector } from "react-redux";
 import { useShowModal } from '../../context/showModal';
 import { searchNotesThunk } from "../../store/search";
 import './Sidenavbar.css';
+import { useContext } from "react";
 import { NavLink } from 'react-router-dom'
+import { ThemeContext } from "../../context/Theme";
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
+
+  const {darkMode, setDarkMode} = useContext(ThemeContext);
+
+
+  const handleTheme = () => {
+    setDarkMode(!darkMode)
+    localStorage.setItem('darkMode', !darkMode);
+  }
+
+  console.log("sideNav",darkMode)
+
   const { num } = useShowModal();
   const dispatch = useDispatch();
 
@@ -59,6 +72,8 @@ const Sidenavbar = ({name, notebooks, profile}) => {
   }
 
 
+
+
   return (
       <div className="sidenavbar">
           <div className="sidenavbar-top">
@@ -68,6 +83,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
 
                   <div className="profile-title">
                       {name}
+               <i onClick={handleTheme} className={darkMode ? "themeButton fas fa-sun" : "themeButton far fa-moon"}></i>
                   </div>
               </div>
 

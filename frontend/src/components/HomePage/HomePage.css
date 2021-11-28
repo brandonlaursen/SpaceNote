@@ -2,6 +2,14 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background-color: white;
+}
+
+.homepage-containerDark{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: rgb(56, 56, 56);
 }
 
 .homePageTitle{
@@ -50,6 +58,18 @@
 
 }
 
+.noteItemsDark{
+  display: flex;
+  flex-direction: column;
+  height: 18.9rem;
+  margin: .5rem;
+  background-color: rgb(44, 44, 44);
+  justify-content:space-evenly;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  color:white;
+}
+
 .notetitle{
   width: 17rem;
   padding: .5rem;
@@ -95,6 +115,7 @@
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   border-radius: 5px;
 
+
 }
 
 .notebookTitle{
@@ -108,6 +129,30 @@
   text-decoration: none;
 
 }
+
+.notebookTitleDark{
+  height: 3rem;
+  text-align: center;
+  margin: .5rem;
+  border: solid transparent 1px;
+  border-radius: 5px;
+  background-color: rgb(44, 44, 44);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  text-decoration: none;
+  color: white;
+
+}
+
+.notebookTitleDark:hover{
+  color: white;
+  background: #BA0C9B;
+  background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
+  background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
+  background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
+
+}
+
+
 .notebookTitle:hover {
   color: white;
   background: #BA0C9B;
@@ -161,6 +206,20 @@
   flex-direction: column;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  background-color: white;
+}
+
+.createModalDark{
+  height: 17rem;
+  width: 30rem;
+  border-radius: 1px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  background-color: rgb(44, 44, 44);
+  color: white;
 }
 
 .CreateInput1{
@@ -174,6 +233,11 @@
 
 }
 .createModal h1 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.createModalDark h1 {
   margin-bottom: 1rem;
   margin-top: 1rem;
 }
