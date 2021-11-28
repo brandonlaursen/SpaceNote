@@ -11,6 +11,8 @@ import 'react-quill/dist/quill.snow.css'
 import ReactHtmlParser from 'react-html-parser';
 import { useShowModal } from '../../context/showModal';
 import moment from 'moment';
+import { useContext } from "react";
+import { ThemeContext } from "../../context/Theme";
 
 function Notebook() {
 
@@ -18,7 +20,8 @@ function Notebook() {
   const dispatch = useDispatch();
   const history = useHistory();
 
-
+  const {darkMode} = useContext(ThemeContext);
+  console.log("NOTEBOOK",darkMode)
 
    //STATE
   const sessionUser = useSelector(state => state.session.user);
@@ -195,7 +198,7 @@ if (loaded) {
   return (
     <>
     <Sidenavbar name={sessionUser?.username} notebooks={notebooks}  profile={sessionUser?.profile_pic_url}/>
-    <div className="Notebook-container">
+    <div className={darkMode ? "Notebook-containerDark" : "Notebook-container"}>
 
 
           <div className="notebooksTitle">
@@ -217,7 +220,7 @@ if (loaded) {
             <div className="notesHalf">
               <div className='homeNotesContainer1'>
                   {notes?.length > 0 && notes?.map((note) => (
-                
+
                   <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
                     <div>
                       <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
@@ -240,7 +243,7 @@ if (loaded) {
             {show && (
             <Modal onClose={() => setShow(false)}>
 
-            <div className="createModal">
+            <div className={darkMode ? "createModalDark" : "createModal"}>
               <h1>Edit Notebook</h1>
 
               <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
@@ -272,7 +275,7 @@ if (loaded) {
               <div className="rteContainer">
                   <form >
                     <input
-                        className='TET note-title'
+                        className={darkMode ? "TET note-titleDark" : 'TET note-title'}
                         type="text"
                         placeholder="Write a Title"
                         maxLength="25"

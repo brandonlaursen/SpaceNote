@@ -9,10 +9,15 @@ import { Modal } from '../../context/Modal';
 import ReactHtmlParser from 'react-html-parser';
 import { useShowModal } from '../../context/showModal';
 import moment from 'moment';
+import { useContext } from "react";
+import { ThemeContext } from "../../context/Theme";
 
 
 function HomePage() {
 
+  const {darkMode, setDarkMode} = useContext(ThemeContext);
+
+  console.log("home", darkMode)
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
@@ -23,6 +28,13 @@ function HomePage() {
 
   const { show, setShow, num } = useShowModal();
 
+  // useEffect(() => {
+  //   if(darkMode === true) {
+  //     document.querySelector(".noteItems").style.backgroundColor = "grey";
+  //   } else {
+  //     document.querySelector(".noteItems").style.backgroundColor = "white";
+  //   }
+  // },[darkMode])
 
   useEffect(() => {
     const errors = [];
@@ -62,7 +74,7 @@ function HomePage() {
     <>
       <Sidenavbar name={sessionUser?.username} notebooks={notebooks}/>
 
-      <div className="homepage-container">
+      <div className={darkMode ? "homepage-containerDark" : "homepage-container"}>
 
           <div className="homePageTitle">
             <h1 className="hpWelcome">Hello, {sessionUser?.username}</h1>
@@ -77,7 +89,7 @@ function HomePage() {
               {notes?.map((note) => (
 
               <NavLink className="navlink" to={`/notebooks/${note.notebookId}`} id={note.id} key={note.id}>
-                <div className="noteItems" >
+                <div className={darkMode ? "noteItemsDark" : "noteItems"} >
 
                   <div className="notetitle">
                     <h2 > {note.title}</h2>
@@ -89,6 +101,7 @@ function HomePage() {
                     <p className="timeP">{moment(note.updatedAt).format("MMM-DD")}</p>
 
                 </div>
+
               </NavLink>
 
               ))}
@@ -100,13 +113,13 @@ function HomePage() {
           <div className='homeNotebooksContainer'>
 
             <div className="notebookTitleDiv">
-              <h1 className="notebooktitle">NOTEBOOKS</h1>
+              <h1 className={ "notebooktitle"}>NOTEBOOKS</h1>
               <i  className="fas fa-plus fa-lg" onClick={() => setShow(true)}></i>
             </div>
 
             {notebooks?.length > 0 && notebooks?.map((notebook) => (
 
-              <NavLink id={notebook.id} key={notebook.id}  className="NL" to={`/notebooks/${notebook.id}`}> <h2 className="notebookTitle"> {notebook.title}</h2> </NavLink>
+              <NavLink id={notebook.id} key={notebook.id}  className="NL" to={`/notebooks/${notebook.id}`}> <h2 className={darkMode ? "notebookTitleDark" : "notebookTitle"}> {notebook.title}</h2> </NavLink>
 
             ))}
           </div>
@@ -118,7 +131,7 @@ function HomePage() {
 
         {show && (
         <Modal onClose={() => setShow(false)}>
-          <div className="createModal">
+          <div className={darkMode ? "createModalDark" : "createModal"}>
             <h1>Create Notebook</h1>
             <form onSubmit={createNotebookSubmit} id="my-form">
               <input
