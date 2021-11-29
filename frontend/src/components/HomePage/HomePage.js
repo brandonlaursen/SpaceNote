@@ -1,16 +1,15 @@
 import "./HomePage.css"
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getUsersNotebooksThunk, postNotebookThunk } from "../../store/notebooks";
 import { getUsersNotesThunk } from "../../store/notes";
 import { NavLink } from 'react-router-dom';
-import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import { Modal } from '../../context/Modal';
-import ReactHtmlParser from 'react-html-parser';
-import { useShowModal } from '../../context/showModal';
-import moment from 'moment';
-import { useContext } from "react";
 import { ThemeContext } from "../../context/Theme";
+import { useShowModal } from '../../context/showModal';
+import ReactHtmlParser from 'react-html-parser';
+import Sidenavbar from "../Sidenavbar/Sidenavbar";
+import moment from 'moment';
 
 
 function HomePage() {
@@ -27,13 +26,6 @@ function HomePage() {
 
   const { show, setShow, num } = useShowModal();
 
-  // useEffect(() => {
-  //   if(darkMode === true) {
-  //     document.querySelector(".noteItems").style.backgroundColor = "grey";
-  //   } else {
-  //     document.querySelector(".noteItems").style.backgroundColor = "white";
-  //   }
-  // },[darkMode])
 
   useEffect(() => {
     const errors = [];

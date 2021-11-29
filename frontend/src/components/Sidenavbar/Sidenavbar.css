@@ -100,13 +100,9 @@
   scrollbar-width: none;
 }
 
-
 .NavNotebookContainer::-webkit-scrollbar{
   display: none;
 }
-
-
-
 
 .notebooksNavTitle{
   margin-left: .9rem;
@@ -194,10 +190,6 @@
   margin-left: -.05rem;
 }
 
-.l{
-
-}
-
 .x:hover{
   color: rgb(183, 0, 255);
 }
@@ -241,12 +233,10 @@
   border: none;
 }
 
-
 .themeButton{
   cursor: pointer;
   margin-left: 2.8rem;
   font-size:13pt;
-
 }
 
 .ui{

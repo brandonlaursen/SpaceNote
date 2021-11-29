@@ -7,7 +7,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* border-radius: 5px; */
 }
 
 #modal-background {
@@ -17,7 +16,6 @@
   left: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  /* border-radius: 5px; */
 }
 
 #modal-content {

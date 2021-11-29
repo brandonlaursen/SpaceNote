@@ -1,12 +1,12 @@
-import "../Notebook/Notebook.css";
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { getUsersNotebooksThunk } from "../../store/notebooks";
 import { editNoteThunk, postNoteThunk, deleteNoteThunk, getUsersNotesThunk  } from "../../store/notes";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
 import ReactQuill from "react-quill"
-import 'react-quill/dist/quill.snow.css'
 import ReactHtmlParser from 'react-html-parser';
+import "../Notebook/Notebook.css";
+import 'react-quill/dist/quill.snow.css';
 
 
 function Notelist() {
@@ -14,16 +14,13 @@ function Notelist() {
   const dispatch = useDispatch();
   const [loaded, setLoaded] = useState(false);
 
-
    //STATE
   const sessionUser = useSelector(state => state.session.user);
   const notes = useSelector(state => state.notes.notes);
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
 
-  // console.log(notebooks[0]?.id)
 
   const [currentNotebook, setCurrentNotebook] = useState('');
-
 
   const [newNote, setNewNote] = useState(true); //
   const [newNoteTitle, setNewNoteTitle] = useState("");
@@ -33,7 +30,7 @@ function Notelist() {
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
 
-  // console.log("===",notebooks[currentNotebook])
+
 
   useEffect(() => {
 
@@ -64,7 +61,7 @@ function Notelist() {
 
   const handleSubmit = async(e, noteId) => {
     e.preventDefault();
-    // console.log("yes",notebookId)
+
     if(newNote) {
       let cn = currentNotebook
       if(currentNotebook === "") {

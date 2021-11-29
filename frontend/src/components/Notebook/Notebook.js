@@ -4,15 +4,15 @@ import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { getNotebookThunk, getNotebookNotesThunk, deleteNotebookThunk, editNotebookThunk, getUsersNotebooksThunk } from "../../store/notebooks";
 import { editNoteThunk, postNoteThunk, deleteNoteThunk  } from "../../store/notes";
-import Sidenavbar from "../Sidenavbar/Sidenavbar";
-import { Modal } from '../../context/Modal';
-import ReactQuill from "react-quill"
-import 'react-quill/dist/quill.snow.css'
-import ReactHtmlParser from 'react-html-parser';
-import { useShowModal } from '../../context/showModal';
-import moment from 'moment';
 import { useContext } from "react";
 import { ThemeContext } from "../../context/Theme";
+import { Modal } from '../../context/Modal';
+import { useShowModal } from '../../context/showModal';
+import Sidenavbar from "../Sidenavbar/Sidenavbar";
+import ReactQuill from "react-quill";
+import ReactHtmlParser from 'react-html-parser';
+import moment from 'moment';
+import 'react-quill/dist/quill.snow.css';
 
 function Notebook() {
 
@@ -21,7 +21,6 @@ function Notebook() {
   const history = useHistory();
 
   const {darkMode} = useContext(ThemeContext);
-
 
 
    //STATE

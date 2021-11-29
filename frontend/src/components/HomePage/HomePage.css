@@ -10,14 +10,11 @@ body::-webkit-scrollbar{
   display: none;
 }
 
-
-
 .homepage-container{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: white;
-
 }
 
 .homepage-containerDark{
@@ -25,8 +22,6 @@ body::-webkit-scrollbar{
   flex-direction: column;
   min-height: 100vh;
   background-color: rgb(56, 56, 56);
-
-
 }
 
 .homePageTitle{
@@ -53,9 +48,6 @@ body::-webkit-scrollbar{
 
 .homeNotesContainer{
   display: flex;
-  /* height: 100%; */
-  /* -ms-overflow-style: none; */
-  /* scrollbar-width: 5px; */
   overflow: auto;
   width: 40rem;
   height: 20rem;
@@ -64,7 +56,6 @@ body::-webkit-scrollbar{
   border-radius: 5px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
-
 }
 
 .homeNotesContainer::-webkit-scrollbar {
@@ -82,6 +73,7 @@ body::-webkit-scrollbar{
   background-color: rgba(0, 0, 0, 0.192);
   border-radius: 4px;
 }
+
 /* .homeNotesContainer::-webkit-scrollbar{
   display: none;
 } */
@@ -95,7 +87,6 @@ body::-webkit-scrollbar{
   justify-content:space-evenly;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
-
 }
 
 .noteItemsDark{
@@ -171,7 +162,6 @@ body::-webkit-scrollbar{
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   text-decoration: none;
-
 }
 
 .notebookTitleDark{
@@ -184,7 +174,6 @@ body::-webkit-scrollbar{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   text-decoration: none;
   color: white;
-
 }
 
 .notebookTitleDark:hover{
@@ -193,9 +182,7 @@ body::-webkit-scrollbar{
   background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
   background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
   background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
-
 }
-
 
 .notebookTitle:hover {
   color: white;
@@ -273,9 +260,8 @@ body::-webkit-scrollbar{
   min-width: 7.4rem;
   border-radius: 5px;
   margin-bottom: .5rem;
-
-
 }
+
 .createModal h1 {
   margin-bottom: 1rem;
   margin-top: 1rem;

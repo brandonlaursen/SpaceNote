@@ -1,18 +1,5 @@
 body{
-  /* background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
-  background-size: cover; */
   background-color: #1a1a1a;
-  /* overflow: hidden; */
-}
-
-.NBOdiv{
-  /* background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
-  background-size: cover; */
-  /* margin: 0;
-  height: 100%;
-  width: 100%; */
-  /* display: flex; */
-
 }
 
 input{
@@ -55,10 +42,6 @@ input{
   color: white;
   display: flex;
   justify-content: space-between;
-  /* align-items: end; */
-}
-
-.ll{
 
 }
 
@@ -67,12 +50,6 @@ input{
   flex-direction: column;
 }
 
-.nbt2{
-
-}
-#my-form1 > div.ql-container.ql-snow > div.ql-editor.ql-blank {
-  outline-color: green !important;
-}
 .homeNotesContainer1{
   height: calc(100% - 115px);
   overflow: auto;
@@ -114,24 +91,15 @@ input{
   height: 5rem;
 }
 
-.homeNotesNotesContainer:hover .timeDiv{
-  /* display: block; */
-}
-
 
 .timeDiv{
-display: none;
-/* font-size: 12px;
-float: right;
-margin-top: .8rem; */
-/* vertical-align: middle;
- */
+  display: none;
 }
-
 
 .notepadContainer{
   width: 100%
 }
+
 .note-title{
   width:98.6%;
   height: 3rem;
@@ -139,10 +107,6 @@ margin-top: .8rem; */
   background-color: white;
   font-size: 26px;
   border-color: white;
-  /* border-top-style: hidden;
-  border-right-style: hidden;
-  border-bottom-style: hidden;
-  border-left-style: hidden; */
 }
 
 .note-titleDark{
@@ -153,9 +117,6 @@ margin-top: .8rem; */
   color: white;
   font-size: 26px;
   border-color: white;
-  /* border-top-style: hidden;
-  border-right-style: hidden;
-  border-left-style: hidden; */
   border-bottom-style: hidden;
 }
 
@@ -232,10 +193,6 @@ margin-top: .8rem; */
   margin-top: .7rem;
 }
 
-.DBButton2:hover{
-
-}
-
 .enbtn{
   margin-top: .5rem;
   margin-left: .1rem;
@@ -302,6 +259,5 @@ margin-top: .8rem; */
 
 .rteContainer{
   width: 100vw;
-  /* height: calc(100vh - 8vh); */
   height: 100%;
 }

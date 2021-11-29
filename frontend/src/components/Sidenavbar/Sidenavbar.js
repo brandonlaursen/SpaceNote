@@ -6,23 +6,20 @@ import { getUsersNotebooksThunk } from "../../store/notebooks";
 import { useSelector } from "react-redux";
 import { useShowModal } from '../../context/showModal';
 import { searchNotesThunk } from "../../store/search";
-import './Sidenavbar.css';
 import { useContext } from "react";
 import { NavLink } from 'react-router-dom'
 import { ThemeContext } from "../../context/Theme";
+import './Sidenavbar.css';
 
 
 const Sidenavbar = ({name, notebooks, profile}) => {
 
   const {darkMode, setDarkMode} = useContext(ThemeContext);
 
-
   const handleTheme = () => {
     setDarkMode(!darkMode)
     localStorage.setItem('darkMode', !darkMode);
   }
-
-  
 
   const { num } = useShowModal();
   const dispatch = useDispatch();

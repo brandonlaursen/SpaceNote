@@ -5,7 +5,7 @@ import { NavLink, Redirect } from "react-router-dom";
 import './LoginFormPage.css';
 
 function LoginFormPage() {
-  
+
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
@@ -30,8 +30,6 @@ function LoginFormPage() {
       sessionActions.login({ credential: "Demo-lition", password: "password" })
     );
   };
-
-
 
 
   return (
