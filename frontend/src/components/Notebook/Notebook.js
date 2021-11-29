@@ -23,11 +23,13 @@ function Notebook() {
   const {darkMode} = useContext(ThemeContext);
 
 
+
    //STATE
   const sessionUser = useSelector(state => state.session.user);
   const notes = useSelector(state => state.notes.notes);
   const notebook = useSelector(state => state.notebooks.notebook);
   const notebooks = useSelector(state => state.notebooks.notebooks);
+
 
   const { show, setShow, setNum } = useShowModal();
 

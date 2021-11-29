@@ -15,7 +15,7 @@ import { ThemeContext } from "../../context/Theme";
 
 function HomePage() {
 
-  const {darkMode, setDarkMode} = useContext(ThemeContext);
+  const {darkMode } = useContext(ThemeContext);
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
