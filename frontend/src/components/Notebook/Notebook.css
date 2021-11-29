@@ -1,8 +1,8 @@
 body{
   /* background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
   background-size: cover; */
-  background-color: rgb(33,33,33);
-  overflow: hidden;
+  background-color: #1a1a1a;
+  /* overflow: hidden; */
 }
 
 .NBOdiv{
@@ -12,6 +12,7 @@ body{
   height: 100%;
   width: 100%; */
   /* display: flex; */
+
 }
 
 input{
@@ -28,16 +29,18 @@ input{
 
 .Notebook-container{
  background-color: white;
+ overflow: hidden;
 }
 
 .Notebook-containerDark{
   background-color: rgb(44, 44, 44);
   color: white;
+  overflow: hidden;
  }
 
 .nbcontainer{
   display: flex;
-  height: 88.5vh;
+  height: 89.5vh;
 }
 
 .notesHalf{
@@ -71,7 +74,7 @@ input{
   outline-color: green !important;
 }
 .homeNotesContainer1{
-  height: calc(100% - 92px);
+  height: calc(100% - 115px);
   overflow: auto;
   width: 20rem;
   -ms-overflow-style: none;
@@ -174,7 +177,7 @@ margin-top: .8rem; */
   border: none;
   cursor: pointer;
   font-family:inherit;
-  margin-top: .5rem;
+  margin-top: 1rem;
 }
 
 #createNoteButton:hover{
@@ -186,7 +189,7 @@ margin-top: .8rem; */
   justify-content: center;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
-  height: 5rem;
+  height: 8rem;
 }
 
 .DBButton{
