@@ -219,17 +219,27 @@ if (loaded) {
 
             <div className="notesHalf">
               <div className='homeNotesContainer1'>
-                  {notes?.length > 0 && notes?.map((note) => (
+                  {notes?.length > 0 && notes?.map((note) => {
 
-                  <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
+                  if(mainNote.id === note.id) {
+                  return <div className="homeNotesNotesContainer3" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
                     <div>
                       <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
                       <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
                       <p className="timeDiv">{moment(note.updatedAt).format("LLL")}</p>
                     </div>
                   </div>
+                  } else {
+                    return <div className="homeNotesNotesContainer" id={note.id} key={note.id} onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}} >
+                    <div>
+                      <h2 className="homeNotesNotes"  onClick={() => {setMainNote(note); setNewNote(false); setMainNoteTitle(note.title); setMainNoteContent(note.content)}}> {note.title}</h2>
+                      <h3 className="noteCC"> {ReactHtmlParser(note.content)}</h3>
+                      <p className="timeDiv">{moment(note.updatedAt).format("LLL")}</p>
+                    </div>
+                  </div>
+                  }
 
-                  ))}
+                  })}
               </div>
                   <div className="buttonContainer">
                       <button id="createNoteButton" onClick={createNewNote}>

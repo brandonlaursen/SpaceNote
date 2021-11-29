@@ -68,19 +68,33 @@ input{
   width: 20rem;
 }
 
+.homeNotesNotesContainer3{
+  border: solid transparent 1px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
+  height: 8rem;
+  word-wrap: break-word;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 1rem;
+  border-right-color: purple;
+  border-right-width: 5px;
+
+}
+
 .homeNotesNotesContainer{
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   height: 4rem;
   word-wrap: break-word;
-  overflow: auto;
+  overflow: hidden;
   cursor: pointer;
   padding: 1rem;
+  border-right-width: 5px;
 
 }
 
 .homeNotesNotesContainer:hover{
-  height: 8rem;
+  height: 5rem;
 }
 
 .homeNotesNotesContainer:hover .timeDiv{
@@ -234,6 +248,7 @@ display: none;
   cursor: pointer;
   font-family:inherit;
   margin-top: .7rem;
+  margin-bottom: 1rem;
 }
 
 .EditNotebookbtn:hover{
