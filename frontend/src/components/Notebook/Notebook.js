@@ -312,7 +312,7 @@ if (loaded) {
                   ? value => setNewNoteContents(value)
                   : value => setMainNoteContent(value)
                   }
-                style={{minHeight: '500px', height:"5rem", width:"100%"}}
+                style={{minHeight: '502px', height:"5rem", width:"100%"}}
               />
             </div>
             {errors2.map((error) => (
