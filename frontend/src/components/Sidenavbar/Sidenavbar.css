@@ -23,7 +23,9 @@
 }
 
 .profile-icon{
-  background: #f8cbad;
+  background-image: url("https://wallpapersmug.com/large/0b0f72/astronaut-minimal-art.jpg");
+  background-size: cover;
+  background-position-x: center;
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -233,4 +235,13 @@
   margin-left: 2.8rem;
   font-size:13pt;
 
+}
+
+.ui{
+  margin-left: .3rem;
+  margin-right: .4rem;
+}
+
+.xx{
+  margin-right: .7rem;
 }

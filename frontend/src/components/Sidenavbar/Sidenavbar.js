@@ -122,7 +122,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
               </div> */}
 
                 {/* <h3 className="notebooksNavTitle"><i className="fas fa-pen"></i> <NavLink to="/allnotes" className="navhome2"> New note</NavLink> </h3> */}
-                <h3 className="notebooksNavTitle"><i className=" bb fas fa-space-shuttle"></i> <NavLink to="/home" className="navhome">Home</NavLink> </h3>
+                <h3 className="notebooksNavTitle"> <NavLink to="/home" className="navhome"><i className=" ui fas fa-space-shuttle"></i>Home</NavLink> </h3>
                 {/* <h3 className="notebooksNavTitle"><i className="bb far fa-sticky-note"></i> <NavLink to="/allnotes" className="navhome1"> Notes </NavLink></h3> */}
 
 
@@ -143,8 +143,8 @@ const Sidenavbar = ({name, notebooks, profile}) => {
                   </div>
                 }
 
-                  <h3 className="notebooksNavTitle"> <i className="fab fa-linkedin"></i>   <a href="https://www.linkedin.com/in/brandon-laursen-398563218/" className=" z navhome">LinkedIn</a> </h3>
-                  <h3 className="notebooksNavTitle">  <i className="fab fa-github"></i> <a href="https://github.com/brandonlaursen" className="y navhome">GitHub</a> </h3>
+                  <h3 className="notebooksNavTitle">    <a href="https://www.linkedin.com/in/brandon-laursen-398563218/" className=" z navhome"><i className="xx fab fa-linkedin"></i>LinkedIn</a> </h3>
+                  <h3 className="notebooksNavTitle">   <a href="https://github.com/brandonlaursen" className="y navhome"><i className=" xx fab fa-github"></i>GitHub</a> </h3>
                   <h3 className="notebooksNavTitle" onClick={logout}><i className="fas fa-sign-out-alt" > </i> Sign Out</h3>
               </div>
           </div>
