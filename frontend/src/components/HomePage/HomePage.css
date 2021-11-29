@@ -1,8 +1,17 @@
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%
+}
+
 .homepage-container{
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: white;
+
 }
 
 .homepage-containerDark{
@@ -10,6 +19,8 @@
   flex-direction: column;
   min-height: 100vh;
   background-color: rgb(56, 56, 56);
+
+
 }
 
 .homePageTitle{
@@ -22,6 +33,7 @@
 .notesAndNotebooksContainer{
   display: flex;
   justify-content: space-evenly;
+  height: 100%;
 }
 
 .errors{
@@ -35,7 +47,9 @@
 
 .homeNotesContainer{
   display: flex;
-  height: 100%;
+  /* height: 100%; */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   overflow: auto;
   width: 40rem;
   height: 20rem;
@@ -44,6 +58,11 @@
   border-radius: 5px;
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+
+}
+
+.homeNotesContainer::-webkit-scrollbar{
+  display: none;
 }
 
 .noteItems{
@@ -73,7 +92,7 @@
 .notetitle{
   width: 17rem;
   padding: .5rem;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .notecontent{
@@ -81,7 +100,7 @@
   height: 100%;
   word-wrap: break-word;
   padding: .5rem;
-  overflow: auto;
+  overflow: hidden;
 }
 
 .homeNotesContainerTitle{
@@ -114,8 +133,12 @@
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   border-radius: 5px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
 
-
+.homeNotebooksContainer::-webkit-scrollbar{
+  display: none;
 }
 
 .notebookTitle{

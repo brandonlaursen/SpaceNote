@@ -10,6 +10,11 @@
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   overflow: auto;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.signupFormContainer::-webkit-scrollbar{
+  display: none;
 }
 
 .signinFormContainer h1{

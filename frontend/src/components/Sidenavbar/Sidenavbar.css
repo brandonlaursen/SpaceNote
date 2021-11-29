@@ -96,7 +96,17 @@
   height: 7rem;
   overflow: auto;
   margin-bottom: .4rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
+
+
+.NavNotebookContainer::-webkit-scrollbar{
+  display: none;
+}
+
+
+
 
 .notebooksNavTitle{
   margin-left: .9rem;
@@ -157,11 +167,11 @@
   background: #404040;
   padding:8px 10px;
   margin-top: -1.1rem;
-  overflow: scroll;
+  overflow: auto;
 }
 
-.searchResultsContainer:last-child{
-
+.searchResAll::-webkit-scrollbar{
+  display: none;
 }
 
 .searchResItem{
@@ -194,10 +204,12 @@
 
 .searchResAll{
   max-height: 10rem;
-  overflow: scroll;
+  overflow: auto;
   border-bottom-left-radius: 2px;
   border-bottom-right-radius: 2px;
   z-index: -1;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 .sidenavbar-top-search{

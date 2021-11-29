@@ -50,6 +50,7 @@ function Notebook() {
   const [mainNoteContent, setMainNoteContent] = useState("");
 
 
+
   function createNewNote() {
     setMainNoteTitle("");
     setMainNoteContent("");

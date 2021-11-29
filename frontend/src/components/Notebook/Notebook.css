@@ -70,6 +70,12 @@ input{
   height: 34.45rem;
   overflow: auto;
   width: 20rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.homeNotesContainer1::-webkit-scrollbar{
+  display: none;
 }
 
 .homeNotesNotesContainer3{
@@ -102,11 +108,17 @@ input{
 }
 
 .homeNotesNotesContainer:hover .timeDiv{
-  display: block;
+  /* display: block; */
 }
+
 
 .timeDiv{
 display: none;
+/* font-size: 12px;
+float: right;
+margin-top: .8rem; */
+/* vertical-align: middle;
+ */
 }
 
 
