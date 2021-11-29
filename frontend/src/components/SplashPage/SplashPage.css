@@ -96,7 +96,7 @@ body {
   height: 81rem;
   margin:0;
   padding:0;
-  background:url("https://wallup.net/wp-content/uploads/2016/01/191737-space-asteroid-minimalism.jpg") no-repeat center center fixed;
+  background:url("https://wallup.net/wp-content/uploads/2016/01/191737-space-asteroid-minimalism.jpg") no-repeat center center fixed !important;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

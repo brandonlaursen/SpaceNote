@@ -1,8 +1,12 @@
 body{
-  background-color: rgb(44, 44, 44);
+  background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
+  background-size: cover;
+  /* background-color: rgb(44, 44, 44); */
 }
 
 .NBOdiv{
+  /* background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
+  background-size: cover; */
   /* margin: 0;
   height: 100%;
   width: 100%; */
