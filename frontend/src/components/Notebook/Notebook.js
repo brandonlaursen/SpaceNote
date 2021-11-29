@@ -21,7 +21,7 @@ function Notebook() {
   const history = useHistory();
 
   const {darkMode} = useContext(ThemeContext);
-  
+
 
    //STATE
   const sessionUser = useSelector(state => state.session.user);
@@ -312,7 +312,7 @@ if (loaded) {
                   ? value => setNewNoteContents(value)
                   : value => setMainNoteContent(value)
                   }
-                style={{minHeight: '502px', height:"5rem", width:"100%"}}
+                style={{minHeight: '495px', height:"5rem", width:"100%"}}
               />
             </div>
             {errors2.map((error) => (
