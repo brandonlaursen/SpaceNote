@@ -22,7 +22,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
     localStorage.setItem('darkMode', !darkMode);
   }
 
-  console.log("sideNav",darkMode)
+  
 
   const { num } = useShowModal();
   const dispatch = useDispatch();

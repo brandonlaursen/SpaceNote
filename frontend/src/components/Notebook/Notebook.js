@@ -21,7 +21,7 @@ function Notebook() {
   const history = useHistory();
 
   const {darkMode} = useContext(ThemeContext);
-  console.log("NOTEBOOK",darkMode)
+  
 
    //STATE
   const sessionUser = useSelector(state => state.session.user);

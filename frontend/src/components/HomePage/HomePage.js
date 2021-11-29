@@ -17,7 +17,6 @@ function HomePage() {
 
   const {darkMode, setDarkMode} = useContext(ThemeContext);
 
-  console.log("home", darkMode)
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
