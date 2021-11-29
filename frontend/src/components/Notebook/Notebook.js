@@ -286,7 +286,7 @@ if (loaded) {
 
 
               <div className="rteContainer">
-                  <form >
+                  <form onSubmit={(e) => handleSubmit(e, mainNote.id)}>
                     <input
                         className={darkMode ? "TET note-titleDark" : 'TET note-title'}
                         type="text"
@@ -315,7 +315,7 @@ if (loaded) {
                   ? value => setNewNoteContents(value)
                   : value => setMainNoteContent(value)
                   }
-                style={{minHeight: '495px', height:"5rem", width:"100%"}}
+                style={{minHeight: '495px', height:"100%", width:"100%", outline:"none"}}
               />
             </div>
             {errors2.map((error) => (

@@ -2,6 +2,7 @@ body{
   /* background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
   background-size: cover; */
   background-color: rgb(33,33,33);
+  overflow: hidden;
 }
 
 .NBOdiv{
@@ -36,6 +37,7 @@ input{
 
 .nbcontainer{
   display: flex;
+  height: 88.5vh;
 }
 
 .notesHalf{
@@ -65,9 +67,11 @@ input{
 .nbt2{
 
 }
-
+#my-form1 > div.ql-container.ql-snow > div.ql-editor.ql-blank {
+  outline-color: green !important;
+}
 .homeNotesContainer1{
-  height: 34.45rem;
+  height: calc(100% - 92px);
   overflow: auto;
   width: 20rem;
   -ms-overflow-style: none;
@@ -170,7 +174,7 @@ margin-top: .8rem; */
   border: none;
   cursor: pointer;
   font-family:inherit;
-  margin-top: 1rem;
+  margin-top: .5rem;
 }
 
 #createNoteButton:hover{
@@ -294,6 +298,7 @@ margin-top: .8rem; */
 }
 
 .rteContainer{
-  width:100vw;
+  width: 100vw;
+  /* height: calc(100vh - 8vh); */
   height: 100%;
 }
