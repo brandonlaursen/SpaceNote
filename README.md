@@ -1,5 +1,6 @@
 # [SpaceNote](https://space-note.herokuapp.com/)
 
+Live Link: [SpaceNote](https://space-note.herokuapp.com/)
 
 The mind can often be as vast and limitless as space. This is where SpaceNote comes in. SpaceNote is a clone of the famous EverNote but with a space theme. With the chaos of space comes order, SpaceNote offers a way to organize your thoughts in a simple but effective way. Users will be able to create notebooks, as well as notes to keep track of things as simple as daily task, to complex questions about the universe.
 
@@ -28,7 +29,6 @@ The mind can often be as vast and limitless as space. This is where SpaceNote co
 ![SpaceNotesearch](https://user-images.githubusercontent.com/83096378/143949456-e67597c4-61d5-48b7-a33e-2f7f08c60fc9.gif)
 
 
-
 # Frontend Technologies Used
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
@@ -42,6 +42,14 @@ The mind can often be as vast and limitless as space. This is where SpaceNote co
 ![Express.js](https://img.shields.io/badge/express.js-%23404d59.svg?style=for-the-badge&logo=express&logoColor=%2361DAFB)
 ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
 
+# Conclusion and Goals
+I had alot of fun creating this website and find myself loving coding more and more everyday. I am happy with how the website turned out given the 2 week span to complete the project. 
+Plans for the future:
+* Autosave
+* Tags
+* Paths for notes
+* Allow users to change name, password, email, and profile picture
+* Add responsiveness for mobile devices
 
 ## [Feature List](https://github.com/brandonlaursen/SpaceNote/wiki/Features)
 List of SpaceNote features.
