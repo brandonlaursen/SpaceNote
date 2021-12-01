@@ -49,6 +49,8 @@ Plans for the future:
 * Paths for notes
 * Allow users to change name, password, email, and profile picture
 * Add responsiveness for mobile devices
+* Allow users to upload a banner picture
+* Implement AWS
 
 ## [Feature List](https://github.com/brandonlaursen/SpaceNote/wiki/Features)
 List of SpaceNote features.
