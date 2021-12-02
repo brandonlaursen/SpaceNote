@@ -34,3 +34,9 @@ static associate(models) {
 
 TO test routes in postman,
 need xsrf token,cookie, and content-type from console, -> network, -> fetch
+
+things to work on:
+  autosave
+  tags
+  trash bin
+  crud for profile
