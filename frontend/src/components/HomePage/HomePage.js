@@ -14,12 +14,13 @@ import moment from 'moment';
 
 function HomePage() {
 
-  const {darkMode } = useContext(ThemeContext);
+  const { darkMode } = useContext(ThemeContext);
 
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const notebooks = useSelector(state => state?.notebooks?.notebooks);
   const notes = useSelector(state => state?.notes?.notes);
+  console.log('frontend', notes)
 
   const [title, setTitle] = useState("");
   const [errors, setErrors] = useState([])

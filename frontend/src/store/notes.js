@@ -14,6 +14,7 @@ export const getUsersNotesThunk  = (userId) => async(dispatch) => {
 
   if(res.ok) {
     const allUsersNotes = await res.json();
+    
     dispatch(getUserNotes(allUsersNotes));
   }
 }

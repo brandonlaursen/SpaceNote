@@ -27,6 +27,7 @@ const Sidenavbar = ({name, notebooks, profile}) => {
   const path = window.location.href;
   const sessionUser = useSelector(state => state.session.user);
   const searchNotes = useSelector((state) => state.search.notes);
+  
 
   const [search, setSearch] = useState("");
   const [showNotebooksNav, setShowNotebooksNav] = useState(false);

@@ -17,6 +17,7 @@ router.get("/:userId", asyncHandler(async(req, res) => {
     },
     order: [["updatedAt", "DESC"]],
   })
+  
   return res.json(notes)
 }))
 
