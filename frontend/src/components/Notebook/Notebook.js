@@ -19,10 +19,11 @@ import { ThemeContext } from "../../context/Theme";
 import { Modal } from "../../context/Modal";
 import { useShowModal } from "../../context/showModal";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
-import ReactQuill from "react-quill";
+
 import ReactHtmlParser from "react-html-parser";
 import moment from "moment";
 import "react-quill/dist/quill.snow.css";
+import RichTextEditor from "./RichTextEditor";
 
 function Notebook() {
   const { notebookId } = useParams();
@@ -172,39 +173,6 @@ function Notebook() {
     );
   }
 
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }, "code-block"],
-      ["bold", "italic", "underline", "strike"],
-      [{ script: "super" }, { script: "sub" }],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ color: [] }, { background: [] }],
-      ["link", "image", "video"],
-      ["direction", { align: [] }],
-      ["clean"],
-    ],
-  };
-
-  const toolbarOptions = [
-    ["bold", "italic", "underline", "strike"], // toggled buttons
-    ["blockquote", "code-block"],
-
-    [{ header: 1 }, { header: 2 }], // custom button values
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ script: "sub" }, { script: "super" }], // superscript/subscript
-    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-    [{ direction: "rtl" }], // text direction
-
-    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-    [{ font: [] }],
-    [{ align: [] }],
-
-    ["clean"], // remove formatting button
-  ];
 
   if (loaded) {
     return (
@@ -388,7 +356,8 @@ function Notebook() {
                 />
               </form>
 
-              <ReactQuill
+                <RichTextEditor newNote={newNote} mainNoteContent={mainNoteContent} newNoteContents={newNoteContents} setNewNoteContents={setNewNoteContents} setMainNoteContent={setMainNoteContent}/>
+              {/* <ReactQuill
                 toolbarOptions={toolbarOptions}
                 modules={modules}
                 className="TET"
@@ -408,7 +377,7 @@ function Notebook() {
                   width: "100%",
                   outline: "none",
                 }}
-              />
+              /> */}
             </div>
             {errors2.map((error) => (
               <li key={error}>{error}</li>
