@@ -6,13 +6,13 @@ import {
   postNotebookThunk,
 } from "../../store/notebooks";
 import { getUsersNotesThunk } from "../../store/notes";
-import { NavLink } from "react-router-dom";
 import { Modal } from "../../context/Modal";
 import { ThemeContext } from "../../context/Theme";
 import { useShowModal } from "../../context/showModal";
-import ReactHtmlParser from "react-html-parser";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
-import moment from "moment";
+import HomeNotesContainer from "./HomeNotesContainer";
+import HomeNotebooksContainer from "./HomeNotebooksContainer";
+import CreateNotebook from "./CreateNotebook";
 
 function HomePage() {
   const { darkMode } = useContext(ThemeContext);
@@ -70,90 +70,23 @@ function HomePage() {
         </div>
 
         <div className="notesAndNotebooksContainer">
-          <div className="HN1">
-            <div className="homeNotesContainerTitle">
-              {" "}
-              <h1 className="AS">Notes </h1>{" "}
-            </div>
-            <div className="homeNotesContainer">
-              {notes?.map((note) => (
-                <NavLink
-                  className="navlink"
-                  to={`/notebooks/${note.notebookId}`}
-                  id={note.id}
-                  key={note.id}
-                >
-                  <div className={darkMode ? "noteItemsDark" : "noteItems"}>
-                    <div className="notetitle">
-                      <h2> {note.title}</h2>
-                    </div>
-
-                    <div className="notecontent">
-                      <h3> {ReactHtmlParser(note.content)}</h3>
-                    </div>
-                    <p className="timeP">
-                      {moment(note.updatedAt).format("MMM-DD")}
-                    </p>
-                  </div>
-                </NavLink>
-              ))}
-            </div>
-          </div>
-
-          <div className="homeNotebooksContainer">
-            <div className="notebookTitleDiv">
-              <h1 className={"notebooktitle"}>NOTEBOOKS</h1>
-              <i
-                className="fas fa-plus fa-lg"
-                onClick={() => setShow(true)}
-              ></i>
-            </div>
-
-            {notebooks?.length > 0 &&
-              notebooks?.map((notebook) => (
-                <NavLink
-                  id={notebook.id}
-                  key={notebook.id}
-                  className="NL"
-                  to={`/notebooks/${notebook.id}`}
-                >
-                  {" "}
-                  <h2
-                    className={darkMode ? "notebookTitleDark" : "notebookTitle"}
-                  >
-                    {" "}
-                    {notebook.title}
-                  </h2>{" "}
-                </NavLink>
-              ))}
-          </div>
+          <HomeNotesContainer notes={notes} darkMode={darkMode} />
+          <HomeNotebooksContainer
+            notebooks={notebooks}
+            setShow={setShow}
+            darkMode={darkMode}
+          />
         </div>
 
         {show && (
           <Modal onClose={() => setShow(false)}>
-            <div className={darkMode ? "createModalDark" : "createModal"}>
-              <h1>Create Notebook</h1>
-              <form onSubmit={createNotebookSubmit} id="my-form">
-                <input
-                  className="CreateInput1"
-                  type="text"
-                  placeholder="Title"
-                  required
-                  value={title}
-                  onChange={updateTitle}
-                  maxLength="25"
-                  minLength="1"
-                />
-              </form>
-              <button type="submit" form="my-form" className="CreateNoteButton">
-                Create
-              </button>
-              <ul className="errors">
-                {errors.map((error) => (
-                  <li key={error}>{error}</li>
-                ))}
-              </ul>
-            </div>
+            <CreateNotebook
+              darkMode={darkMode}
+              createNotebookSubmit={createNotebookSubmit}
+              title={title}
+              updateTitle={updateTitle}
+              errors={errors}
+            />
           </Modal>
         )}
       </div>
