@@ -1,5 +1,5 @@
 import "./Notebook.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import {
@@ -14,15 +14,15 @@ import {
   postNoteThunk,
   deleteNoteThunk,
 } from "../../store/notes";
-import { useContext } from "react";
 import { ThemeContext } from "../../context/Theme";
 import { Modal } from "../../context/Modal";
 import { useShowModal } from "../../context/showModal";
 import Sidenavbar from "../Sidenavbar/Sidenavbar";
-import ReactQuill from "react-quill";
+
 import ReactHtmlParser from "react-html-parser";
 import moment from "moment";
 import "react-quill/dist/quill.snow.css";
+import RichTextEditor from "./RichTextEditor";
 
 function Notebook() {
   const { notebookId } = useParams();
@@ -43,13 +43,10 @@ function Notebook() {
 
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
-
   const [newNote, setNewNote] = useState(true);
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
   const [errors, setErrors] = useState([]);
-  const [errors2, setErrors2] = useState([]);
-
   const [mainNote, setMainNote] = useState("");
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
@@ -81,17 +78,6 @@ function Notebook() {
       errors.push("Title needs at least one character");
     setErrors(errors);
   }, [editNotebookTitle]);
-
-  useEffect(() => {
-    const errors2 = [];
-
-    if (newNoteTitle.length > 25)
-      errors2.push("Max Length for a title is 25 characters");
-    if (mainNoteTitle.length > 25)
-      errors2.push("Max Length for a title is 25 characters");
-
-    setErrors2(errors2);
-  }, [newNoteTitle, mainNoteTitle]);
 
   //NOTEBOOK CRUD
   const deleteNotebookSubmit = (e, notebookId) => {
@@ -171,40 +157,6 @@ function Notebook() {
       </div>
     );
   }
-
-  const modules = {
-    toolbar: [
-      [{ header: "1" }, { header: "2" }, { font: [] }],
-      [{ size: [] }, "code-block"],
-      ["bold", "italic", "underline", "strike"],
-      [{ script: "super" }, { script: "sub" }],
-      [{ list: "ordered" }, { list: "bullet" }],
-      [{ color: [] }, { background: [] }],
-      ["link", "image", "video"],
-      ["direction", { align: [] }],
-      ["clean"],
-    ],
-  };
-
-  const toolbarOptions = [
-    ["bold", "italic", "underline", "strike"], // toggled buttons
-    ["blockquote", "code-block"],
-
-    [{ header: 1 }, { header: 2 }], // custom button values
-    [{ list: "ordered" }, { list: "bullet" }],
-    [{ script: "sub" }, { script: "super" }], // superscript/subscript
-    [{ indent: "-1" }, { indent: "+1" }], // outdent/indent
-    [{ direction: "rtl" }], // text direction
-
-    [{ size: ["small", false, "large", "huge"] }], // custom dropdown
-    [{ header: [1, 2, 3, 4, 5, 6, false] }],
-
-    [{ color: [] }, { background: [] }], // dropdown with defaults from theme
-    [{ font: [] }],
-    [{ align: [] }],
-
-    ["clean"], // remove formatting button
-  ];
 
   if (loaded) {
     return (
@@ -388,31 +340,14 @@ function Notebook() {
                 />
               </form>
 
-              <ReactQuill
-                toolbarOptions={toolbarOptions}
-                modules={modules}
-                className="TET"
-                id="my-form1"
-                theme="snow"
-                value={newNote === false ? mainNoteContent : newNoteContents}
-                type="text"
-                placeholder="Whats on your mind?"
-                onChange={
-                  newNote
-                    ? (value) => setNewNoteContents(value)
-                    : (value) => setMainNoteContent(value)
-                }
-                style={{
-                  minHeight: "495px",
-                  height: "100%",
-                  width: "100%",
-                  outline: "none",
-                }}
+              <RichTextEditor
+                newNote={newNote}
+                mainNoteContent={mainNoteContent}
+                newNoteContents={newNoteContents}
+                setNewNoteContents={setNewNoteContents}
+                setMainNoteContent={setMainNoteContent}
               />
             </div>
-            {errors2.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
 
             <div></div>
           </div>
