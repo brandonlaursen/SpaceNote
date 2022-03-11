@@ -1,56 +1,55 @@
-body{
+body {
   background-color: #1a1a1a;
 }
 
-input{
-  font-family:inherit;
+input {
+  font-family: inherit;
 }
 
-.TET{
-  font-family:inherit;
+.TET {
+  font-family: inherit;
 }
 
-.noteCC{
+.noteCC {
   flex-shrink: 1;
 }
 
-.Notebook-container{
- background-color: white;
- overflow: hidden;
+.Notebook-container {
+  background-color: white;
+  overflow: hidden;
 }
 
-.Notebook-containerDark{
+.Notebook-containerDark {
   background-color: rgb(44, 44, 44);
   color: white;
   overflow: hidden;
- }
+}
 
-.nbcontainer{
+.nbcontainer {
   display: flex;
   height: 89.5vh;
 }
 
-.notesHalf{
+.notesHalf {
   height: 100%;
   width: 20rem;
 }
 
-.notebooksTitle{
+.notebooksTitle {
   background-image: url("https://hdqwalls.com/wallpapers/minimalist-space-z8.jpg");
   background-size: cover;
   padding: 1rem;
   color: white;
   display: flex;
   justify-content: space-between;
-
 }
 
-.nbt1{
+.nbt1 {
   display: flex;
   flex-direction: column;
 }
 
-.homeNotesContainer1{
+.homeNotesContainer1 {
   height: calc(100% - 115px);
   overflow: auto;
   width: 20rem;
@@ -58,11 +57,11 @@ input{
   scrollbar-width: none;
 }
 
-.homeNotesContainer1::-webkit-scrollbar{
+.homeNotesContainer1::-webkit-scrollbar {
   display: none;
 }
 
-.homeNotesNotesContainer3{
+.homeNotesNotesContainer3 {
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   height: 8rem;
@@ -72,10 +71,9 @@ input{
   padding: 1rem;
   border-right-color: purple;
   border-right-width: 5px;
-
 }
 
-.homeNotesNotesContainer{
+.homeNotesNotesContainer {
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
   height: 4rem;
@@ -84,35 +82,33 @@ input{
   cursor: pointer;
   padding: 1rem;
   border-right-width: 5px;
-
 }
 
-.homeNotesNotesContainer:hover{
+.homeNotesNotesContainer:hover {
   height: 5rem;
 }
 
-
-.timeDiv{
+.timeDiv {
   display: none;
 }
 
-.notepadContainer{
-  width: 100%
+.notepadContainer {
+  width: 100%;
 }
 
-.note-title{
-  width:98.6%;
+.note-title {
+  width: 98.6%;
   height: 3rem;
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: white;
   font-size: 26px;
   border-color: white;
 }
 
-.note-titleDark{
-  width:98.6%;
+.note-titleDark {
+  width: 98.6%;
   height: 3rem;
-  padding: .5rem;
+  padding: 0.5rem;
   background-color: rgb(44, 44, 44);
   color: white;
   font-size: 26px;
@@ -120,32 +116,32 @@ input{
   border-bottom-style: hidden;
 }
 
-.note-content{
+.note-content {
   width: 100%;
   height: 100%;
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 26px;
   margin: 0;
 }
 
-#createNoteButton{
+#createNoteButton {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 10rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family:inherit;
+  font-family: inherit;
   margin-top: 1rem;
 }
 
-#createNoteButton:hover{
+#createNoteButton:hover {
   background-color: rgb(183, 0, 255);
 }
 
-.buttonContainer{
+.buttonContainer {
   display: flex;
   justify-content: center;
   border: solid transparent 1px;
@@ -153,111 +149,111 @@ input{
   height: 8rem;
 }
 
-.DBButton{
+.DBButton {
   background-color: rgb(1, 161, 1);
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 10rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family:inherit;
+  font-family: inherit;
   margin-left: 1rem;
   margin-top: 2rem;
 }
 
-.DBButton:hover{
+.DBButton:hover {
   background-color: rgb(1, 185, 1);
 }
 
-.del{
+.del {
   background-color: rgb(221, 24, 24) !important;
 }
 
-.del:hover{
+.del:hover {
   background-color: rgb(255, 0, 0) !important;
 }
 
-.DBButton2{
+.DBButton2 {
   background-color: grey;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 10rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family:inherit;
+  font-family: inherit;
   margin-left: 1rem;
-  margin-top: .7rem;
+  margin-top: 0.7rem;
 }
 
-.enbtn{
-  margin-top: .5rem;
-  margin-left: .1rem;
+.enbtn {
+  margin-top: 0.5rem;
+  margin-left: 0.1rem;
   cursor: pointer;
 }
 
-.enbtn:hover{
+.enbtn:hover {
   color: rgb(183, 0, 255);
 }
 
-.CreateInput2{
+.CreateInput2 {
   width: 19rem;
-  border: 1px solid purple;;
+  border: 1px solid purple;
   padding: 12px 16px;
   min-width: 7.4rem;
   border-radius: 5px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.aa{
+.aa {
   display: flex;
   flex-direction: column;
 }
 
-.EditNotebookbtn{
+.EditNotebookbtn {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 10rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family:inherit;
-  margin-top: .7rem;
+  font-family: inherit;
+  margin-top: 0.7rem;
   margin-bottom: 1rem;
 }
 
-.EditNotebookbtn:hover{
+.EditNotebookbtn:hover {
   background-color: rgb(183, 0, 255);
 }
 
-.EditNotebookbtn2:hover{
-  background-color: rgb(255, 0, 0) !important;;
+.EditNotebookbtn2:hover {
+  background-color: rgb(255, 0, 0) !important;
 }
 
-.EditNotebookbtn2{
-  background-color:  rgb(221, 24, 24) !important;;
+.EditNotebookbtn2 {
+  background-color: rgb(221, 24, 24) !important;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 10rem;
   border-radius: 5px;
   border: none;
   cursor: pointer;
-  font-family:inherit;
+  font-family: inherit;
   margin-left: 1rem;
-  margin-top: .7rem;
+  margin-top: 0.7rem;
 }
 
-.penIcon{
-  margin-right: .8rem;
+.penIcon {
+  margin-right: 0.8rem;
 }
 
-.rteContainer{
+.rteContainer {
   width: 100vw;
   height: 100%;
 }

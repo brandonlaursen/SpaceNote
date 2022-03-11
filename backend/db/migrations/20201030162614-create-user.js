@@ -21,7 +21,8 @@ module.exports = {
       profile_pic_url: {
         allowNull: true,
         type: Sequelize.STRING,
-        defaultValue: "http://www.pixelstalk.net/wp-content/uploads/2016/09/Download-All-White-Image.jpg",
+        defaultValue:
+          "http://www.pixelstalk.net/wp-content/uploads/2016/09/Download-All-White-Image.jpg",
       },
       dark_mode: {
         type: Sequelize.BOOLEAN,

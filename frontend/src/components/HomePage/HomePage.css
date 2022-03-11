@@ -1,4 +1,3 @@
-
 /* body {
   margin: 0;
   padding: 0;
@@ -6,47 +5,47 @@
   height: 100%
 } */
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 
-.homepage-container{
+.homepage-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: white;
 }
 
-.homepage-containerDark{
+.homepage-containerDark {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   background-color: rgb(56, 56, 56);
 }
 
-.homePageTitle{
+.homePageTitle {
   background-image: url("https://wallpapercave.com/wp/wp6590692.jpg");
   height: 30rem;
   background-position: center;
   background-size: cover;
 }
 
-.notesAndNotebooksContainer{
+.notesAndNotebooksContainer {
   display: flex;
   justify-content: space-evenly;
   height: 100%;
 }
 
-.errors{
+.errors {
   list-style: none;
 }
 
-.navlink{
+.navlink {
   text-decoration: none;
-  color: black
+  color: black;
 }
 
-.homeNotesContainer{
+.homeNotesContainer {
   display: flex;
   overflow: auto;
   width: 40rem;
@@ -78,44 +77,44 @@ body::-webkit-scrollbar{
   display: none;
 } */
 
-.noteItems{
+.noteItems {
   display: flex;
   flex-direction: column;
   height: 18.9rem;
-  margin: .5rem;
+  margin: 0.5rem;
   background-color: white;
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
 
-.noteItemsDark{
+.noteItemsDark {
   display: flex;
   flex-direction: column;
   height: 18.9rem;
-  margin: .5rem;
+  margin: 0.5rem;
   background-color: rgb(44, 44, 44);
-  justify-content:space-evenly;
+  justify-content: space-evenly;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
-  color:white;
+  color: white;
 }
 
-.notetitle{
+.notetitle {
   width: 17rem;
-  padding: .5rem;
+  padding: 0.5rem;
   overflow: hidden;
 }
 
-.notecontent{
+.notecontent {
   width: 17rem;
   height: 100%;
   word-wrap: break-word;
-  padding: .5rem;
+  padding: 0.5rem;
   overflow: hidden;
 }
 
-.homeNotesContainerTitle{
+.homeNotesContainerTitle {
   border-top: solid 1px black;
   border-left: solid 1px black;
   border-right: solid 1px black;
@@ -128,15 +127,15 @@ body::-webkit-scrollbar{
   text-transform: uppercase;
 }
 
-.homeNotesContainerTitle h1{
+.homeNotesContainerTitle h1 {
   margin-left: 1rem;
 }
 
-.HN1{
+.HN1 {
   margin-top: -12rem;
 }
 
-.homeNotebooksContainer{
+.homeNotebooksContainer {
   width: 30rem;
   height: 23.1rem;
   overflow: auto;
@@ -149,14 +148,14 @@ body::-webkit-scrollbar{
   scrollbar-width: none;
 }
 
-.homeNotebooksContainer::-webkit-scrollbar{
+.homeNotebooksContainer::-webkit-scrollbar {
   display: none;
 }
 
-.notebookTitle{
+.notebookTitle {
   height: 3rem;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   border: solid transparent 1px;
   border-radius: 5px;
   background-color: white;
@@ -164,10 +163,10 @@ body::-webkit-scrollbar{
   text-decoration: none;
 }
 
-.notebookTitleDark{
+.notebookTitleDark {
   height: 3rem;
   text-align: center;
-  margin: .5rem;
+  margin: 0.5rem;
   border: solid transparent 1px;
   border-radius: 5px;
   background-color: rgb(44, 44, 44);
@@ -176,47 +175,47 @@ body::-webkit-scrollbar{
   color: white;
 }
 
-.notebookTitleDark:hover{
+.notebookTitleDark:hover {
   color: white;
-  background: #BA0C9B;
-  background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
-  background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
-  background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
+  background: #ba0c9b;
+  background: -webkit-linear-gradient(top left, #ba0c9b, #0115c0);
+  background: -moz-linear-gradient(top left, #ba0c9b, #0115c0);
+  background: linear-gradient(to bottom right, #ba0c9b, #0115c0);
 }
 
 .notebookTitle:hover {
   color: white;
-  background: #BA0C9B;
-  background: -webkit-linear-gradient(top left, #BA0C9B, #0115C0);
-  background: -moz-linear-gradient(top left, #BA0C9B, #0115C0);
-  background: linear-gradient(to bottom right, #BA0C9B, #0115C0);
+  background: #ba0c9b;
+  background: -webkit-linear-gradient(top left, #ba0c9b, #0115c0);
+  background: -moz-linear-gradient(top left, #ba0c9b, #0115c0);
+  background: linear-gradient(to bottom right, #ba0c9b, #0115c0);
 }
 
-.NL{
+.NL {
   text-decoration: none;
   color: black;
 }
 
-.notebooktitle{
+.notebooktitle {
   margin-left: 1rem;
   color: white;
 }
 
-.AS{
+.AS {
   color: white;
 }
 
-.notebookTitleDiv{
+.notebookTitleDiv {
   display: flex;
 }
 
-.hpWelcome{
+.hpWelcome {
   color: white;
   margin-left: 1rem;
   margin-top: 1rem;
 }
 
-.fa-plus{
+.fa-plus {
   margin-left: 15rem;
   color: white;
   float: right;
@@ -224,11 +223,11 @@ body::-webkit-scrollbar{
   cursor: pointer;
 }
 
-.fa-plus:hover{
+.fa-plus:hover {
   color: rgb(183, 0, 255);
 }
 
-.createModal{
+.createModal {
   height: 17rem;
   width: 30rem;
   border-radius: 1px;
@@ -240,7 +239,7 @@ body::-webkit-scrollbar{
   background-color: white;
 }
 
-.createModalDark{
+.createModalDark {
   height: 17rem;
   width: 30rem;
   border-radius: 1px;
@@ -253,13 +252,13 @@ body::-webkit-scrollbar{
   color: white;
 }
 
-.CreateInput1{
+.CreateInput1 {
   width: 18rem;
-  border: 1px solid purple;;
+  border: 1px solid purple;
   padding: 12px 16px;
   min-width: 7.4rem;
   border-radius: 5px;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .createModal h1 {
@@ -272,10 +271,10 @@ body::-webkit-scrollbar{
   margin-top: 1rem;
 }
 
-.CreateNoteButton{
+.CreateNoteButton {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 20rem;
   margin: auto;
@@ -284,13 +283,13 @@ body::-webkit-scrollbar{
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-family:inherit;
+  font-family: inherit;
 }
 
-.CreateNoteButton:hover{
+.CreateNoteButton:hover {
   background-color: rgb(183, 0, 255);
 }
 
-.timeP{
+.timeP {
   text-align: center;
 }

@@ -2,23 +2,23 @@ const express = require("express");
 const asyncHandler = require("express-async-handler");
 const { Notebook, Note } = require("../../db/models");
 
-
-
 const router = express.Router();
 // route = api/notebooks/
 
-
 //Get all notebooks of a specific user READ WORKS
-router.get("/:userId", asyncHandler(async(req, res) => {
+router.get(
+  "/:userId",
+  asyncHandler(async (req, res) => {
     const userId = req.params.userId;
     const notebooks = await Notebook.findAll({
       where: {
-        userId: userId
+        userId: userId,
       },
       order: [["updatedAt", "DESC"]],
-    })
+    });
     return res.json(notebooks);
-}));
+  })
+);
 
 // [
 //   {
@@ -39,21 +39,21 @@ router.get("/:userId", asyncHandler(async(req, res) => {
 //   }
 // ]
 
-
 //Get all notes of a specific notebook READ WORKS
-router.get("/:notebookId/notes", asyncHandler(async (req, res) => {
+router.get(
+  "/:notebookId/notes",
+  asyncHandler(async (req, res) => {
     const notebookId = req.params.notebookId;
     // const userId = req.params.userId;
 
-		const notes = await Note.findAll({
-			where: {
-				notebookId: notebookId,
-
-			},
+    const notes = await Note.findAll({
+      where: {
+        notebookId: notebookId,
+      },
       order: [["updatedAt", "DESC"]],
-		});
-		return res.json(notes);
-	})
+    });
+    return res.json(notes);
+  })
 );
 
 //Returns an array of note objects
@@ -87,16 +87,17 @@ router.get("/:notebookId/notes", asyncHandler(async (req, res) => {
 //   }
 // ]
 
-
 //Get a specific notebook READ WORKS
-router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
-  const notebookId = req.params.notebookId;
+router.get(
+  "/notebook/:notebookId",
+  asyncHandler(async (req, res) => {
+    const notebookId = req.params.notebookId;
 
-  const notebook = await Notebook.findByPk(notebookId);
+    const notebook = await Notebook.findByPk(notebookId);
 
-  return res.json(notebook)
-
-}));
+    return res.json(notebook);
+  })
+);
 
 // {
 //   "id": 4,
@@ -107,56 +108,55 @@ router.get("/notebook/:notebookId", asyncHandler(async (req, res) => {
 //   "updatedAt": "2021-11-16T02:21:36.833Z"
 // }
 
-
 // Create a notebook CREATE WORKS
-router.post("/", asyncHandler(async function (req, res) {
-		const { title, userId } = req.body;
-		const newNotebook = await Notebook.create({
-			title: title,
-			userId: userId,
-			createdAt: new Date(),
-			updatedAt: new Date(),
-		});
-		return res.json(newNotebook);
-	})
+router.post(
+  "/",
+  asyncHandler(async function (req, res) {
+    const { title, userId } = req.body;
+    const newNotebook = await Notebook.create({
+      title: title,
+      userId: userId,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    });
+    return res.json(newNotebook);
+  })
 );
 
-
-
 //Delete a specfiic notebook DELETE WORKS
-router.delete("/notebook/:notebookId", asyncHandler(async (req, res) => {
-  const notebookId = req.params.notebookId;
+router.delete(
+  "/notebook/:notebookId",
+  asyncHandler(async (req, res) => {
+    const notebookId = req.params.notebookId;
 
-  const notebook = await Notebook.findByPk(notebookId);
-  const userId = notebook.userId
-  await notebook.destroy()
+    const notebook = await Notebook.findByPk(notebookId);
+    const userId = notebook.userId;
+    await notebook.destroy();
 
-  const notebooks = await Notebook.findAll({
-    where: {
-      userId: userId
-    }
+    const notebooks = await Notebook.findAll({
+      where: {
+        userId: userId,
+      },
+    });
+    return res.json(notebooks);
   })
-  return res.json(notebooks);
-
-
-}));
-
+);
 
 //Edit a specific notebook UPDATE WORKS
-router.put("/notebook/:notebookId", asyncHandler(async (req, res) => {
-  const notebookId = req.params.notebookId;
+router.put(
+  "/notebook/:notebookId",
+  asyncHandler(async (req, res) => {
+    const notebookId = req.params.notebookId;
 
-  const notebook = await Notebook.findByPk(notebookId);
-  const { title } = req.body;
+    const notebook = await Notebook.findByPk(notebookId);
+    const { title } = req.body;
 
-  const newNotebook = await notebook.update({
-    title: title
+    const newNotebook = await notebook.update({
+      title: title,
+    });
+
+    return res.json(newNotebook);
   })
-
-  return res.json(newNotebook)
-
-}));
-
-
+);
 
 module.exports = router;

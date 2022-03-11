@@ -1,4 +1,4 @@
-.signupFormContainer{
+.signupFormContainer {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -14,27 +14,27 @@
   scrollbar-width: none;
 }
 
-.signupFormContainer::-webkit-scrollbar{
+.signupFormContainer::-webkit-scrollbar {
   display: none;
 }
 
-.signinFormContainer h1{
+.signinFormContainer h1 {
   margin-top: 18.5rem;
 }
 
-.signupFormContainer p{
-  margin-top: -.1rem;
+.signupFormContainer p {
+  margin-top: -0.1rem;
 }
 
-.signinForm{
+.signinForm {
   display: flex;
   flex-direction: column;
 }
 
-.signinSubmit{
+.signinSubmit {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 20rem;
   margin: auto;
@@ -43,21 +43,21 @@
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-family:inherit;
+  font-family: inherit;
 }
 
-.loginSubmit:hover{
+.loginSubmit:hover {
   background-color: rebeccapurple;
 }
 
-.signinIcon{
+.signinIcon {
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  margin-bottom: .3rem;
+  margin-bottom: 0.3rem;
 }
 
-.signinInput{
+.signinInput {
   width: 18rem;
   border: 1px solid rgb(212, 212, 212);
   padding: 12px 16px;
@@ -65,38 +65,38 @@
   min-height: 1.33rem;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-
-.signinErrors{
+.signinErrors {
   list-style: none;
   margin-right: 2rem;
   color: purple;
 }
 
-.loginAccount{
+.loginAccount {
   color: purple;
   cursor: pointer;
   text-decoration: none;
-  margin-top: .1rem;
+  margin-top: 0.1rem;
 }
 
-.signinBG{
-  position:relative;
+.signinBG {
+  position: relative;
   display: flex;
   width: 100%;
   height: 61rem;
-  margin:0;
-  padding:0;
-  background:url("https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif") no-repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  background: url("https://i.pinimg.com/originals/93/c6/aa/93c6aaa4424c468db1c9f7904eb400d8.gif")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  text-align:center;
+  text-align: center;
 }
 
-.remember{
+.remember {
   margin-bottom: 2rem;
 }

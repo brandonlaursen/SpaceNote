@@ -1,16 +1,15 @@
 /* TODO Add site wide styles */
 
-#loading{
+#loading {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   min-height: 100vh;
-  background-color: #EBF8FE;
+  background-color: #ebf8fe;
 }
 
-.loadingText{
+.loadingText {
   color: black;
 }
-
