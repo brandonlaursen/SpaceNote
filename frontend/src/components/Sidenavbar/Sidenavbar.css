@@ -1,4 +1,4 @@
-.sidenavbar{
+.sidenavbar {
   width: 240px;
   background: #1a1a1a;
   display: flex;
@@ -6,12 +6,14 @@
   color: #ccc;
   min-height: 100vh;
   float: left;
-
 }
 
-* { margin: 0; padding: 0 }
+* {
+  margin: 0;
+  padding: 0;
+}
 
-.sidenavbar-top-profile{
+.sidenavbar-top-profile {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -22,7 +24,7 @@
   list-style-type: none;
 }
 
-.profile-icon{
+.profile-icon {
   background-image: url("https://wallpapersmug.com/large/0b0f72/astronaut-minimal-art.jpg");
   background-size: cover;
   background-position-x: center;
@@ -36,35 +38,35 @@
   margin-top: 2rem;
 }
 
-.profile-title{
+.profile-title {
   display: flex;
   align-items: center;
-  flex :1;
+  flex: 1;
   margin-left: 10px;
   margin-top: 2rem;
 }
 
-.sidenavbar-top-create-note{
+.sidenavbar-top-create-note {
   padding: 0 15px;
   color: #fff;
 }
 
-.create-note-btn{
+.create-note-btn {
   display: flex;
   align-items: center;
-  padding:8px 10px;
+  padding: 8px 10px;
   cursor: pointer;
 }
 
-.title{
+.title {
   margin-left: 10px;
   background: none;
   outline: none;
   border: none;
 }
 
-.sidenavbar-top-menu-item{
-  margin-top:10px;
+.sidenavbar-top-menu-item {
+  margin-top: 10px;
   height: 28.7rem;
 }
 
@@ -74,127 +76,127 @@
   text-decoration: none;
 }
 
-.sidenavbar-bottom{
+.sidenavbar-bottom {
   padding: 8px 15px;
   border-top: 1px solid #555;
 }
 
-.icon{
+.icon {
   font-size: 14px;
   margin-right: 8px;
 }
 
-.NavNotebooks{
+.NavNotebooks {
   margin-left: 2rem;
 }
 
-.NavNotebooks:hover{
+.NavNotebooks:hover {
   color: rgb(183, 0, 255);
 }
 
-.NavNotebookContainer{
+.NavNotebookContainer {
   height: 7rem;
   overflow: auto;
-  margin-bottom: .4rem;
+  margin-bottom: 0.4rem;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
-.NavNotebookContainer::-webkit-scrollbar{
+.NavNotebookContainer::-webkit-scrollbar {
   display: none;
 }
 
-.notebooksNavTitle{
-  margin-left: .9rem;
+.notebooksNavTitle {
+  margin-left: 0.9rem;
   margin-bottom: 1rem;
-  margin-top: .8rem;
+  margin-top: 0.8rem;
   color: white;
   cursor: pointer;
 }
 
-.notebooksNavTitle:hover{
+.notebooksNavTitle:hover {
   color: rgb(183, 0, 255);
 }
 
-.notebooksNavTitle1{
-  margin-left: .5rem;
+.notebooksNavTitle1 {
+  margin-left: 0.5rem;
 }
 
-.navhome{
-  margin-left: -.45rem;
+.navhome {
+  margin-left: -0.45rem;
   text-decoration: none;
   color: white;
 }
 
-.navhome:hover{
+.navhome:hover {
   color: rgb(183, 0, 255);
 }
 
-.bb:hover{
+.bb:hover {
   color: rgb(183, 0, 255);
 }
 
-.navhome1{
+.navhome1 {
   text-decoration: none;
   color: white;
 }
 
-.navhome2{
-  margin-left: -.2rem;
+.navhome2 {
+  margin-left: -0.2rem;
   text-decoration: none;
   color: white;
 }
 
-.navhome2:hover{
+.navhome2:hover {
   color: rgb(183, 0, 255);
 }
 
-.navhome1:hover{
+.navhome1:hover {
   color: rgb(183, 0, 255);
 }
 
-.madeBy{
+.madeBy {
   margin-top: 1rem;
 }
 
-.searchResultsContainer{
+.searchResultsContainer {
   display: flex;
   align-items: center;
   background: #404040;
-  padding:8px 10px;
+  padding: 8px 10px;
   margin-top: -1.1rem;
   overflow: auto;
 }
 
-.searchResAll::-webkit-scrollbar{
+.searchResAll::-webkit-scrollbar {
   display: none;
 }
 
-.searchResItem{
+.searchResItem {
   text-decoration: none;
   color: white;
-  margin: .5rem;
+  margin: 0.5rem;
   margin-left: 1.5rem;
   overflow: auto;
 }
 
-.searchResItem:hover{
- color: rgb(183, 0, 255);
-}
-
-.z{
-  margin-left: .01rem;
-}
-
-.y{
-  margin-left: -.05rem;
-}
-
-.x:hover{
+.searchResItem:hover {
   color: rgb(183, 0, 255);
 }
 
-.searchResAll{
+.z {
+  margin-left: 0.01rem;
+}
+
+.y {
+  margin-left: -0.05rem;
+}
+
+.x:hover {
+  color: rgb(183, 0, 255);
+}
+
+.searchResAll {
   max-height: 10rem;
   overflow: auto;
   border-bottom-left-radius: 2px;
@@ -204,15 +206,15 @@
   scrollbar-width: none;
 }
 
-.sidenavbar-top-search{
+.sidenavbar-top-search {
   padding: 15px;
 }
 
-.search-block{
+.search-block {
   display: flex;
   align-items: center;
   background: #404040;
-  padding:8px 10px;
+  padding: 8px 10px;
   border-radius: 2px;
 }
 
@@ -221,11 +223,11 @@
   border-bottom-right-radius: 0 !important;
 }
 
-.hidden{
+.hidden {
   display: none !important;
 }
 
-.search{
+.search {
   color: #fff;
   margin-left: 10px;
   background: none;
@@ -233,17 +235,17 @@
   border: none;
 }
 
-.themeButton{
+.themeButton {
   cursor: pointer;
   margin-left: 2.8rem;
-  font-size:13pt;
+  font-size: 13pt;
 }
 
-.ui{
-  margin-left: .3rem;
-  margin-right: .4rem;
+.ui {
+  margin-left: 0.3rem;
+  margin-right: 0.4rem;
 }
 
-.xx{
-  margin-right: .7rem;
+.xx {
+  margin-right: 0.7rem;
 }

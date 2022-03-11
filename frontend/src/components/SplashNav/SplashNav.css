@@ -1,9 +1,9 @@
-.splashDemo{
+.splashDemo {
   height: 2.5rem;
   width: 5rem;
   background-color: white;
   font-size: 16px;
-  color:purple;
+  color: purple;
   margin: auto;
   border-radius: 5px;
   border: none;
@@ -12,16 +12,16 @@
   border: 2px solid purple;
 }
 
-.splashDemo:hover{
+.splashDemo:hover {
   border: 2px solid rgb(168, 1, 168);
 }
 
-.splashLogin{
+.splashLogin {
   height: 2.5rem;
   width: 5rem;
   background-color: white;
   font-size: 16px;
-  color:purple;
+  color: purple;
   margin: auto;
   border-radius: 5px;
   border: none;
@@ -30,12 +30,12 @@
   border: 2px solid purple;
 }
 
-.splashLogin:hover{
+.splashLogin:hover {
   border: 2px solid rgb(168, 1, 168);
-  color:rgb(168, 1, 168);
+  color: rgb(168, 1, 168);
 }
 
-.spashNavBG{
+.spashNavBG {
   background: white;
   border: solid transparent 1px;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 3px 8px;
@@ -51,12 +51,12 @@
   color: black;
 }
 
-.main-nav{
+.main-nav {
   height: 90px;
   position: sticky;
 }
 
-.logo{
+.logo {
   color: black !important;
   line-height: 90px;
   font-size: 30px;
@@ -68,7 +68,7 @@
   position: absolute;
 }
 
-.navLinks{
+.navLinks {
   list-style-type: none;
   float: right;
   line-height: 90px;
@@ -85,14 +85,14 @@
   text-transform: uppercase;
 }
 
-.navLi:hover{
+.navLi:hover {
   color: purple;
 }
 
-.menu-btn{
+.menu-btn {
   color: black;
   font-size: 25px;
-  float:right;
+  float: right;
   line-height: 90px;
   margin-right: 4rem;
   cursor: pointer;
@@ -104,12 +104,12 @@
   display: none;
 }
 
-@media (max-width: 800px){
-  .logo{
+@media (max-width: 800px) {
+  .logo {
     position: none !important;
   }
 
-  .navLinks{
+  .navLinks {
     position: fixed;
     width: 100%;
     height: 100vh;
@@ -125,14 +125,13 @@
     font-size: 20px;
   }
 
-  .menu-btn{
+  .menu-btn {
     display: block;
   }
 
   #isChecked:checked ~ .navLinks {
     right: 0;
   }
-
 }
 
 .splashLogin a {

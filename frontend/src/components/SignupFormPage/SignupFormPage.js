@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { NavLink } from "react-router-dom";
-import './SignupForm.css';
+import "./SignupForm.css";
 
 function SignupFormPage() {
   const dispatch = useDispatch();
@@ -20,27 +20,35 @@ function SignupFormPage() {
     e.preventDefault();
     if (password === confirmPassword) {
       setErrors([]);
-      return dispatch(sessionActions.signup({ email, username, password }))
-        .catch(async (res) => {
-          const data = await res.json();
-          if (data && data.errors) setErrors(data.errors);
-        });
+      return dispatch(
+        sessionActions.signup({ email, username, password })
+      ).catch(async (res) => {
+        const data = await res.json();
+        if (data && data.errors) setErrors(data.errors);
+      });
     }
-    return setErrors(['Passwords must match']);
+    return setErrors(["Passwords must match"]);
   };
 
   return (
     <div className="signinBG">
       <div className="signupFormContainer">
-        <img className="signinIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
+        <img
+          className="signinIcon"
+          src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png"
+          height="75"
+          width="75"
+          alt=""
+        />
         <h1>SpaceNote</h1>
         <p className="remember">Remember everything important.</p>
-        <form  className='signinForm' onSubmit={handleSubmit}>
+        <form className="signinForm" onSubmit={handleSubmit}>
           <ul className="signinErrors">
-            {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+            {errors.map((error, idx) => (
+              <li key={idx}>{error}</li>
+            ))}
           </ul>
           <label>
-
             <input
               placeholder="Email"
               className="signinInput"
@@ -80,9 +88,13 @@ function SignupFormPage() {
               required
             />
           </label>
-          <button  className="signinSubmit" type="submit">Sign Up</button>
+          <button className="signinSubmit" type="submit">
+            Sign Up
+          </button>
           <p>Already have an account?</p>
-          <NavLink className="loginAccount" to="/login">Sign In</NavLink>
+          <NavLink className="loginAccount" to="/login">
+            Sign In
+          </NavLink>
         </form>
       </div>
     </div>

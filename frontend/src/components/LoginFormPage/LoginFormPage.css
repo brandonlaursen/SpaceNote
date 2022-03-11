@@ -1,26 +1,26 @@
-
-body{
- margin:0 auto;
- padding:0px;
- font-family: "Myriad Pro","Helvetica Neue",Helvetica,Arial,Sans-Serif;
+body {
+  margin: 0 auto;
+  padding: 0px;
+  font-family: "Myriad Pro", "Helvetica Neue", Helvetica, Arial, Sans-Serif;
 }
 
-.loginBG{
-  position:relative;
+.loginBG {
+  position: relative;
   display: flex;
   width: 100%;
   height: 61rem;
-  margin:0;
-  padding:0;
-  background:url("https://cdn.dribbble.com/users/43762/screenshots/1438974/ng-colab-space_night.gif") no-repeat center center fixed;
+  margin: 0;
+  padding: 0;
+  background: url("https://cdn.dribbble.com/users/43762/screenshots/1438974/ng-colab-space_night.gif")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  text-align:center;
+  text-align: center;
 }
 
-.loginFormContainer{
+.loginFormContainer {
   background-color: white;
   display: flex;
   flex-direction: column;
@@ -33,23 +33,23 @@ body{
   box-shadow: rgba(0, 0, 0, 0.3) 0px 3px 8px;
 }
 
-.loginFormContainer h1{
+.loginFormContainer h1 {
   margin-top: 8.5rem;
 }
 
-.loginFormContainer p{
-  margin-top: -.1rem;
+.loginFormContainer p {
+  margin-top: -0.1rem;
 }
 
-.loginForm{
+.loginForm {
   display: flex;
   flex-direction: column;
 }
 
-.loginSubmit{
+.loginSubmit {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 20rem;
   margin: auto;
@@ -57,17 +57,17 @@ body{
   border: none;
   cursor: pointer;
   margin-top: 1rem;
-  font-family:inherit;
+  font-family: inherit;
 }
 
-.loginSubmit:hover{
+.loginSubmit:hover {
   background-color: rebeccapurple;
 }
 
-.demoLoginSubmit{
+.demoLoginSubmit {
   background-color: purple;
   font-size: 16px;
-  color:white;
+  color: white;
   height: 3.2rem;
   width: 20rem;
   margin: auto;
@@ -76,21 +76,21 @@ body{
   cursor: pointer;
   margin-top: 1rem;
   margin-bottom: 1rem;
-  font-family:inherit;
+  font-family: inherit;
 }
 
-.demoLoginSubmit:hover{
+.demoLoginSubmit:hover {
   background-color: rebeccapurple;
 }
 
-.loginIcon{
+.loginIcon {
   margin-left: auto;
   margin-right: auto;
   margin-top: 4rem;
-  margin-bottom: -8.20rem;
+  margin-bottom: -8.2rem;
 }
 
-.loginInput{
+.loginInput {
   width: 18rem;
   border: 1px solid rgb(212, 212, 212);
   padding: 12px 16px;
@@ -98,16 +98,16 @@ body{
   min-height: 1.33rem;
   border-radius: 5px;
   background-color: white;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
-.createAccount{
+.createAccount {
   color: purple;
   cursor: pointer;
   text-decoration: none;
 }
 
-.loginErrors{
+.loginErrors {
   list-style: none;
   margin-right: 2rem;
   color: purple;
