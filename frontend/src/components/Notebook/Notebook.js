@@ -1,5 +1,5 @@
 import "./Notebook.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import {
@@ -14,7 +14,6 @@ import {
   postNoteThunk,
   deleteNoteThunk,
 } from "../../store/notes";
-import { useContext } from "react";
 import { ThemeContext } from "../../context/Theme";
 import { Modal } from "../../context/Modal";
 import { useShowModal } from "../../context/showModal";
@@ -44,13 +43,10 @@ function Notebook() {
 
   //EDIT NOTEBOOK
   const [editNotebookTitle, setEditNotebookTitle] = useState("");
-
   const [newNote, setNewNote] = useState(true);
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
   const [errors, setErrors] = useState([]);
-  const [errors2, setErrors2] = useState([]);
-
   const [mainNote, setMainNote] = useState("");
   const [mainNoteTitle, setMainNoteTitle] = useState("");
   const [mainNoteContent, setMainNoteContent] = useState("");
@@ -82,17 +78,6 @@ function Notebook() {
       errors.push("Title needs at least one character");
     setErrors(errors);
   }, [editNotebookTitle]);
-
-  useEffect(() => {
-    const errors2 = [];
-
-    if (newNoteTitle.length > 25)
-      errors2.push("Max Length for a title is 25 characters");
-    if (mainNoteTitle.length > 25)
-      errors2.push("Max Length for a title is 25 characters");
-
-    setErrors2(errors2);
-  }, [newNoteTitle, mainNoteTitle]);
 
   //NOTEBOOK CRUD
   const deleteNotebookSubmit = (e, notebookId) => {
@@ -172,7 +157,6 @@ function Notebook() {
       </div>
     );
   }
-
 
   if (loaded) {
     return (
@@ -356,32 +340,14 @@ function Notebook() {
                 />
               </form>
 
-                <RichTextEditor newNote={newNote} mainNoteContent={mainNoteContent} newNoteContents={newNoteContents} setNewNoteContents={setNewNoteContents} setMainNoteContent={setMainNoteContent}/>
-              {/* <ReactQuill
-                toolbarOptions={toolbarOptions}
-                modules={modules}
-                className="TET"
-                id="my-form1"
-                theme="snow"
-                value={newNote === false ? mainNoteContent : newNoteContents}
-                type="text"
-                placeholder="Whats on your mind?"
-                onChange={
-                  newNote
-                    ? (value) => setNewNoteContents(value)
-                    : (value) => setMainNoteContent(value)
-                }
-                style={{
-                  minHeight: "495px",
-                  height: "100%",
-                  width: "100%",
-                  outline: "none",
-                }}
-              /> */}
+              <RichTextEditor
+                newNote={newNote}
+                mainNoteContent={mainNoteContent}
+                newNoteContents={newNoteContents}
+                setNewNoteContents={setNewNoteContents}
+                setMainNoteContent={setMainNoteContent}
+              />
             </div>
-            {errors2.map((error) => (
-              <li key={error}>{error}</li>
-            ))}
 
             <div></div>
           </div>
