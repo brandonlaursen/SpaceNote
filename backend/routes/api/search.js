@@ -19,7 +19,7 @@ router.post(
       },
     });
 
-    res.json({ notes });
+    res.json(notes);
   })
 );
 

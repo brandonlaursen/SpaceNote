@@ -25,7 +25,6 @@ const editNotebook = (notebook) => ({
   notebook,
 });
 
-
 export const getNotebooksThunk = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notebooks/${userId}`);
 
@@ -54,11 +53,10 @@ export const deleteNotebookThunk = (notebookId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notebooks/${notebookId}`, {
     method: "DELETE",
   });
+
   if (res.ok) {
     const notebook = await res.json();
-
     dispatch(deleteNotebook(notebook));
-
     return notebook;
   }
 };
@@ -71,9 +69,12 @@ export const editNotebookThunk = (payload, notebookId) => async (dispatch) => {
     },
     body: JSON.stringify(payload),
   });
-  const notebook = await res.json();
-  dispatch(editNotebook(notebook));
-  return notebook;
+
+  if (res.ok) {
+    const notebook = await res.json();
+    dispatch(editNotebook(notebook));
+    return notebook;
+  }
 };
 
 const initialState = {};

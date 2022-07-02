@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { searchNotesThunk } from "../../store/search";
 
 function Search({ sessionUser }) {
-  const searchNotes = useSelector((state) => state.search.notes);
+  const searchNotes = useSelector((state) => state.search);
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
@@ -48,8 +48,8 @@ function Search({ sessionUser }) {
       </div>
 
       <div className="searchResAll">
-        {search?.length >= 1 &&
-          searchNotes?.map((note) => (
+        {search.length >= 1 &&
+          searchNotes.map((note) => (
             <div className="searchResultsContainer" id={note.id} key={note.id}>
               <NavLink
                 onClick={hide2}
