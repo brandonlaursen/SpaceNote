@@ -4,12 +4,12 @@ function HomeNotebooksContainer({ notebooks, setShow, darkMode }) {
   return (
     <div className="homeNotebooksContainer">
       <div className="notebookTitleDiv">
-        <h1 className={"notebooktitle"}>NOTEBOOKS</h1>
+        <h1 className="notebooktitle">NOTEBOOKS</h1>
         <i className="fas fa-plus fa-lg" onClick={() => setShow(true)}></i>
       </div>
 
-      {notebooks?.length > 0 &&
-        notebooks?.map((notebook) => (
+      {notebooks.length > 0 &&
+        notebooks.map((notebook) => (
           <NavLink
             id={notebook.id}
             key={notebook.id}

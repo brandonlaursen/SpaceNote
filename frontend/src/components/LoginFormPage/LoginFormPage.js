@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Redirect } from "react-router-dom";
-import './LoginFormPage.css';
+import "./LoginFormPage.css";
 
 function LoginFormPage() {
-
   const dispatch = useDispatch();
   const sessionUser = useSelector((state) => state.session.user);
   const [credential, setCredential] = useState("");
@@ -17,13 +16,13 @@ function LoginFormPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setErrors([]);
-    return dispatch(sessionActions.login({ credential, password }))
-      .catch(async (res) => {
+    return dispatch(sessionActions.login({ credential, password })).catch(
+      async (res) => {
         const data = await res.json();
         if (data && data.errors) setErrors(data.errors);
-      });
+      }
+    );
   };
-
 
   const demo = async () => {
     return dispatch(
@@ -31,14 +30,19 @@ function LoginFormPage() {
     );
   };
 
-
   return (
     <div className="loginBG">
       <div className="loginFormContainer">
-        <img className="loginIcon" src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png" height="75" width="75" alt=""/>
+        <img
+          className="loginIcon"
+          src="https://img.icons8.com/external-itim2101-lineal-color-itim2101/64/000000/external-space-space-and-galaxy-itim2101-lineal-color-itim2101.png"
+          height="75"
+          width="75"
+          alt=""
+        />
         <h1>SpaceNote</h1>
         <p className="remember">Remember everything important.</p>
-        <form className='loginForm' onSubmit={handleSubmit}>
+        <form className="loginForm" onSubmit={handleSubmit}>
           <ul className="loginErrors">
             {errors.map((error, idx) => (
               <li key={idx}>{error}</li>
@@ -51,7 +55,6 @@ function LoginFormPage() {
               type="text"
               value={credential}
               onChange={(e) => setCredential(e.target.value)}
-
             />
           </label>
           <label>
@@ -61,14 +64,19 @@ function LoginFormPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-
             />
           </label>
-          <button className="loginSubmit" type="submit">Log In</button>
+          <button className="loginSubmit" type="submit">
+            Log In
+          </button>
         </form>
-        <button className="demoLoginSubmit" onClick={demo} type="submit">Demo</button>
+        <button className="demoLoginSubmit" onClick={demo} type="submit">
+          Demo
+        </button>
         <p>Don't have an account?</p>
-        <NavLink className="createAccount" to="/signup">Create Account</NavLink>
+        <NavLink className="createAccount" to="/signup">
+          Create Account
+        </NavLink>
       </div>
     </div>
   );

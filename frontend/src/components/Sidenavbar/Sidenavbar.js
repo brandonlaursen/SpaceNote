@@ -1,15 +1,13 @@
 import * as sessionActions from "../../store/session";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useContext, useState } from "react";
-import { getUsersNotebooksThunk } from "../../store/notebooks";
-import { useShowModal } from "../../context/showModal";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { ThemeContext } from "../../context/Theme";
 import "./Sidenavbar.css";
 import Search from "./search";
 import NavNotebookContainer from "./NavbarNotebookContainer";
 
-const Sidenavbar = ({ name, notebooks, profile }) => {
+const Sidenavbar = ({ name, notebooks }) => {
   const { darkMode, setDarkMode } = useContext(ThemeContext);
 
   const handleTheme = () => {
@@ -17,10 +15,8 @@ const Sidenavbar = ({ name, notebooks, profile }) => {
     localStorage.setItem("darkMode", !darkMode);
   };
 
-  const { num } = useShowModal();
   const dispatch = useDispatch();
 
-  const path = window.location.href;
   const sessionUser = useSelector((state) => state.session.user);
 
   const [showNotebooksNav, setShowNotebooksNav] = useState(false);
@@ -29,12 +25,6 @@ const Sidenavbar = ({ name, notebooks, profile }) => {
     e.preventDefault();
     dispatch(sessionActions.logout());
   };
-
-  useEffect(() => {
-    if (sessionUser) {
-      dispatch(getUsersNotebooksThunk(sessionUser?.id));
-    }
-  }, [dispatch, sessionUser, num, path]);
 
   return (
     <div className="sidenavbar">

@@ -27,7 +27,7 @@ const initialState = {};
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_NOTES:
-      return { ...state, notes: action.payload.notes };
+      return { notes: action.payload.notes };
     default:
       return state;
   }

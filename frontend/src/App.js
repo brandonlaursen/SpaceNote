@@ -11,7 +11,6 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user);
-  console.log('sessionUser', sessionUser);
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
@@ -20,21 +19,22 @@ function App() {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  if (!isLoaded) {
-    return (
-      <div id="loading">
-        <img
-          src={
-            "https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"
-          }
-          alt="Loading..."
-        />
-        <h3 className="loadingText">Loading...</h3>
-      </div>
-    );
-  }
+  // if (!isLoaded) {
+  //   return (
+  //     <div id="loading">
+  //       <img
+  //         src={
+  //           "https://cdn.dribbble.com/users/146798/screenshots/2933118/rocket.gif"
+  //         }
+  //         alt="Loading..."
+  //       />
+  //       <h3 className="loadingText">Loading...</h3>
+  //     </div>
+  //   );
+  // }
 
   return (
+    isLoaded &&
     <>
       <Switch>
         <Route exact path="/">
