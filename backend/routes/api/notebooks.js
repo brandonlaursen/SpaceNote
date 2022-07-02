@@ -63,7 +63,7 @@ router.delete(
     const notebook = await Notebook.findByPk(req.params.notebookId);
 
     await notebook.destroy();
-    console.log('delete',notebook)
+
     return res.json(notebook);
   })
 );

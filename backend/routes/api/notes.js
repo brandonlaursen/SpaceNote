@@ -13,7 +13,7 @@ router.get(
       },
       order: [["updatedAt", "DESC"]],
     });
-    console.log(notes)
+
     return res.json(notes);
   })
 );
@@ -31,7 +31,6 @@ router.get(
     return res.json(notes);
   })
 );
-
 
 router.post(
   "/",

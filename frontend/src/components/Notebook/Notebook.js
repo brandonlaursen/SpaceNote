@@ -44,7 +44,7 @@ function Notebook() {
 
   const [loaded, setLoaded] = useState(false);
 
-  const [editNotebookTitle, setEditNotebookTitle] = useState('');
+  const [editNotebookTitle, setEditNotebookTitle] = useState("");
   const [newNote, setNewNote] = useState(true);
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
@@ -69,7 +69,6 @@ function Notebook() {
   useEffect(() => {
     dispatch(getNotesThunk(notebookId));
     createNewNote();
-    // setLoaded(true);
   }, [dispatch, notebookId]);
 
   useEffect(() => {}, [mainNote, mainNoteContent, mainNoteTitle, notebook]);
@@ -84,8 +83,7 @@ function Notebook() {
     setErrors(errors);
   }, [editNotebookTitle]);
 
-
-  const deleteNotebookSubmit = async(e, notebookId) => {
+  const deleteNotebookSubmit = async (e, notebookId) => {
     e.preventDefault();
 
     await dispatch(deleteNotebookThunk(notebookId))
@@ -104,7 +102,6 @@ function Notebook() {
   };
 
   const handleSubmit = async (e, noteId) => {
-    console.log(";hey");
     e.preventDefault();
     if (newNote) {
       const payload = {
@@ -155,203 +152,207 @@ function Notebook() {
   //   );
   // }
 
-  // if (loaded) {
-    return (
-      <div className="NBOdiv">
-        <Sidenavbar
-          name={sessionUser.username}
-          notebooks={notebooks}
-          profile={sessionUser.profile_pic_url}
-        />
-        <div
-          className={darkMode ? "Notebook-containerDark" : "Notebook-container"}
-        >
-          <div className="notebooksTitle">
-            <div className="nbt1">
-              <h1 className="ll">
-                <i className="fas fa-globe-americas ll"></i> {notebook?.title}
-              </h1>
-              <h3 className="enbtn" onClick={() => setShow(true)}>
-                Edit Notebook
-              </h3>
-            </div>
-            <div className="nbt2">
-              <button
-                type="submit"
-                form="my-form1"
-                className="DBButton"
-                onClick={(e) => handleSubmit(e, mainNote.id)}
-              >
-                Save
-              </button>
-              {mainNote.id ? (
-                <button
-                  className="DBButton del"
-                  onClick={(e) => deleteNoteSubmit(e, mainNote?.id)}
-                >
-                  Delete
-                </button>
-              ) : (
-                <button className="DBButton2"> Delete </button>
-              )}
-            </div>
+
+  return (
+    <div className="NBOdiv">
+      <Sidenavbar
+        name={sessionUser.username}
+        notebooks={notebooks}
+        profile={sessionUser.profile_pic_url}
+      />
+      <div
+        className={darkMode ? "Notebook-containerDark" : "Notebook-container"}
+      >
+        <div className="notebooksTitle">
+          <div className="nbt1">
+            <h1 className="ll">
+              <i className="fas fa-globe-americas ll"></i> {notebook?.title}
+            </h1>
+            <h3 className="enbtn" onClick={() => setShow(true)}>
+              Edit Notebook
+            </h3>
           </div>
-
-          <div className="nbcontainer">
-            <div className="notesHalf">
-              <div className="homeNotesContainer1">
-                {notes.length > 0 &&
-                  notes.map((note) => {
-                    if (mainNote.id === note.id) {
-                      return (
-                        <div
-                          className="homeNotesNotesContainer3"
-                          id={note.id}
-                          key={note.id}
-                          onClick={() => {
-                            setMainNote(note);
-                            setNewNote(false);
-                            setMainNoteTitle(note.title);
-                            setMainNoteContent(note.content);
-                          }}
-                        >
-                          <div>
-                            <h2
-                              className="homeNotesNotes"
-                              onClick={() => {
-                                setMainNote(note);
-                                setNewNote(false);
-                                setMainNoteTitle(note.title);
-                                setMainNoteContent(note.content);
-                              }}
-                            >
-                              {" "}
-                              {note.title}
-                            </h2>
-                            <h3 className="noteCC">
-                              {" "}
-                              {ReactHtmlParser(note.content)}
-                            </h3>
-                            <p className="timeDiv">
-                              {moment(note.updatedAt).format("LLL")}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    } else {
-                      return (
-                        <div
-                          className="homeNotesNotesContainer"
-                          id={note.id}
-                          key={note.id}
-                          onClick={() => {
-                            setMainNote(note);
-                            setNewNote(false);
-                            setMainNoteTitle(note.title);
-                            setMainNoteContent(note.content);
-                          }}
-                        >
-                          <div>
-                            <h2
-                              className="homeNotesNotes"
-                              onClick={() => {
-                                setMainNote(note);
-                                setNewNote(false);
-                                setMainNoteTitle(note.title);
-                                setMainNoteContent(note.content);
-                              }}
-                            >
-                              {" "}
-                              {note.title}
-                            </h2>
-                            <h3 className="noteCC">
-                              {" "}
-                              {ReactHtmlParser(note.content)}
-                            </h3>
-                            <p className="timeDiv">
-                              {moment(note.updatedAt).format("LLL")}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    }
-                  })}
-              </div>
-              <div className="buttonContainer">
-                <button id="createNoteButton" onClick={createNewNote}>
-                  <i className="penIcon fas fa-pen"></i>
-                  New Note
-                </button>
-              </div>
-            </div>
-
-            {show && (
-              <Modal onClose={() => {setShow(false); setEditNotebookTitle('')}  }>
-                <div className={darkMode ? "createModalDark" : "createModal"}>
-                  <h1>Edit Notebook</h1>
-
-                  <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
-                    <input
-                      className="CreateInput2"
-                      type="text"
-                      placeholder="Title"
-                      required
-                      value={editNotebookTitle}
-                      onChange={(e) => setEditNotebookTitle(e.target.value)}
-                      maxLength="25"
-                      minLength="1"
-                    />
-
-                    <button className="EditNotebookbtn" type="submit">
-                      Edit Notebook
-                    </button>
-                    <button
-                      className="EditNotebookbtn2"
-                      onClick={(e) => deleteNotebookSubmit(e, notebook.id)}
-                    >
-                      Delete
-                    </button>
-                  </form>
-                  <ul className="errors">
-                    {errors.map((error) => (
-                      <li key={error}>{error}</li>
-                    ))}
-                  </ul>
-                </div>
-              </Modal>
+          <div className="nbt2">
+            <button
+              type="submit"
+              form="my-form1"
+              className="DBButton"
+              onClick={(e) => handleSubmit(e, mainNote.id)}
+            >
+              Save
+            </button>
+            {mainNote.id ? (
+              <button
+                className="DBButton del"
+                onClick={(e) => deleteNoteSubmit(e, mainNote?.id)}
+              >
+                Delete
+              </button>
+            ) : (
+              <button className="DBButton2"> Delete </button>
             )}
-
-            <div className="rteContainer">
-              <form onSubmit={(e) => handleSubmit(e, mainNote.id)}>
-                <input
-                  className={darkMode ? "TET note-titleDark" : "TET note-title"}
-                  type="text"
-                  placeholder="Write a Title"
-                  maxLength="25"
-                  value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
-                  onChange={
-                    newNote
-                      ? (e) => setNewNoteTitle(e.target.value)
-                      : (e) => setMainNoteTitle(e.target.value)
-                  }
-                />
-              </form>
-
-              <RichTextEditor
-                newNote={newNote}
-                mainNoteContent={mainNoteContent}
-                newNoteContents={newNoteContents}
-                setNewNoteContents={setNewNoteContents}
-                setMainNoteContent={setMainNoteContent}
-              />
-            </div>
-
-            <div></div>
           </div>
         </div>
+
+        <div className="nbcontainer">
+          <div className="notesHalf">
+            <div className="homeNotesContainer1">
+              {notes.length > 0 &&
+                notes.map((note) => {
+                  if (mainNote.id === note.id) {
+                    return (
+                      <div
+                        className="homeNotesNotesContainer3"
+                        id={note.id}
+                        key={note.id}
+                        onClick={() => {
+                          setMainNote(note);
+                          setNewNote(false);
+                          setMainNoteTitle(note.title);
+                          setMainNoteContent(note.content);
+                        }}
+                      >
+                        <div>
+                          <h2
+                            className="homeNotesNotes"
+                            onClick={() => {
+                              setMainNote(note);
+                              setNewNote(false);
+                              setMainNoteTitle(note.title);
+                              setMainNoteContent(note.content);
+                            }}
+                          >
+                            {" "}
+                            {note.title}
+                          </h2>
+                          <h3 className="noteCC">
+                            {" "}
+                            {ReactHtmlParser(note.content)}
+                          </h3>
+                          <p className="timeDiv">
+                            {moment(note.updatedAt).format("LLL")}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  } else {
+                    return (
+                      <div
+                        className="homeNotesNotesContainer"
+                        id={note.id}
+                        key={note.id}
+                        onClick={() => {
+                          setMainNote(note);
+                          setNewNote(false);
+                          setMainNoteTitle(note.title);
+                          setMainNoteContent(note.content);
+                        }}
+                      >
+                        <div>
+                          <h2
+                            className="homeNotesNotes"
+                            onClick={() => {
+                              setMainNote(note);
+                              setNewNote(false);
+                              setMainNoteTitle(note.title);
+                              setMainNoteContent(note.content);
+                            }}
+                          >
+                            {" "}
+                            {note.title}
+                          </h2>
+                          <h3 className="noteCC">
+                            {" "}
+                            {ReactHtmlParser(note.content)}
+                          </h3>
+                          <p className="timeDiv">
+                            {moment(note.updatedAt).format("LLL")}
+                          </p>
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
+            </div>
+            <div className="buttonContainer">
+              <button id="createNoteButton" onClick={createNewNote}>
+                <i className="penIcon fas fa-pen"></i>
+                New Note
+              </button>
+            </div>
+          </div>
+
+          {show && (
+            <Modal
+              onClose={() => {
+                setShow(false);
+                setEditNotebookTitle("");
+              }}
+            >
+              <div className={darkMode ? "createModalDark" : "createModal"}>
+                <h1>Edit Notebook</h1>
+
+                <form onSubmit={(e) => editNotebookSubmit(e, notebookId)}>
+                  <input
+                    className="CreateInput2"
+                    type="text"
+                    placeholder="Title"
+                    required
+                    value={editNotebookTitle}
+                    onChange={(e) => setEditNotebookTitle(e.target.value)}
+                    maxLength="25"
+                    minLength="1"
+                  />
+
+                  <button className="EditNotebookbtn" type="submit">
+                    Edit Notebook
+                  </button>
+                  <button
+                    className="EditNotebookbtn2"
+                    onClick={(e) => deleteNotebookSubmit(e, notebook.id)}
+                  >
+                    Delete
+                  </button>
+                </form>
+                <ul className="errors">
+                  {errors.map((error) => (
+                    <li key={error}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            </Modal>
+          )}
+
+          <div className="rteContainer">
+            <form onSubmit={(e) => handleSubmit(e, mainNote.id)}>
+              <input
+                className={darkMode ? "TET note-titleDark" : "TET note-title"}
+                type="text"
+                placeholder="Write a Title"
+                maxLength="25"
+                value={mainNoteTitle ? mainNoteTitle : newNoteTitle}
+                onChange={
+                  newNote
+                    ? (e) => setNewNoteTitle(e.target.value)
+                    : (e) => setMainNoteTitle(e.target.value)
+                }
+              />
+            </form>
+
+            <RichTextEditor
+              newNote={newNote}
+              mainNoteContent={mainNoteContent}
+              newNoteContents={newNoteContents}
+              setNewNoteContents={setNewNoteContents}
+              setMainNoteContent={setMainNoteContent}
+            />
+          </div>
+
+          <div></div>
+        </div>
       </div>
-    );
-  }
-// }
+    </div>
+  );
+}
 
 export default Notebook;

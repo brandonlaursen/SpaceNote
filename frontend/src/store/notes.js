@@ -6,8 +6,6 @@ const DELETE_NOTE = "note/DELETE_NOTE";
 const EDIT_NOTE = "notes/EDIT_NOTE";
 const RESET = "RESET/RESET_NOTE";
 
-// const GET_NOTE = "note/GET_NOTE";
-
 const getNotes = (notes) => ({
   type: GET_NOTES,
   notes,
@@ -27,20 +25,6 @@ const editNote = (note) => ({
   type: EDIT_NOTE,
   note,
 });
-
-// const getNote = (note) => ({
-//   type: GET_NOTE,
-//   payload: note,
-// });
-
-// export const getNoteThunk = (noteId) => async (dispatch) => {
-//   const res = await fetch(`/api/notes/note/${noteId}`);
-
-//   if (res.ok) {
-//     const note = await res.json();
-//     dispatch(getNote(note));
-//   }
-// };
 
 export const getNotesThunk = (notebookId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notes/${notebookId}`);

@@ -5,9 +5,6 @@ const POST_NOTEBOOK = "notebooks/POST_NOTEBOOK";
 const DELETE_NOTEBOOK = "notebooks/DELETE_NOTEBOOK";
 const EDIT_NOTEBOOK = "notebooks/EDIT_NOTEBOOK";
 
-// const GET_NOTES = "notes/GET_NOTES";
-// const GET_NOTEBOOK = "notebooks/GET_NOTEBOOK";
-
 const getNotebooks = (notebooks) => ({
   type: GET_NOTEBOOKS,
   notebooks,
@@ -28,15 +25,6 @@ const editNotebook = (notebook) => ({
   notebook,
 });
 
-// const getNotebookNotes = (notes) => ({
-//   type: GET_NOTES,
-//   notes,
-// });
-
-// const getNotebook = (notebook) => ({
-//   type: GET_NOTEBOOK,
-//   notebook,
-// });
 
 export const getNotebooksThunk = (userId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notebooks/${userId}`);
@@ -68,7 +56,7 @@ export const deleteNotebookThunk = (notebookId) => async (dispatch) => {
   });
   if (res.ok) {
     const notebook = await res.json();
-    console.log('00000', notebook)
+
     dispatch(deleteNotebook(notebook));
 
     return notebook;
@@ -88,24 +76,6 @@ export const editNotebookThunk = (payload, notebookId) => async (dispatch) => {
   return notebook;
 };
 
-// export const getNotebookNotesThunk = (notebookId) => async (dispatch) => {
-//   const res = await fetch(`/api/notebooks/${notebookId}/notes`);
-
-//   if (res.ok) {
-//     const notebookNotes = await res.json();
-//     dispatch(getNotebookNotes(notebookNotes));
-//   }
-// };
-
-// export const getNotebookThunk = (notebookId) => async (dispatch) => {
-//   const res = await fetch(`/api/notebooks/notebook/${notebookId}`);
-
-//   if (res.ok) {
-//     const notebook = await res.json();
-//     dispatch(getNotebook(notebook));
-//   }
-// };
-
 const initialState = {};
 
 export default function notebooksReducer(state = initialState, action) {
@@ -122,7 +92,7 @@ export default function notebooksReducer(state = initialState, action) {
     case EDIT_NOTEBOOK:
       return { ...state, [action.notebook.id]: action.notebook };
     case DELETE_NOTEBOOK:
-        newState={...state}
+      newState = { ...state };
       delete newState[action.notebook.id];
       return newState;
     default:
