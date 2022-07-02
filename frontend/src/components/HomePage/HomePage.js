@@ -88,13 +88,6 @@ function HomePage() {
                 updateTitle={updateTitle}
                 errors={errors}
               />
-              <CreateNotebook
-                darkMode={darkMode}
-                createNotebookSubmit={createNotebookSubmit}
-                title={title}
-                updateTitle={updateTitle}
-                errors={errors}
-              />
             </Modal>
           )}
         </div>

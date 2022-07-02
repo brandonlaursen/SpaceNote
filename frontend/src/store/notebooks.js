@@ -68,7 +68,9 @@ export const deleteNotebookThunk = (notebookId) => async (dispatch) => {
   });
   if (res.ok) {
     const notebook = await res.json();
+    console.log('00000', notebook)
     dispatch(deleteNotebook(notebook));
+
     return notebook;
   }
 };
@@ -120,7 +122,7 @@ export default function notebooksReducer(state = initialState, action) {
     case EDIT_NOTEBOOK:
       return { ...state, [action.notebook.id]: action.notebook };
     case DELETE_NOTEBOOK:
-      
+        newState={...state}
       delete newState[action.notebook.id];
       return newState;
     default:

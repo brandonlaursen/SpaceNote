@@ -9,7 +9,9 @@ function Search({ sessionUser }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(searchNotesThunk(search, sessionUser.id));
+    if (search.length > 0) {
+      dispatch(searchNotesThunk(search, sessionUser.id));
+    }
   }, [search, dispatch, sessionUser.id]);
 
   const hide = (e) => {

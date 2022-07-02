@@ -12,6 +12,7 @@ import {
   editNoteThunk,
   postNoteThunk,
   deleteNoteThunk,
+  resetAction,
 } from "../../store/notes";
 import { ThemeContext } from "../../context/Theme";
 import { Modal } from "../../context/Modal";
@@ -36,10 +37,12 @@ function Notebook() {
   const notes = Object.values(notesObj);
 
   const notebook = useSelector((state) => state.notebooks[notebookId]);
-  console.log('look here', notebook)
+
   const notebooksObj = useSelector((state) => state.notebooks);
   const notebooks = Object.values(notebooksObj);
-  console.log(notes)
+  // console.log(notes)
+  // console.log(notes.sort((a,b) => moment(a).subtract(10, 'days').calendar() - moment(b).subtract(10, 'days').calendar()))
+  // //moment(note.updatedAt).format("LLL")
   const { show, setShow } = useShowModal();
 
   const [loaded, setLoaded] = useState(false);
@@ -65,13 +68,14 @@ function Notebook() {
 
   useEffect(() => {
     dispatch(getNotebooksThunk(sessionUser.id));
+    // dispatch(resetAction())
   }, [dispatch, sessionUser.id]);
 
   useEffect(() => {
     dispatch(getNotesThunk(notebookId));
     createNewNote();
     // setLoaded(true);
-  }, [dispatch, notebookId, notebook]);
+  }, [dispatch, notebookId]);
 
   // useEffect(() => {
   //   dispatch(getNotebooksThunk(sessionUser.id));
@@ -94,10 +98,10 @@ function Notebook() {
   }, [editNotebookTitle]);
 
   //NOTEBOOK CRUD
-  const deleteNotebookSubmit = (e, notebookId) => {
+  const deleteNotebookSubmit = async(e, notebookId) => {
     e.preventDefault();
 
-    dispatch(deleteNotebookThunk(notebookId))
+    await dispatch(deleteNotebookThunk(notebookId))
       .then(setShow(false))
       .then(history.push(`/home`));
   };
