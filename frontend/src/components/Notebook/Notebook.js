@@ -12,7 +12,6 @@ import {
   editNoteThunk,
   postNoteThunk,
   deleteNoteThunk,
-  resetAction,
 } from "../../store/notes";
 import { ThemeContext } from "../../context/Theme";
 import { Modal } from "../../context/Modal";
@@ -40,15 +39,12 @@ function Notebook() {
 
   const notebooksObj = useSelector((state) => state.notebooks);
   const notebooks = Object.values(notebooksObj);
-  // console.log(notes)
-  // console.log(notes.sort((a,b) => moment(a).subtract(10, 'days').calendar() - moment(b).subtract(10, 'days').calendar()))
-  // //moment(note.updatedAt).format("LLL")
+
   const { show, setShow } = useShowModal();
 
   const [loaded, setLoaded] = useState(false);
 
-  //EDIT NOTEBOOK
-  const [editNotebookTitle, setEditNotebookTitle] = useState("");
+  const [editNotebookTitle, setEditNotebookTitle] = useState('');
   const [newNote, setNewNote] = useState(true);
   const [newNoteTitle, setNewNoteTitle] = useState("");
   const [newNoteContents, setNewNoteContents] = useState("");
@@ -68,7 +64,6 @@ function Notebook() {
 
   useEffect(() => {
     dispatch(getNotebooksThunk(sessionUser.id));
-    // dispatch(resetAction())
   }, [dispatch, sessionUser.id]);
 
   useEffect(() => {
@@ -76,14 +71,6 @@ function Notebook() {
     createNewNote();
     // setLoaded(true);
   }, [dispatch, notebookId]);
-
-  // useEffect(() => {
-  //   dispatch(getNotebooksThunk(sessionUser.id));
-  //   dispatch(resetAction())
-  //   dispatch(getNotesThunk(notebookId));
-  //   createNewNote();
-  //   setLoaded(true);
-  // }, [dispatch, notebookId, sessionUser.id]);
 
   useEffect(() => {}, [mainNote, mainNoteContent, mainNoteTitle, notebook]);
 
@@ -97,7 +84,7 @@ function Notebook() {
     setErrors(errors);
   }, [editNotebookTitle]);
 
-  //NOTEBOOK CRUD
+
   const deleteNotebookSubmit = async(e, notebookId) => {
     e.preventDefault();
 
@@ -151,7 +138,6 @@ function Notebook() {
     await dispatch(deleteNoteThunk(noteId));
     setMainNote("");
 
-    createNewNote();
     createNewNote();
   };
 
@@ -300,7 +286,7 @@ function Notebook() {
             </div>
 
             {show && (
-              <Modal onClose={() => setShow(false)}>
+              <Modal onClose={() => {setShow(false); setEditNotebookTitle('')}  }>
                 <div className={darkMode ? "createModalDark" : "createModal"}>
                   <h1>Edit Notebook</h1>
 
