@@ -1,67 +1,66 @@
 import { csrfFetch } from "./csrf";
 
-//GET ALL NOTES OF A USER
 const GET_NOTES = "notes/GET_NOTES";
-
-const getUserNotes = (notes) => ({
-  type: GET_NOTES,
-  payload: notes,
-});
-
-export const getUsersNotesThunk = (userId) => async (dispatch) => {
-  const res = await fetch(`/api/notes/${userId}`);
-
-  if (res.ok) {
-    const allUsersNotes = await res.json();
-
-    dispatch(getUserNotes(allUsersNotes));
-  }
-};
-
-//GET A NOTE
-const GET_NOTE = "note/GET_NOTE";
-
-const getNote = (note) => ({
-  type: GET_NOTE,
-  payload: note,
-});
-
-export const getNoteThunk = (noteId) => async (dispatch) => {
-  const res = await fetch(`/api/notes/note/${noteId}`);
-
-  if (res.ok) {
-    const note = await res.json();
-    dispatch(getNote(note));
-  }
-};
-
-//DELETE A NOTE
-const DELETE_NOTE = "note/DELETE_NOTE";
-
-const deleteNote = (noteId) => ({
-  type: DELETE_NOTE,
-  payload: noteId,
-});
-
-export const deleteNoteThunk = (noteId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notes/note/${noteId}`, {
-    method: "DELETE",
-  });
-
-  if (res.ok) {
-    const oldNote = await res.json();
-    dispatch(deleteNote(oldNote));
-    return oldNote;
-  }
-};
-
-//POST A NOTE
 const POST_NOTE = "note/POST_NOTE";
+const DELETE_NOTE = "note/DELETE_NOTE";
+const EDIT_NOTE = "notes/EDIT_NOTE";
+const RESET = "RESET/RESET_NOTE";
+
+// const GET_NOTE = "note/GET_NOTE";
+
+const getNotes = (notes) => ({
+  type: GET_NOTES,
+  notes,
+});
 
 const postNote = (note) => ({
   type: POST_NOTE,
-  payload: note,
+  note,
 });
+
+const deleteNote = (note) => ({
+  type: DELETE_NOTE,
+  note,
+});
+
+const editNote = (note) => ({
+  type: EDIT_NOTE,
+  note,
+});
+
+// const getNote = (note) => ({
+//   type: GET_NOTE,
+//   payload: note,
+// });
+
+// export const getNoteThunk = (noteId) => async (dispatch) => {
+//   const res = await fetch(`/api/notes/note/${noteId}`);
+
+//   if (res.ok) {
+//     const note = await res.json();
+//     dispatch(getNote(note));
+//   }
+// };
+
+export const getNotesThunk = (notebookId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${notebookId}`);
+
+  if (res.ok) {
+    const notes = await res.json();
+    dispatch(getNotes(notes));
+    return notes;
+  }
+};
+
+export const getUsersNotesThunk = (userId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${userId}`);
+
+  if (res.ok) {
+    const notes = await res.json();
+    dispatch(getNotes(notes));
+    return notes;
+  }
+};
 
 export const postNoteThunk = (newNote) => async (dispatch) => {
   const res = await csrfFetch(`/api/notes`, {
@@ -77,16 +76,20 @@ export const postNoteThunk = (newNote) => async (dispatch) => {
   }
 };
 
-//EDIT A NOTE
-const EDIT_NOTE = "notes/EDIT_NOTE";
+export const deleteNoteThunk = (noteId) => async (dispatch) => {
+  const res = await csrfFetch(`/api/notes/${noteId}`, {
+    method: "DELETE",
+  });
 
-// const editNote = (noteId) => ({
-//   type: EDIT_NOTE,
-//   payload: noteId
-// });
+  if (res.ok) {
+    const note = await res.json();
+    dispatch(deleteNote(note));
+    return note;
+  }
+};
 
 export const editNoteThunk = (payload, noteId) => async (dispatch) => {
-  const res = await csrfFetch(`/api/notes/note/${noteId}`, {
+  const res = await csrfFetch(`/api/notes/${noteId}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -94,33 +97,33 @@ export const editNoteThunk = (payload, noteId) => async (dispatch) => {
     body: JSON.stringify(payload),
   });
   const note = await res.json();
-  dispatch(postNote(note));
+  dispatch(editNote(note));
   return note;
 };
 
 const initialState = {};
 
+export const resetAction = () => ({
+  type: RESET,
+});
+
 export default function notesReducer(state = initialState, action) {
+  let newState;
   switch (action.type) {
-    case GET_NOTES: {
-      return { ...state, notes: action.payload };
-    }
-    case GET_NOTE: {
-      return { ...state, note: action.payload };
-    }
-    case POST_NOTE: {
-      if (action.payload.id) {
-        return {
-          ...state,
-          [action.payload.id]: action.payload.note,
-        };
-      } else {
-        return state;
-      }
-    }
-    case EDIT_NOTE: {
-      return { ...state, notes: action.payload };
-    }
+    case GET_NOTES:
+      newState = {};
+      action.notes.forEach((note) => (newState[note.id] = note));
+      return newState;
+    case POST_NOTE:
+      return { ...state, [action.note.id]: action.note };
+    case EDIT_NOTE:
+      return { ...state, [action.note.id]: action.note };
+    case DELETE_NOTE:
+      newState = { ...state };
+      delete newState[action.note.id];
+      return newState;
+    case RESET:
+      return {};
     default:
       return state;
   }

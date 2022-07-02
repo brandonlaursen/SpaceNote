@@ -8,8 +8,8 @@ function HomeNotebooksContainer({ notebooks, setShow, darkMode }) {
         <i className="fas fa-plus fa-lg" onClick={() => setShow(true)}></i>
       </div>
 
-      {notebooks?.length > 0 &&
-        notebooks?.map((notebook) => (
+      {notebooks.length > 0 &&
+        notebooks.map((notebook) => (
           <NavLink
             id={notebook.id}
             key={notebook.id}
