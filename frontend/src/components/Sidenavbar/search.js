@@ -48,8 +48,8 @@ function Search({ sessionUser }) {
       </div>
 
       <div className="searchResAll">
-        {search?.length >= 1 &&
-          searchNotes?.map((note) => (
+        {search.length >= 1 &&
+          searchNotes.map((note) => (
             <div className="searchResultsContainer" id={note.id} key={note.id}>
               <NavLink
                 onClick={hide2}

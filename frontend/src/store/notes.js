@@ -26,6 +26,10 @@ const editNote = (note) => ({
   note,
 });
 
+export const resetAction = () => ({
+  type: RESET,
+});
+
 export const getNotesThunk = (notebookId) => async (dispatch) => {
   const res = await csrfFetch(`/api/notes/${notebookId}`);
 
@@ -80,16 +84,15 @@ export const editNoteThunk = (payload, noteId) => async (dispatch) => {
     },
     body: JSON.stringify(payload),
   });
-  const note = await res.json();
-  dispatch(editNote(note));
-  return note;
+
+  if (res.ok) {
+    const note = await res.json();
+    dispatch(editNote(note));
+    return note;
+  }
 };
 
 const initialState = {};
-
-export const resetAction = () => ({
-  type: RESET,
-});
 
 export default function notesReducer(state = initialState, action) {
   let newState;

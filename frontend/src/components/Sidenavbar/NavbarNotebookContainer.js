@@ -5,8 +5,8 @@ function NavNotebookContainer({ notebooks }) {
     <div className="NavNotebookContainer">
       <ul>
         <li>
-          {notebooks?.length > 0 &&
-            notebooks?.map((notebook) => (
+          {notebooks.length > 0 &&
+            notebooks.map((notebook) => (
               <NavLink
                 id={notebook.id}
                 key={notebook.id}
