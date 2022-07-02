@@ -1,9 +1,15 @@
 const express = require("express");
 const asyncHandler = require("express-async-handler");
-const { Notebook, Note } = require("../../db/models");
+const { Notebook, Note, User } = require("../../db/models");
 
 const router = express.Router();
 // route = api/notebooks/
+
+router.get("/user", asyncHandler(async (req, res) => {
+  const user = User.findAll();
+  res.json(user);
+
+}))
 
 //Get all notebooks of a specific user READ WORKS
 router.get(
