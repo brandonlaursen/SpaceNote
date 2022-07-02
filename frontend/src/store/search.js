@@ -5,7 +5,7 @@ const SEARCH_NOTES = "notes/SEARCH_NOTES";
 const searchNotes = (notes) => {
   return {
     type: SEARCH_NOTES,
-    payload: notes,
+    notes,
   };
 };
 
@@ -18,16 +18,16 @@ export const searchNotesThunk = (results, userId) => async (dispatch) => {
     body: JSON.stringify({ results, userId }),
   });
 
-  const data = await res.json();
-  dispatch(searchNotes(data));
+  const searchResults = await res.json();
+  dispatch(searchNotes(searchResults));
 };
 
-const initialState = {};
+const initialState = [];
 
 const searchReducer = (state = initialState, action) => {
   switch (action.type) {
     case SEARCH_NOTES:
-      return { notes: action.payload.notes };
+      return action.notes
     default:
       return state;
   }

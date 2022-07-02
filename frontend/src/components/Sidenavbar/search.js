@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { searchNotesThunk } from "../../store/search";
 
 function Search({ sessionUser }) {
-  const searchNotes = useSelector((state) => state.search.notes);
+  const searchNotes = useSelector((state) => state.search);
   const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
