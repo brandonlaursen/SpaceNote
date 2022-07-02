@@ -11,6 +11,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 function App() {
   const sessionUser = useSelector((state) => state.session.user);
+  console.log('sessionUser', sessionUser);
 
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
